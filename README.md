@@ -16,15 +16,19 @@
 - 学习概览：已通关、已尝试、已用提示、当前关卡，以及清空本地进度。
 - `GET /api/health` 和 `GET /api/levels` 用于版本检查和关卡一致性校验。
 
-## 启动后端
+## 快速启动
+
+后端：
 
 ```powershell
 cd backend
-& 'C:\Users\BigD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m pip install -r requirements.txt
-& 'C:\Users\BigD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-## 启动前端
+前端另开一个终端：
 
 ```powershell
 cd frontend
@@ -34,12 +38,19 @@ npm.cmd run dev
 
 打开 `http://127.0.0.1:5173`。
 
+macOS / Linux 用户请参考 [DEPLOYMENT.md](DEPLOYMENT.md)。
+
 ## 测试
+
+后端：
 
 ```powershell
 cd backend
-& 'C:\Users\BigD\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m pytest -q
+.\.venv\Scripts\Activate.ps1
+python -m pytest -q
 ```
+
+前端：
 
 ```powershell
 cd frontend
