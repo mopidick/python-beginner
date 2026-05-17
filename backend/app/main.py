@@ -32,6 +32,9 @@ class CheckResult(BaseModel):
     label: str
     passed: bool
     hint: str
+    actual: Any | None = None
+    expected: Any | None = None
+    reason: str | None = None
 
 
 class Diagnostic(BaseModel):

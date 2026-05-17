@@ -112,3 +112,22 @@ def test_run_python_handles_bad_repr_objects():
 
     assert result["error"] is None
     assert result["variables"]["obj"]["value"] == "<unrepresentable Broken>"
+
+
+def test_failed_checks_explain_expected_and_actual_values():
+    result = run_python("variables-01", "x = 9")
+
+    assert result["passed"] is False
+    assert result["checks"][0]["passed"] is False
+    assert result["checks"][0]["actual"] == 9
+    assert result["checks"][0]["expected"] == 10
+    assert result["checks"][0]["reason"] == "x 当前是 9，目标是 10。"
+
+
+def test_bool_checks_do_not_accept_integer_standin():
+    result = run_python("types-01", "count = 3\nname = 'Python'\nactive = 1")
+
+    assert result["passed"] is False
+    active_check = next(check for check in result["checks"] if check["id"] == "active-is-true")
+    assert active_check["passed"] is False
+    assert active_check["reason"] == "active 当前是 1，目标是 true。"

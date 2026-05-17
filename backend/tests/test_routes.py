@@ -22,6 +22,9 @@ def test_run_endpoint_returns_checks_for_known_level():
             "label": "创建变量 x，并让它等于 10",
             "passed": True,
             "hint": "检查变量名是否是 x，并确认它的值是整数 10。",
+            "actual": 10,
+            "expected": 10,
+            "reason": "x 已达到目标值。",
         }
     ]
     assert body["passed"] is True
@@ -37,6 +40,9 @@ def test_run_endpoint_keeps_failed_checks_false():
     body = response.json()
     assert body["checks"][0]["passed"] is False
     assert body["checks"][0]["hint"] == "检查变量名是否是 x，并确认它的值是整数 10。"
+    assert body["checks"][0]["actual"] == 9
+    assert body["checks"][0]["expected"] == 10
+    assert body["checks"][0]["reason"] == "x 当前是 9，目标是 10。"
     assert body["passed"] is False
 
 
@@ -77,6 +83,9 @@ def test_levels_endpoint_returns_backend_level_metadata():
         "title": "变量与执行状态",
         "checks": [{"id": "x-is-10", "label": "创建变量 x，并让它等于 10"}],
     }
+    for level in body["levels"]:
+        for check in level["checks"]:
+            assert set(check) == {"id", "label"}
 
 
 def test_run_endpoint_response_contract_for_error_result():

@@ -18,6 +18,9 @@ export type Level = {
   difficulty: LevelDifficulty;
   estimatedMinutes: number;
   story: string;
+  goal: string;
+  pattern: string;
+  recap: string;
   concept: string;
   instructions: string;
   starterCode: string;

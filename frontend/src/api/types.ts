@@ -8,6 +8,9 @@ export type CheckResult = {
   label: string;
   passed: boolean;
   hint: string;
+  actual?: unknown;
+  expected?: unknown;
+  reason?: string;
 };
 
 export type RunError = {

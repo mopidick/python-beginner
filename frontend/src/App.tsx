@@ -91,9 +91,10 @@ export default function App() {
   }
 
   function selectLevel(level: Level) {
-    const next = { ...progress, currentLevelId: level.id };
+    const codeByLevel = { ...progress.codeByLevel, [currentLevel.id]: code };
+    const next = { ...progress, currentLevelId: level.id, codeByLevel };
     updateProgress(next);
-    setCode(progress.codeByLevel[level.id] || level.starterCode);
+    setCode(codeByLevel[level.id] || level.starterCode);
     setResult(null);
     setNetworkError("");
   }
@@ -121,6 +122,10 @@ export default function App() {
   }
 
   function resetProgress() {
+    const confirmed = window.confirm("确定要清空所有通关记录、草稿和星级吗？这个操作不能撤销。");
+    if (!confirmed) {
+      return;
+    }
     const next = emptyProgress();
     updateProgress(next);
     setCode(levels[0].starterCode);
@@ -178,6 +183,7 @@ export default function App() {
           currentId={currentLevel.id}
           completed={progress.completed}
           attempted={progress.attempted}
+          starsByLevel={progress.starsByLevel}
           onSelect={selectLevel}
         />
         <section className="lesson-panel">
@@ -197,6 +203,16 @@ export default function App() {
             </span>
             <h2>{currentLevel.title}</h2>
             <p>{currentLevel.story}</p>
+            <div className="lesson-notes">
+              <article>
+                <strong>学习目标</strong>
+                <p>{currentLevel.goal}</p>
+              </article>
+              <article>
+                <strong>解题套路</strong>
+                <p>{currentLevel.pattern}</p>
+              </article>
+            </div>
             <p>{currentLevel.instructions}</p>
             <ul>
               {currentLevel.checks.map((check) => (
@@ -218,7 +234,7 @@ export default function App() {
       {result?.passed && (
         <div className="toast success">
           <span>
-            获得 {currentStars || starsFor(currentLevel.id)} 星 · {currentLevel.successMessage}
+            获得 {currentStars || starsFor(currentLevel.id)} 星 · {currentLevel.recap}
           </span>
           {nextLevel && (
             <button type="button" onClick={goToNextLevel}>

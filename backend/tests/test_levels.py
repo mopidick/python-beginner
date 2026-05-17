@@ -40,9 +40,17 @@ VALID_SOLUTIONS = {
 
 def test_all_mvp_levels_have_valid_solutions():
     assert len(LEVELS) >= 30
+    assert set(VALID_SOLUTIONS) == set(LEVELS)
 
     for level_id, code in VALID_SOLUTIONS.items():
         result = run_python(level_id, code)
         assert result["error"] is None, level_id
         assert result["passed"] is True, level_id
         assert all(check["passed"] for check in result["checks"]), level_id
+
+
+def test_starter_code_does_not_pass_by_default():
+    for level_id, level in LEVELS.items():
+        result = run_python(level_id, level["starterCode"])
+
+        assert result["passed"] is False, level_id

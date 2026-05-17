@@ -25,7 +25,10 @@
     "chapter": "第 1 章：运行状态",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 变量 完成一个贴近日常脚本的小任务。"
+    "story": "用 变量 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握变量在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。你已经看到 Python 代码执行后，变量会以运行时对象的形式留在命名空间里。"
   },
   {
     "id": "types-01",
@@ -39,21 +42,24 @@
         "label": "count 等于 3",
         "type": "variable_equals",
         "name": "count",
-        "expected": 3
+        "expected": 3,
+        "hint": "???? count?????? 3?????????????????"
       },
       {
         "id": "name-is-python",
         "label": "name 等于 Python",
         "type": "variable_equals",
         "name": "name",
-        "expected": "Python"
+        "expected": "Python",
+        "hint": "???? name?????? \"Python\"?????????????????"
       },
       {
         "id": "active-is-true",
         "label": "active 为 True",
         "type": "variable_equals",
         "name": "active",
-        "expected": true
+        "expected": true,
+        "hint": "???? active?????? true?????????????????"
       }
     ],
     "hints": [
@@ -66,7 +72,10 @@
     "chapter": "第 1 章：运行状态",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 类型 完成一个贴近日常脚本的小任务。"
+    "story": "用 类型 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握类型在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。Python 不需要声明变量类型，但每个值在运行时仍然有明确类型。"
   },
   {
     "id": "strings-01",
@@ -80,7 +89,8 @@
         "label": "message 等于 Hello, Ada!",
         "type": "variable_equals",
         "name": "message",
-        "expected": "Hello, Ada!"
+        "expected": "Hello, Ada!",
+        "hint": "???? message?????? \"Hello, Ada!\"?????????????????"
       }
     ],
     "hints": [
@@ -93,7 +103,10 @@
     "chapter": "第 2 章：文本处理",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 字符串 完成一个贴近日常脚本的小任务。"
+    "story": "用 字符串 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握字符串在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。f-string 是 Python 中最常用、最清晰的字符串插值方式。"
   },
   {
     "id": "lists-01",
@@ -113,7 +126,8 @@
           3,
           4,
           5
-        ]
+        ],
+        "hint": "???? numbers?????? [1,2,3,4,5]?????????????????"
       },
       {
         "id": "middle-slice",
@@ -124,7 +138,8 @@
           2,
           3,
           4
-        ]
+        ],
+        "hint": "???? middle?????? [2,3,4]?????????????????"
       }
     ],
     "hints": [
@@ -137,7 +152,10 @@
     "chapter": "第 3 章：集合与循环",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 列表 完成一个贴近日常脚本的小任务。"
+    "story": "用 列表 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握列表在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。列表适合表达有序集合，切片能稳定取出子序列。"
   },
   {
     "id": "dicts-01",
@@ -154,7 +172,8 @@
         "expected": {
           "name": "Lin",
           "passed": true
-        }
+        },
+        "hint": "???? summary?????? {\"name\":\"Lin\",\"passed\":true}?????????????????"
       }
     ],
     "hints": [
@@ -167,7 +186,10 @@
     "chapter": "第 4 章：结构化数据",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 字典 完成一个贴近日常脚本的小任务。"
+    "story": "用 字典 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握字典在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。字典把数据从有序集合推进到键值结构，很适合表达记录。"
   },
   {
     "id": "conditionals-01",
@@ -181,7 +203,8 @@
         "label": "score 为 86 时 grade 等于 B",
         "type": "variable_equals",
         "name": "grade",
-        "expected": "B"
+        "expected": "B",
+        "hint": "???? grade?????? \"B\"?????????????????"
       }
     ],
     "hints": [
@@ -191,10 +214,13 @@
     ],
     "visualizer": "variables",
     "successMessage": "通过。条件分支把数据状态映射成业务分类，是脚本逻辑的核心。",
-    "chapter": "第 2 章：控制流程",
+    "chapter": "第 5 章：控制流程",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 条件 完成一个贴近日常脚本的小任务。"
+    "story": "用 条件 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握条件在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。条件分支把数据状态映射成业务分类，是脚本逻辑的核心。"
   },
   {
     "id": "loops-01",
@@ -212,7 +238,8 @@
           2,
           4,
           6
-        ]
+        ],
+        "hint": "???? evens?????? [2,4,6]?????????????????"
       }
     ],
     "hints": [
@@ -225,7 +252,10 @@
     "chapter": "第 3 章：集合与循环",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 循环 完成一个贴近日常脚本的小任务。"
+    "story": "用 循环 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握循环在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。循环让你对集合里的每个元素应用同一套规则。"
   },
   {
     "id": "functions-01",
@@ -239,7 +269,8 @@
         "label": "result 等于 110.0",
         "type": "variable_equals",
         "name": "result",
-        "expected": 110
+        "expected": 110,
+        "hint": "???? result?????? 110?????????????????"
       }
     ],
     "hints": [
@@ -249,10 +280,13 @@
     ],
     "visualizer": "variables",
     "successMessage": "通过。函数把一段规则变成可复用接口，后续关卡会用它组织更真实的脚本。",
-    "chapter": "第 5 章：函数与抽象",
+    "chapter": "第 6 章：函数与抽象",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 函数 完成一个贴近日常脚本的小任务。"
+    "story": "用 函数 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握函数在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。函数把一段规则变成可复用接口，后续关卡会用它组织更真实的脚本。"
   },
   {
     "id": "errors-01",
@@ -266,7 +300,8 @@
         "label": "result 为 None",
         "type": "variable_equals",
         "name": "result",
-        "expected": null
+        "expected": null,
+        "hint": "???? result?????? null?????????????????"
       }
     ],
     "hints": [
@@ -276,10 +311,13 @@
     ],
     "visualizer": "variables",
     "successMessage": "通过。异常处理让脚本面对坏输入时仍能给出可预测结果。",
-    "chapter": "第 5 章：函数与抽象",
+    "chapter": "第 6 章：函数与抽象",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 异常 完成一个贴近日常脚本的小任务。"
+    "story": "用 异常 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握异常在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。异常处理让脚本面对坏输入时仍能给出可预测结果。"
   },
   {
     "id": "challenge-01",
@@ -293,7 +331,8 @@
         "label": "error_count 等于 2",
         "type": "variable_equals",
         "name": "error_count",
-        "expected": 2
+        "expected": 2,
+        "hint": "???? error_count?????? 2?????????????????"
       }
     ],
     "hints": [
@@ -303,10 +342,13 @@
     ],
     "visualizer": "output",
     "successMessage": "通过。你已经把字符串、列表、循环和变量组合成了一个小型 Python 脚本。",
-    "chapter": "第 6 章：小项目挑战",
+    "chapter": "第 7 章：小项目挑战",
     "difficulty": "挑战",
     "estimatedMinutes": 12,
-    "story": "用 综合 完成一个贴近日常脚本的小任务。"
+    "story": "用 综合 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握综合在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。你已经把字符串、列表、循环和变量组合成了一个小型 Python 脚本。"
   },
   {
     "id": "string-methods-01",
@@ -324,7 +366,8 @@
           "Python",
           "Testing",
           "Debugging"
-        ]
+        ],
+        "hint": "???? topics?????? [\"Python\",\"Testing\",\"Debugging\"]?????????????????"
       }
     ],
     "hints": [
@@ -337,7 +380,10 @@
     "chapter": "第 2 章：文本处理",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 字符串 完成一个贴近日常脚本的小任务。"
+    "story": "用 字符串 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握字符串在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。字符串方法很适合把粗糙文本清洗成稳定结构。"
   },
   {
     "id": "comprehensions-01",
@@ -355,7 +401,8 @@
           4,
           16,
           36
-        ]
+        ],
+        "hint": "???? squares?????? [4,16,36]?????????????????"
       }
     ],
     "hints": [
@@ -365,10 +412,13 @@
     ],
     "visualizer": "sequence",
     "successMessage": "通过。列表推导式把“遍历、过滤、变换”压缩成了清晰的一行。",
-    "chapter": "第 7 章：真实脚本",
+    "chapter": "第 8 章：真实脚本",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 列表推导式 完成一个贴近日常脚本的小任务。"
+    "story": "用 列表推导式 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握列表推导式在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。列表推导式把“遍历、过滤、变换”压缩成了清晰的一行。"
   },
   {
     "id": "nested-data-01",
@@ -385,7 +435,8 @@
         "expected": {
           "name": "Ada",
           "score": 9
-        }
+        },
+        "hint": "???? summary?????? {\"name\":\"Ada\",\"score\":9}?????????????????"
       }
     ],
     "hints": [
@@ -395,10 +446,13 @@
     ],
     "visualizer": "mapping",
     "successMessage": "通过。真实 Python 任务里经常会处理列表套字典这样的结构。",
-    "chapter": "第 7 章：真实脚本",
+    "chapter": "第 8 章：真实脚本",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 嵌套结构 完成一个贴近日常脚本的小任务。"
+    "story": "用 嵌套结构 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握嵌套结构在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。真实 Python 任务里经常会处理列表套字典这样的结构。"
   },
   {
     "id": "file-lines-01",
@@ -415,14 +469,16 @@
         "expected": [
           "ERROR disk",
           "ERROR timeout"
-        ]
+        ],
+        "hint": "???? errors?????? [\"ERROR disk\",\"ERROR timeout\"]?????????????????"
       },
       {
         "id": "error-count-lines",
         "label": "error_count 等于 2",
         "type": "variable_equals",
         "name": "error_count",
-        "expected": 2
+        "expected": 2,
+        "hint": "???? error_count?????? 2?????????????????"
       }
     ],
     "hints": [
@@ -432,10 +488,13 @@
     ],
     "visualizer": "sequence",
     "successMessage": "通过。很多自动化脚本本质上就是读取一批文本行、过滤、统计。",
-    "chapter": "第 7 章：真实脚本",
+    "chapter": "第 8 章：真实脚本",
     "difficulty": "基础",
     "estimatedMinutes": 6,
-    "story": "用 文本行处理 完成一个贴近日常脚本的小任务。"
+    "story": "用 文本行处理 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握文本行处理在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。很多自动化脚本本质上就是读取一批文本行、过滤、统计。"
   },
   {
     "id": "challenge-02",
@@ -449,7 +508,8 @@
         "label": "total 等于 80",
         "type": "variable_equals",
         "name": "total",
-        "expected": 80
+        "expected": 80,
+        "hint": "???? total?????? 80?????????????????"
       },
       {
         "id": "order-labels",
@@ -459,7 +519,8 @@
         "expected": [
           "book x2",
           "pen x4"
-        ]
+        ],
+        "hint": "???? labels?????? [\"book x2\",\"pen x4\"]?????????????????"
       }
     ],
     "hints": [
@@ -469,10 +530,13 @@
     ],
     "visualizer": "mapping",
     "successMessage": "通过。你已经把嵌套数据、循环、推导式和字符串格式化组合成了更接近业务脚本的小任务。",
-    "chapter": "第 6 章：小项目挑战",
+    "chapter": "第 7 章：小项目挑战",
     "difficulty": "挑战",
     "estimatedMinutes": 12,
-    "story": "用 综合 完成一个贴近日常脚本的小任务。"
+    "story": "用 综合 完成一个贴近日常脚本的小任务。",
+    "goal": "掌握综合在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。你已经把嵌套数据、循环、推导式和字符串格式化组合成了更接近业务脚本的小任务。"
   },
   {
     "id": "operators-01",
@@ -490,7 +554,8 @@
         "label": "final_price 等于 96.0",
         "type": "variable_equals",
         "name": "final_price",
-        "expected": 96
+        "expected": 96,
+        "hint": "???? final_price?????? 96?????????????????"
       }
     ],
     "hints": [
@@ -499,7 +564,10 @@
       "让 final_price = price * discount。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。数值运算是自动化脚本里最常见的第一步。"
+    "successMessage": "通过。数值运算是自动化脚本里最常见的第一步。",
+    "goal": "掌握数值运算在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。数值运算是自动化脚本里最常见的第一步。"
   },
   {
     "id": "rounding-01",
@@ -517,7 +585,8 @@
         "label": "average 等于 86.3",
         "type": "variable_equals",
         "name": "average",
-        "expected": 86.3
+        "expected": 86.3,
+        "hint": "???? average?????? 86.3?????????????????"
       }
     ],
     "hints": [
@@ -526,7 +595,10 @@
       "round(value, 1) 可以保留 1 位小数。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。round 能把计算结果整理成更适合展示的数字。"
+    "successMessage": "通过。round 能把计算结果整理成更适合展示的数字。",
+    "goal": "掌握数值运算在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。round 能把计算结果整理成更适合展示的数字。"
   },
   {
     "id": "strings-index-01",
@@ -544,7 +616,8 @@
         "label": "region 等于 CN",
         "type": "variable_equals",
         "name": "region",
-        "expected": "CN"
+        "expected": "CN",
+        "hint": "???? region?????? \"CN\"?????????????????"
       }
     ],
     "hints": [
@@ -553,7 +626,10 @@
       "region 可以来自 ticket[:2]。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。字符串切片很适合提取固定格式文本的一部分。"
+    "successMessage": "通过。字符串切片很适合提取固定格式文本的一部分。",
+    "goal": "掌握字符串在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。字符串切片很适合提取固定格式文本的一部分。"
   },
   {
     "id": "strings-cleanup-02",
@@ -571,7 +647,8 @@
         "label": "username 等于 ada_lovelace",
         "type": "variable_equals",
         "name": "username",
-        "expected": "ada_lovelace"
+        "expected": "ada_lovelace",
+        "hint": "???? username?????? \"ada_lovelace\"?????????????????"
       }
     ],
     "hints": [
@@ -580,12 +657,15 @@
       "可以链式调用 strip().lower()。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。输入清洗能让后续比较和统计更稳定。"
+    "successMessage": "通过。输入清洗能让后续比较和统计更稳定。",
+    "goal": "掌握字符串在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。输入清洗能让后续比较和统计更稳定。"
   },
   {
     "id": "conditionals-02",
     "title": "条件分支：免运费",
-    "chapter": "第 2 章：控制流程",
+    "chapter": "第 5 章：控制流程",
     "difficulty": "进阶",
     "estimatedMinutes": 6,
     "story": "给订单判断是否达到免运费门槛。",
@@ -598,7 +678,8 @@
         "label": "shipping 等于 12",
         "type": "variable_equals",
         "name": "shipping",
-        "expected": 12
+        "expected": 12,
+        "hint": "???? shipping?????? 12?????????????????"
       }
     ],
     "hints": [
@@ -607,12 +688,15 @@
       "当前 subtotal 是 86，所以 shipping 应该是 12。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。条件分支可以把业务规则写成明确的代码路径。"
+    "successMessage": "通过。条件分支可以把业务规则写成明确的代码路径。",
+    "goal": "掌握条件在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。条件分支可以把业务规则写成明确的代码路径。"
   },
   {
     "id": "conditionals-boss-01",
     "title": "Boss：成绩评级器",
-    "chapter": "第 2 章：控制流程",
+    "chapter": "第 5 章：控制流程",
     "difficulty": "挑战",
     "estimatedMinutes": 10,
     "story": "把考试分数转换成可读等级，用于成绩看板。",
@@ -625,7 +709,8 @@
         "label": "grade 等于 C",
         "type": "variable_equals",
         "name": "grade",
-        "expected": "C"
+        "expected": "C",
+        "hint": "???? grade?????? \"C\"?????????????????"
       }
     ],
     "hints": [
@@ -634,7 +719,10 @@
       "72 大于等于 60 但小于 80，所以是 C。"
     ],
     "visualizer": "variables",
-    "successMessage": "Boss 通过。你已经能把多分支规则写成稳定的判断链。"
+    "successMessage": "Boss 通过。你已经能把多分支规则写成稳定的判断链。",
+    "goal": "掌握条件在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "Boss 通过。你已经能把多分支规则写成稳定的判断链。"
   },
   {
     "id": "list-append-01",
@@ -655,7 +743,8 @@
         "expected": [
           "review",
           "deploy"
-        ]
+        ],
+        "hint": "???? tasks?????? [\"review\",\"deploy\"]?????????????????"
       }
     ],
     "hints": [
@@ -664,7 +753,10 @@
       "调用 tasks.append(new_task)。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。append 是构建结果列表时最常用的动作之一。"
+    "successMessage": "通过。append 是构建结果列表时最常用的动作之一。",
+    "goal": "掌握列表在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。append 是构建结果列表时最常用的动作之一。"
   },
   {
     "id": "list-sort-01",
@@ -686,7 +778,8 @@
           95,
           88,
           72
-        ]
+        ],
+        "hint": "???? ranked?????? [95,88,72]?????????????????"
       }
     ],
     "hints": [
@@ -695,7 +788,10 @@
       "ranked = sorted(scores, reverse=True)。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。排序能把无序数据变成可比较的视图。"
+    "successMessage": "通过。排序能把无序数据变成可比较的视图。",
+    "goal": "掌握列表在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。排序能把无序数据变成可比较的视图。"
   },
   {
     "id": "loop-sum-01",
@@ -713,7 +809,8 @@
         "label": "total 等于 55",
         "type": "variable_equals",
         "name": "total",
-        "expected": 55
+        "expected": 55,
+        "hint": "???? total?????? 55?????????????????"
       }
     ],
     "hints": [
@@ -722,7 +819,10 @@
       "写成 total += price。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。累计模式是循环里最重要的基本套路之一。"
+    "successMessage": "通过。累计模式是循环里最重要的基本套路之一。",
+    "goal": "掌握循环在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。累计模式是循环里最重要的基本套路之一。"
   },
   {
     "id": "loop-boss-01",
@@ -740,7 +840,8 @@
         "label": "found_at 等于 2",
         "type": "variable_equals",
         "name": "found_at",
-        "expected": 2
+        "expected": 2,
+        "hint": "???? found_at?????? 2?????????????????"
       }
     ],
     "hints": [
@@ -749,7 +850,10 @@
       "猜中后设置 found_at，然后 break。"
     ],
     "visualizer": "variables",
-    "successMessage": "Boss 通过。你已经能用循环搜索列表里的目标值。"
+    "successMessage": "Boss 通过。你已经能用循环搜索列表里的目标值。",
+    "goal": "掌握循环在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "Boss 通过。你已经能用循环搜索列表里的目标值。"
   },
   {
     "id": "dict-update-01",
@@ -770,7 +874,8 @@
         "expected": {
           "pen": 15,
           "book": 4
-        }
+        },
+        "hint": "???? stock?????? {\"pen\":15,\"book\":4}?????????????????"
       }
     ],
     "hints": [
@@ -779,7 +884,10 @@
       "写成 stock['pen'] += incoming。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。字典很适合维护带名称的状态。"
+    "successMessage": "通过。字典很适合维护带名称的状态。",
+    "goal": "掌握字典在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。字典很适合维护带名称的状态。"
   },
   {
     "id": "dict-counting-01",
@@ -801,7 +909,8 @@
           "python": 2,
           "web": 1,
           "data": 1
-        }
+        },
+        "hint": "???? counts?????? {\"python\":2,\"web\":1,\"data\":1}?????????????????"
       }
     ],
     "hints": [
@@ -810,12 +919,15 @@
       "counts[tag] = counts.get(tag, 0) + 1。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。"
+    "successMessage": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。",
+    "goal": "掌握字典在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。"
   },
   {
     "id": "function-params-01",
     "title": "函数参数：欢迎语",
-    "chapter": "第 5 章：函数与抽象",
+    "chapter": "第 6 章：函数与抽象",
     "difficulty": "基础",
     "estimatedMinutes": 6,
     "story": "把固定格式的欢迎语封装成函数。",
@@ -828,7 +940,8 @@
         "label": "message 等于 Welcome, Ada!",
         "type": "variable_equals",
         "name": "message",
-        "expected": "Welcome, Ada!"
+        "expected": "Welcome, Ada!",
+        "hint": "???? message?????? \"Welcome, Ada!\"?????????????????"
       }
     ],
     "hints": [
@@ -837,12 +950,15 @@
       "return f\"Welcome, {name}!\"。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。参数让函数可以复用同一套规则处理不同输入。"
+    "successMessage": "通过。参数让函数可以复用同一套规则处理不同输入。",
+    "goal": "掌握函数在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。参数让函数可以复用同一套规则处理不同输入。"
   },
   {
     "id": "function-return-02",
     "title": "函数返回值：订单小计",
-    "chapter": "第 5 章：函数与抽象",
+    "chapter": "第 6 章：函数与抽象",
     "difficulty": "进阶",
     "estimatedMinutes": 7,
     "story": "把订单小计计算封装成可复用函数。",
@@ -855,7 +971,8 @@
         "label": "result 等于 45",
         "type": "variable_equals",
         "name": "result",
-        "expected": 45
+        "expected": 45,
+        "hint": "???? result?????? 45?????????????????"
       }
     ],
     "hints": [
@@ -864,12 +981,15 @@
       "return price * qty。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。返回值让函数计算结果能继续参与后续流程。"
+    "successMessage": "通过。返回值让函数计算结果能继续参与后续流程。",
+    "goal": "掌握函数在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "通过。返回值让函数计算结果能继续参与后续流程。"
   },
   {
     "id": "project-calculator-01",
     "title": "项目：命令行计算器核心",
-    "chapter": "第 6 章：小项目挑战",
+    "chapter": "第 7 章：小项目挑战",
     "difficulty": "挑战",
     "estimatedMinutes": 12,
     "story": "实现一个迷你计算器的核心分发逻辑。",
@@ -882,7 +1002,8 @@
         "label": "result 等于 42",
         "type": "variable_equals",
         "name": "result",
-        "expected": 42
+        "expected": 42,
+        "hint": "???? result?????? 42?????????????????"
       }
     ],
     "hints": [
@@ -891,12 +1012,15 @@
       "当前 op 是 '*'，所以 result 应该是 a * b。"
     ],
     "visualizer": "variables",
-    "successMessage": "项目通过。你已经把条件和数值运算组合成了计算器核心。"
+    "successMessage": "项目通过。你已经把条件和数值运算组合成了计算器核心。",
+    "goal": "掌握综合在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "项目通过。你已经把条件和数值运算组合成了计算器核心。"
   },
   {
     "id": "project-word-count-01",
     "title": "项目：单词统计器",
-    "chapter": "第 6 章：小项目挑战",
+    "chapter": "第 7 章：小项目挑战",
     "difficulty": "挑战",
     "estimatedMinutes": 12,
     "story": "统计一段文本里每个单词出现的次数。",
@@ -915,7 +1039,8 @@
           "fun": 1,
           "and": 1,
           "useful": 1
-        }
+        },
+        "hint": "???? counts?????? {\"python\":2,\"is\":2,\"fun\":1,\"and\":1,\"useful\":1}?????????????????"
       }
     ],
     "hints": [
@@ -924,12 +1049,15 @@
       "用 counts[word] = counts.get(word, 0) + 1 累计。"
     ],
     "visualizer": "mapping",
-    "successMessage": "项目通过。你完成了一个真实文本分析脚本的核心。"
+    "successMessage": "项目通过。你完成了一个真实文本分析脚本的核心。",
+    "goal": "掌握综合在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "项目通过。你完成了一个真实文本分析脚本的核心。"
   },
   {
     "id": "project-students-01",
     "title": "项目：学生成绩管理",
-    "chapter": "第 6 章：小项目挑战",
+    "chapter": "第 7 章：小项目挑战",
     "difficulty": "挑战",
     "estimatedMinutes": 14,
     "story": "从学生成绩表里筛选通过者并计算平均分。",
@@ -945,14 +1073,16 @@
         "expected": [
           "Ada",
           "Max"
-        ]
+        ],
+        "hint": "???? passed_names?????? [\"Ada\",\"Max\"]?????????????????"
       },
       {
         "id": "average-score",
         "label": "average_score 等于 75.0",
         "type": "variable_equals",
         "name": "average_score",
-        "expected": 75
+        "expected": 75,
+        "hint": "???? average_score?????? 75?????????????????"
       }
     ],
     "hints": [
@@ -961,6 +1091,9 @@
       "average_score 可以用 round(..., 1)。"
     ],
     "visualizer": "mapping",
-    "successMessage": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。"
+    "successMessage": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。",
+    "goal": "掌握综合在本关任务中的核心用法。",
+    "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
+    "recap": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。"
   }
 ]

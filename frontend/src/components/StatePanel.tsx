@@ -16,7 +16,16 @@ function summaryFor(result: RunResponse) {
   return `还差 ${failed} 项`;
 }
 
+function formatValue(value: unknown) {
+  if (value === undefined) {
+    return "未提供";
+  }
+  return typeof value === "string" ? value : JSON.stringify(value);
+}
+
 export function StatePanel({ result }: Props) {
+  const failedChecks = result?.checks.filter((check) => !check.passed) ?? [];
+
   return (
     <section className="state-panel">
       <div className="panel-title">执行状态</div>
@@ -49,6 +58,31 @@ export function StatePanel({ result }: Props) {
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {!result.error && failedChecks.length > 0 && (
+            <div className="state-section correction-section">
+              <h3>本次要修正</h3>
+              <div className="correction-list">
+                {failedChecks.map((check) => (
+                  <article className="correction-card" key={check.id}>
+                    <strong>{check.label}</strong>
+                    {check.reason && <p>{check.reason}</p>}
+                    <div className="value-compare">
+                      <div>
+                        <span>当前值</span>
+                        <code>{formatValue(check.actual)}</code>
+                      </div>
+                      <div>
+                        <span>目标值</span>
+                        <code>{formatValue(check.expected)}</code>
+                      </div>
+                    </div>
+                    <small>{check.hint}</small>
+                  </article>
+                ))}
+              </div>
             </div>
           )}
 

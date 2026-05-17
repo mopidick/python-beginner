@@ -41,6 +41,8 @@ describe("Python beginner app", () => {
     expect(screen.getByRole("button", { name: /变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
+    expect(screen.getByText("学习目标")).toBeInTheDocument();
+    expect(screen.getByText("解题套路")).toBeInTheDocument();
   });
 
   test("runs code and renders summary stdout variables and passed checks", async () => {
@@ -123,7 +125,15 @@ describe("Python beginner app", () => {
         ...successResponse,
         stdout: "",
         variables: { x: { type: "int", value: 9 } },
-        checks: [{ ...successResponse.checks[0], passed: false }],
+        checks: [
+          {
+            ...successResponse.checks[0],
+            passed: false,
+            actual: 9,
+            expected: 10,
+            reason: "x 当前是 9，目标是 10。",
+          },
+        ],
         passed: false,
       }),
     } as Response);
@@ -132,7 +142,9 @@ describe("Python beginner app", () => {
     await userEvent.click(screen.getByRole("button", { name: "运行代码" }));
 
     await waitFor(() => expect(screen.getByText("还差 1 项")).toBeInTheDocument());
-    expect(screen.getByText("检查变量名是否是 x，并确认它的值是整数 10。")).toBeInTheDocument();
+    expect(screen.getByText("本次要修正")).toBeInTheDocument();
+    expect(screen.getByText("x 当前是 9，目标是 10。")).toBeInTheDocument();
+    expect(screen.getAllByText("检查变量名是否是 x，并确认它的值是整数 10。").length).toBeGreaterThan(0);
     expect(screen.getByText("尝试中")).toBeInTheDocument();
   });
 
@@ -189,5 +201,39 @@ describe("Python beginner app", () => {
 
     await waitFor(() => expect(screen.getByText("请求无效：code is too long")).toBeInTheDocument());
     expect(localStorage.getItem("python-beginner-progress")).toBeNull();
+  });
+
+  test("asks for confirmation before clearing local progress", async () => {
+    localStorage.setItem(
+      "python-beginner-progress",
+      JSON.stringify({
+        completed: ["variables-01"],
+        currentLevelId: "types-01",
+        codeByLevel: { "types-01": "count = 3" },
+      }),
+    );
+    vi.spyOn(window, "confirm").mockReturnValue(false);
+
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: "清空进度" }));
+
+    expect(window.confirm).toHaveBeenCalledWith("确定要清空所有通关记录、草稿和星级吗？这个操作不能撤销。");
+    expect(JSON.parse(localStorage.getItem("python-beginner-progress") || "{}").completed).toEqual(["variables-01"]);
+    expect(screen.getByRole("heading", { name: "基础类型" })).toBeInTheDocument();
+  });
+
+  test("keeps unsent draft code when switching levels", async () => {
+    render(<App />);
+    const editor = screen.getByLabelText("Python 代码编辑器");
+
+    await userEvent.clear(editor);
+    await userEvent.type(editor, "x = 42");
+    await userEvent.click(screen.getByRole("button", { name: /基础类型/ }));
+    await userEvent.click(screen.getByRole("button", { name: /变量与执行状态/ }));
+
+    expect(screen.getByLabelText("Python 代码编辑器")).toHaveValue("x = 42");
+    expect(JSON.parse(localStorage.getItem("python-beginner-progress") || "{}").codeByLevel["variables-01"]).toBe(
+      "x = 42",
+    );
   });
 });
