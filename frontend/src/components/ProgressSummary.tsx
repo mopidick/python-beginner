@@ -1,5 +1,6 @@
 import { Trash2 } from "lucide-react";
 
+import type { WeakTag } from "../progress/mastery";
 import type { LearningRecommendation } from "../progress/recommendations";
 
 type Props = {
@@ -12,8 +13,16 @@ type Props = {
   currentLevelTitle: string;
   recommendation: LearningRecommendation;
   reviewCount: number;
+  weakTags: WeakTag[];
   onGoToRecommendation: () => void;
   onReset: () => void;
+};
+
+const recommendationLabels: Record<LearningRecommendation["kind"], string> = {
+  continue: "继续学习",
+  stuck: "收口卡住关",
+  review: "复习低星关",
+  complete: "完成回顾",
 };
 
 export function ProgressSummary({
@@ -26,6 +35,7 @@ export function ProgressSummary({
   currentLevelTitle,
   recommendation,
   reviewCount,
+  weakTags,
   onGoToRecommendation,
   onReset,
 }: Props) {
@@ -66,7 +76,7 @@ export function ProgressSummary({
       </div>
       <div className="recommendation-card">
         <div>
-          <span>下一步建议</span>
+          <span>{recommendationLabels[recommendation.kind]}</span>
           <strong>{recommendation.title}</strong>
           <p>{recommendation.reason}</p>
           <small>{reviewCount > 0 ? `建议复习 ${reviewCount} 关` : "当前没有需要优先复习的关卡"}</small>
@@ -74,6 +84,20 @@ export function ProgressSummary({
         <button type="button" onClick={onGoToRecommendation}>
           {recommendation.title}
         </button>
+      </div>
+      <div className="weak-tags">
+        <span>薄弱知识点</span>
+        {weakTags.length > 0 ? (
+          <div>
+            {weakTags.map((item) => (
+              <small key={item.tag} title={item.reason}>
+                {item.tag}
+              </small>
+            ))}
+          </div>
+        ) : (
+          <strong>暂时没有明显薄弱点</strong>
+        )}
       </div>
     </section>
   );

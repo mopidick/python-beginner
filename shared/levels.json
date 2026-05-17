@@ -47,7 +47,7 @@
         "type": "variable_equals",
         "name": "count",
         "expected": 3,
-        "hint": "???? count?????? 3?????????????????"
+        "hint": "把 count 调整为 3。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "name-is-python",
@@ -55,7 +55,7 @@
         "type": "variable_equals",
         "name": "name",
         "expected": "Python",
-        "hint": "???? name?????? \"Python\"?????????????????"
+        "hint": "把 name 调整为 \"Python\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "active-is-true",
@@ -63,7 +63,7 @@
         "type": "variable_equals",
         "name": "active",
         "expected": true,
-        "hint": "???? active?????? true?????????????????"
+        "hint": "把 active 调整为 true。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -98,7 +98,7 @@
         "type": "variable_equals",
         "name": "message",
         "expected": "Hello, Ada!",
-        "hint": "???? message?????? \"Hello, Ada!\"?????????????????"
+        "hint": "把 message 调整为 \"Hello, Ada!\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -139,7 +139,7 @@
           4,
           5
         ],
-        "hint": "???? numbers?????? [1,2,3,4,5]?????????????????"
+        "hint": "把 numbers 调整为 [1,2,3,4,5]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "middle-slice",
@@ -151,7 +151,7 @@
           3,
           4
         ],
-        "hint": "???? middle?????? [2,3,4]?????????????????"
+        "hint": "把 middle 调整为 [2,3,4]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -189,7 +189,7 @@
           "name": "Lin",
           "passed": true
         },
-        "hint": "???? summary?????? {\"name\":\"Lin\",\"passed\":true}?????????????????"
+        "hint": "把 summary 调整为 {\"name\": \"Lin\",\"passed\": true}。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -224,7 +224,7 @@
         "type": "variable_equals",
         "name": "grade",
         "expected": "B",
-        "hint": "???? grade?????? \"B\"?????????????????"
+        "hint": "把 grade 调整为 \"B\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -263,7 +263,7 @@
           4,
           6
         ],
-        "hint": "???? evens?????? [2,4,6]?????????????????"
+        "hint": "把 evens 调整为 [2,4,6]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -298,7 +298,7 @@
         "type": "variable_equals",
         "name": "result",
         "expected": 110,
-        "hint": "???? result?????? 110?????????????????"
+        "hint": "把 result 调整为 110。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -333,7 +333,7 @@
         "type": "variable_equals",
         "name": "result",
         "expected": null,
-        "hint": "???? result?????? null?????????????????"
+        "hint": "把 result 调整为 None。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -368,7 +368,7 @@
         "type": "variable_equals",
         "name": "error_count",
         "expected": 2,
-        "hint": "???? error_count?????? 2?????????????????"
+        "hint": "把 error_count 调整为 2。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -407,7 +407,7 @@
           "Testing",
           "Debugging"
         ],
-        "hint": "???? topics?????? [\"Python\",\"Testing\",\"Debugging\"]?????????????????"
+        "hint": "把 topics 调整为 [\"Python\",\"Testing\",\"Debugging\"]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -446,7 +446,7 @@
           16,
           36
         ],
-        "hint": "???? squares?????? [4,16,36]?????????????????"
+        "hint": "把 squares 调整为 [4,16,36]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -484,7 +484,7 @@
           "name": "Ada",
           "score": 9
         },
-        "hint": "???? summary?????? {\"name\":\"Ada\",\"score\":9}?????????????????"
+        "hint": "把 summary 调整为 {\"name\": \"Ada\",\"score\": 9}。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -522,7 +522,7 @@
           "ERROR disk",
           "ERROR timeout"
         ],
-        "hint": "???? errors?????? [\"ERROR disk\",\"ERROR timeout\"]?????????????????"
+        "hint": "把 errors 调整为 [\"ERROR disk\",\"ERROR timeout\"]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "error-count-lines",
@@ -530,7 +530,7 @@
         "type": "variable_equals",
         "name": "error_count",
         "expected": 2,
-        "hint": "???? error_count?????? 2?????????????????"
+        "hint": "把 error_count 调整为 2。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -565,7 +565,7 @@
         "type": "variable_equals",
         "name": "total",
         "expected": 80,
-        "hint": "???? total?????? 80?????????????????"
+        "hint": "把 total 调整为 80。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "order-labels",
@@ -576,7 +576,7 @@
           "book x2",
           "pen x4"
         ],
-        "hint": "???? labels?????? [\"book x2\",\"pen x4\"]?????????????????"
+        "hint": "把 labels 调整为 [\"book x2\",\"pen x4\"]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -615,7 +615,7 @@
         "type": "variable_equals",
         "name": "final_price",
         "expected": 96,
-        "hint": "???? final_price?????? 96?????????????????"
+        "hint": "把 final_price 调整为 96。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -650,7 +650,7 @@
         "type": "variable_equals",
         "name": "average",
         "expected": 86.3,
-        "hint": "???? average?????? 86.3?????????????????"
+        "hint": "把 average 调整为 86.3。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -685,7 +685,7 @@
         "type": "variable_equals",
         "name": "region",
         "expected": "CN",
-        "hint": "???? region?????? \"CN\"?????????????????"
+        "hint": "把 region 调整为 \"CN\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -720,7 +720,7 @@
         "type": "variable_equals",
         "name": "username",
         "expected": "ada_lovelace",
-        "hint": "???? username?????? \"ada_lovelace\"?????????????????"
+        "hint": "把 username 调整为 \"ada_lovelace\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -755,7 +755,7 @@
         "type": "variable_equals",
         "name": "shipping",
         "expected": 12,
-        "hint": "???? shipping?????? 12?????????????????"
+        "hint": "把 shipping 调整为 12。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -790,7 +790,7 @@
         "type": "variable_equals",
         "name": "grade",
         "expected": "C",
-        "hint": "???? grade?????? \"C\"?????????????????"
+        "hint": "把 grade 调整为 \"C\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -828,7 +828,7 @@
           "review",
           "deploy"
         ],
-        "hint": "???? tasks?????? [\"review\",\"deploy\"]?????????????????"
+        "hint": "把 tasks 调整为 [\"review\",\"deploy\"]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -867,7 +867,7 @@
           88,
           72
         ],
-        "hint": "???? ranked?????? [95,88,72]?????????????????"
+        "hint": "把 ranked 调整为 [95,88,72]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -902,7 +902,7 @@
         "type": "variable_equals",
         "name": "total",
         "expected": 55,
-        "hint": "???? total?????? 55?????????????????"
+        "hint": "把 total 调整为 55。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -937,7 +937,7 @@
         "type": "variable_equals",
         "name": "found_at",
         "expected": 2,
-        "hint": "???? found_at?????? 2?????????????????"
+        "hint": "把 found_at 调整为 2。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -975,7 +975,7 @@
           "pen": 15,
           "book": 4
         },
-        "hint": "???? stock?????? {\"pen\":15,\"book\":4}?????????????????"
+        "hint": "把 stock 调整为 {\"pen\": 15,\"book\": 4}。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1014,7 +1014,7 @@
           "web": 1,
           "data": 1
         },
-        "hint": "???? counts?????? {\"python\":2,\"web\":1,\"data\":1}?????????????????"
+        "hint": "把 counts 调整为 {\"python\": 2,\"web\": 1,\"data\": 1}。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1049,7 +1049,7 @@
         "type": "variable_equals",
         "name": "message",
         "expected": "Welcome, Ada!",
-        "hint": "???? message?????? \"Welcome, Ada!\"?????????????????"
+        "hint": "把 message 调整为 \"Welcome, Ada!\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1084,7 +1084,7 @@
         "type": "variable_equals",
         "name": "result",
         "expected": 45,
-        "hint": "???? result?????? 45?????????????????"
+        "hint": "把 result 调整为 45。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1119,7 +1119,7 @@
         "type": "variable_equals",
         "name": "result",
         "expected": 42,
-        "hint": "???? result?????? 42?????????????????"
+        "hint": "把 result 调整为 42。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1160,7 +1160,7 @@
           "and": 1,
           "useful": 1
         },
-        "hint": "???? counts?????? {\"python\":2,\"is\":2,\"fun\":1,\"and\":1,\"useful\":1}?????????????????"
+        "hint": "把 counts 调整为 {\"python\": 2,\"is\": 2,\"fun\": 1,\"and\": 1,\"useful\": 1}。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1198,7 +1198,7 @@
           "Ada",
           "Max"
         ],
-        "hint": "???? passed_names?????? [\"Ada\",\"Max\"]?????????????????"
+        "hint": "把 passed_names 调整为 [\"Ada\",\"Max\"]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "average-score",
@@ -1206,7 +1206,7 @@
         "type": "variable_equals",
         "name": "average_score",
         "expected": 75,
-        "hint": "???? average_score?????? 75?????????????????"
+        "hint": "把 average_score 调整为 75。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
@@ -1226,112 +1226,112 @@
   },
   {
     "id": "review-basics-01",
-    "title": "??????????",
+    "title": "基础语法复盘",
     "chapter": "第 8 章：真实脚本",
     "difficulty": "进阶",
     "estimatedMinutes": 8,
-    "story": "????????????????????",
-    "goal": "???????? f-string ??????",
-    "pattern": "?????????? f-string ???????????",
-    "recap": "??????????????????????",
-    "concept": "??",
+    "story": "把变量、数字和字符串合成一条任务摘要，模拟脚本里生成简短状态说明。",
+    "goal": "复习变量赋值、数字、字符串和 f-string 拼接。",
+    "pattern": "先保留原始变量，再用 f-string 把多个值组合成 summary。",
+    "recap": "你把基础类型组合成了可读摘要，这是很多自动化脚本的第一步。",
+    "concept": "复盘",
     "mode": "review",
     "tags": [
-      "??",
-      "???",
-      "??"
+      "变量",
+      "字符串",
+      "f-string"
     ],
-    "instructions": "?? name ? task_count ?? summary????? Ada has 3 tasks?",
+    "instructions": "保留 name 和 task_count，用它们生成 summary，让结果等于 Ada has 3 tasks。",
     "starterCode": "name = \"Ada\"\ntask_count = 3\nsummary = \"\"",
     "checks": [
       {
         "id": "summary-text",
-        "label": "summary ?? Ada has 3 tasks",
+        "label": "summary 等于 Ada has 3 tasks",
         "type": "variable_equals",
         "name": "summary",
         "expected": "Ada has 3 tasks",
-        "hint": "?? summary ???? name ? task_count ???????????"
+        "hint": "把 summary 调整为 \"Ada has 3 tasks\"。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
-      "???????????????",
-      "f-string ????????????",
-      "???? f\"{name} has {task_count} tasks\"?"
+      "先确认 name 和 task_count 已经是可用变量。",
+      "f-string 可以直接把变量放进花括号里。",
+      "可以写成 summary = f\"{name} has {task_count} tasks\"。"
     ],
     "visualizer": "variables",
-    "successMessage": "??????????????????????"
+    "successMessage": "通过。你已经能把多个基础值组合成清晰的脚本输出。"
   },
   {
     "id": "review-collections-01",
-    "title": "??????????",
+    "title": "列表与循环复盘",
     "chapter": "第 8 章：真实脚本",
     "difficulty": "进阶",
     "estimatedMinutes": 9,
-    "story": "????????????????????",
-    "goal": "?????????????",
-    "pattern": "???????????????????????",
-    "recap": "?????????????????????",
-    "concept": "??",
+    "story": "从订单金额列表中筛出大额订单，并顺手计算这些订单的总额。",
+    "goal": "复习遍历列表、条件判断、append 和累计求和。",
+    "pattern": "准备结果列表和累计变量，循环里先判断，再同时更新两个结果。",
+    "recap": "你把筛选和累计放进同一个循环，已经接近真实数据处理脚本。",
+    "concept": "列表复盘",
     "mode": "review",
     "tags": [
-      "??",
-      "??",
-      "??"
+      "列表",
+      "循环",
+      "条件判断"
     ],
-    "instructions": "? amounts ??????? 50 ???? large_orders???? total_large?",
+    "instructions": "遍历 amounts，把大于等于 50 的金额放入 large_orders，并计算 total_large。",
     "starterCode": "amounts = [12, 80, 35, 120]\nlarge_orders = []\ntotal_large = 0",
     "checks": [
       {
         "id": "large-orders",
-        "label": "large_orders ?? [80, 120]",
+        "label": "large_orders 等于 [80, 120]",
         "type": "variable_equals",
         "name": "large_orders",
         "expected": [
           80,
           120
         ],
-        "hint": "?????? 50 ????? large_orders????????"
+        "hint": "把 large_orders 调整为 [80,120]。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "total-large",
-        "label": "total_large ?? 200",
+        "label": "total_large 等于 200",
         "type": "variable_equals",
         "name": "total_large",
         "expected": 200,
-        "hint": "total_large ??????????????"
+        "hint": "把 total_large 调整为 200。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
-      "??? amounts?",
-      "? if amount >= 50 ??????????",
-      "????? append ? total_large += amount?"
+      "先创建空列表 large_orders 和数字 total_large。",
+      "在循环里用 if amount >= 50 判断是否保留。",
+      "满足条件时同时执行 append 和 total_large += amount。"
     ],
     "visualizer": "sequence",
-    "successMessage": "????????????????????"
+    "successMessage": "通过。你完成了列表筛选和累计这两个高频组合动作。"
   },
   {
     "id": "review-dicts-01",
-    "title": "?????????",
+    "title": "字典计数复盘",
     "chapter": "第 8 章：真实脚本",
     "difficulty": "进阶",
     "estimatedMinutes": 9,
-    "story": "????????????????",
-    "goal": "?????????????",
-    "pattern": "?????? key??????????????",
-    "recap": "??????????????????????????",
-    "concept": "??",
+    "story": "把一串任务状态统计成字典，看看每种状态分别出现了几次。",
+    "goal": "复习字典更新、默认值和循环计数。",
+    "pattern": "循环读取每个状态，把状态当作 key，用 get 取旧值再加 1。",
+    "recap": "你掌握了字典计数套路，后续日志统计和词频统计都会用到它。",
+    "concept": "字典复盘",
     "mode": "review",
     "tags": [
-      "??",
-      "??",
-      "??"
+      "字典",
+      "循环",
+      "计数"
     ],
-    "instructions": "?? statuses???????????? counts?",
+    "instructions": "遍历 statuses，生成 counts，让每个状态名对应出现次数。",
     "starterCode": "statuses = [\"ok\", \"fail\", \"ok\", \"retry\", \"fail\"]\ncounts = {}",
     "checks": [
       {
         "id": "status-counts",
-        "label": "counts ??????",
+        "label": "counts 统计每种状态的出现次数",
         "type": "variable_equals",
         "name": "counts",
         "expected": {
@@ -1339,79 +1339,80 @@
           "fail": 2,
           "retry": 1
         },
-        "hint": "counts ? key ????????value ??????"
+        "hint": "把 counts 调整为 {\"ok\": 2,\"fail\": 2,\"retry\": 1}。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
-      "????? status?",
-      "get(status, 0) ??????????",
-      "counts[status] = counts.get(status, 0) + 1?"
+      "counts 从空字典开始。",
+      "每次循环都要更新 counts[status]。",
+      "可以写 counts[status] = counts.get(status, 0) + 1。"
     ],
     "visualizer": "mapping",
-    "successMessage": "???????????????"
+    "successMessage": "通过。你已经能用字典把重复数据压缩成统计结果。"
   },
   {
     "id": "review-functions-errors-01",
-    "title": "??????????",
+    "title": "函数与异常复盘",
     "chapter": "第 8 章：真实脚本",
     "difficulty": "挑战",
     "estimatedMinutes": 11,
-    "story": "?????????????????????",
-    "goal": "?????????????",
-    "pattern": "? risky ???? try?????????????????",
-    "recap": "?????????????????????????",
-    "concept": "??",
+    "story": "把文本转数字的逻辑封装成函数，并在遇到坏数据时返回默认值。",
+    "goal": "复习函数返回值、int 转换和 ValueError 捕获。",
+    "pattern": "函数里先尝试转换，失败时在 except 分支返回 0。",
+    "recap": "你把异常处理封装进函数，让调用方拿到稳定结果。",
+    "concept": "函数复盘",
     "mode": "review",
     "tags": [
-      "??",
-      "??",
-      "??"
+      "函数",
+      "异常",
+      "类型转换"
     ],
-    "instructions": "?? parse_count(text)????????????????? 0?",
+    "instructions": "实现 parse_count(text)，让 valid 等于 12，invalid 等于 0。",
     "starterCode": "def parse_count(text):\n    return text\n\nvalid = parse_count(\"12\")\ninvalid = parse_count(\"oops\")",
     "checks": [
       {
         "id": "valid-count",
-        "label": "valid ?? 12",
+        "label": "valid 等于 12",
         "type": "variable_equals",
         "name": "valid",
         "expected": 12,
-        "hint": "parse_count ??????????? int(text)?"
+        "hint": "把 valid 调整为 12。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       },
       {
         "id": "invalid-count",
-        "label": "invalid ?? 0",
+        "label": "invalid 等于 0",
         "type": "variable_equals",
         "name": "invalid",
         "expected": 0,
-        "hint": "parse_count ?? ValueError ????? 0?"
+        "hint": "把 invalid 调整为 0。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
-      "int(text) ?????????",
-      "?????? ValueError?",
-      "? try / except ValueError ?? int(text)?"
+      "parse_count 需要 return 转换后的数字。",
+      "int(\"oops\") 会抛出 ValueError。",
+      "在 except ValueError 中 return 0。"
     ],
     "visualizer": "variables",
-    "successMessage": "??????????????????"
+    "successMessage": "通过。你写出了能处理脏数据的函数。"
   },
   {
     "id": "booleans-01",
-    "title": "?????????",
+    "title": "布尔条件组合",
     "chapter": "第 9 章：脚本实战",
     "difficulty": "基础",
     "estimatedMinutes": 7,
-    "story": "????????????????????",
-    "goal": "?? and / or ???????",
-    "pattern": "????????????????????????",
-    "recap": "????????????????????",
-    "concept": "????",
+    "story": "判断一个用户是否既启用账号、又拥有 admin 角色，从而允许发布。",
+    "goal": "掌握 and 组合多个布尔条件。",
+    "pattern": "把每个条件写成能得到 True/False 的表达式，再用 and 合并。",
+    "recap": "你完成了权限判断里最常见的布尔组合。",
+    "concept": "布尔判断",
     "mode": "lesson",
     "tags": [
-      "??",
-      "??"
+      "布尔值",
+      "条件判断",
+      "权限判断"
     ],
-    "instructions": "? enabled ? True ? role ? admin ??? can_publish ? True?",
+    "instructions": "保留 enabled 和 role，创建 can_publish，只有账号启用且角色是 admin 时才为 True。",
     "starterCode": "enabled = True\nrole = \"admin\"\ncan_publish = False",
     "checks": [
       {
@@ -1420,35 +1421,35 @@
         "type": "variable_equals",
         "name": "can_publish",
         "expected": true,
-        "hint": "can_publish ?????? enabled ? role == \"admin\"?"
+        "hint": "把 can_publish 调整为 true。如果当前值不同，先检查变量名、类型和值是否完全一致。"
       }
     ],
     "hints": [
-      "???????????",
-      "and ???????? True?",
-      "can_publish = enabled and role == \"admin\"?"
+      "enabled 本身就是一个布尔值。",
+      "role == \"admin\" 会得到 True 或 False。",
+      "可以写 can_publish = enabled and role == \"admin\"。"
     ],
     "visualizer": "variables",
-    "successMessage": "????????????????????"
+    "successMessage": "通过。你已经能把多个条件合并成一个清晰判断。"
   },
   {
     "id": "none-empty-01",
-    "title": "None ?????????",
+    "title": "空列表兜底",
     "chapter": "第 9 章：脚本实战",
     "difficulty": "进阶",
     "estimatedMinutes": 8,
-    "story": "??????????????????????",
-    "goal": "?? None????????????????",
-    "pattern": "?????????????????????????????",
-    "recap": "???????????????",
-    "concept": "????",
+    "story": "当接口暂时没有返回数据时，页面仍然需要显示友好的占位内容。",
+    "goal": "理解空列表在 if 中会被当作 False。",
+    "pattern": "先判断列表是否有内容；为空时使用默认列表兜底。",
+    "recap": "你写出了空数据兜底逻辑，真实应用里这能减少很多空白页面。",
+    "concept": "空值处理",
     "mode": "lesson",
     "tags": [
-      "None",
-      "??",
-      "?????"
+      "列表",
+      "条件判断",
+      "兜底值"
     ],
-    "instructions": "如果 items 为空列表，就让 display_items 等于 [\"暂无数据\"]。",
+    "instructions": "items 为空时，让 display_items 等于 [\"暂无数据\"]；有内容时则直接使用 items。",
     "starterCode": "items = []\ndisplay_items = items",
     "checks": [
       {
@@ -1463,36 +1464,36 @@
       }
     ],
     "hints": [
-      "?????? if items ???",
-      "???????? display_items ???????",
-      "可以写 if items: ... else: display_items = [\"暂无数据\"]。"
+      "空列表在 if items 中会走 else。",
+      "display_items 应该始终是列表。",
+      "else 分支里写 display_items = [\"暂无数据\"]。"
     ],
     "visualizer": "sequence",
-    "successMessage": "??????????????????"
+    "successMessage": "通过。你已经能为无数据场景准备稳定的显示结果。"
   },
   {
     "id": "project-csv-cleanup-01",
-    "title": "???CSV ??????",
+    "title": "项目：清洗成绩行",
     "chapter": "第 9 章：脚本实战",
     "difficulty": "挑战",
     "estimatedMinutes": 14,
-    "story": "????? CSV ??????????????",
-    "goal": "????????????????",
-    "pattern": "?? split????????????????????",
-    "recap": "???????????????????????",
-    "concept": "??",
+    "story": "把几行像 CSV 的文本清洗成可用数据，后续就能继续统计或展示。",
+    "goal": "综合练习 split、strip、title、int 转换和列表追加。",
+    "pattern": "逐行拆分 name 和 score，分别清洗名称、转换分数，再追加到结果列表。",
+    "recap": "你完成了一个迷你数据清洗管道，把文本变成了结构化结果。",
+    "concept": "数据清洗",
     "mode": "project",
     "tags": [
-      "???",
-      "??",
-      "????"
+      "字符串",
+      "列表",
+      "项目综合"
     ],
-    "instructions": "? rows ???????????????????? names?",
-    "starterCode": "rows = [\" ada, 92\", \"lin, 58\", \" MAX, 75\"]\nnames = []",
+    "instructions": "遍历 rows，生成 names 和 scores。names 使用标题格式，scores 是整数列表。",
+    "starterCode": "rows = [\" ada, 92\", \"lin, 58\", \" MAX, 75\"]\nnames = []\nscores = []",
     "checks": [
       {
         "id": "clean-names",
-        "label": "names ?? [\"Ada\", \"Lin\", \"Max\"]",
+        "label": "names 等于 [\"Ada\", \"Lin\", \"Max\"]",
         "type": "variable_equals",
         "name": "names",
         "expected": [
@@ -1500,55 +1501,83 @@
           "Lin",
           "Max"
         ],
-        "hint": "??????????? strip() ? title()?"
+        "hint": "把每行逗号前的名字 strip 后再 title，然后追加到 names。"
+      },
+      {
+        "id": "clean-scores",
+        "label": "scores 等于 [92, 58, 75]",
+        "type": "variable_equals",
+        "name": "scores",
+        "expected": [
+          92,
+          58,
+          75
+        ],
+        "hint": "把每行逗号后的分数 strip 后用 int 转成数字，再追加到 scores。"
       }
     ],
     "hints": [
-      "??? rows?",
-      "row.split(\",\") ??????????",
-      "? name.strip().title() ??? names?"
+      "每一行都可以用 split(\",\") 拆成 name 和 score。",
+      "名称要 strip 后再 title；分数要 strip 后转 int。",
+      "循环里分别 append 到 names 和 scores。"
     ],
     "visualizer": "sequence",
-    "successMessage": "????????????? CSV ?????"
+    "successMessage": "通过。你已经能把松散文本清洗成后续脚本可用的数据。"
   },
   {
     "id": "project-grade-report-01",
-    "title": "?????????",
+    "title": "项目：生成成绩报告",
     "chapter": "第 9 章：脚本实战",
     "difficulty": "挑战",
     "estimatedMinutes": 15,
-    "story": "???????????????????",
-    "goal": "??????????????",
-    "pattern": "???????????????????????",
-    "recap": "????????????????????????",
-    "concept": "??",
+    "story": "从学生成绩列表生成一个简洁报告，包含通过人数和平均分。",
+    "goal": "综合练习列表推导式、字典、sum、len 和 round。",
+    "pattern": "先算通过人数和平均分，再把结果组装到 report 字典里。",
+    "recap": "你完成了从原始数据到汇总报告的完整脚本闭环。",
+    "concept": "数据报告",
     "mode": "project",
     "tags": [
-      "??",
-      "??",
-      "????"
+      "字典",
+      "列表",
+      "项目综合"
     ],
-    "instructions": "?? students ?? report??? passed_count ? average?",
+    "instructions": "读取 students，计算 passed_count 和 average，并组装 report 字典。",
     "starterCode": "students = [{\"name\": \"Ada\", \"score\": 92}, {\"name\": \"Lin\", \"score\": 58}, {\"name\": \"Max\", \"score\": 75}]\nreport = {}",
     "checks": [
       {
+        "id": "passed-count",
+        "label": "passed_count 等于 2",
+        "type": "variable_equals",
+        "name": "passed_count",
+        "expected": 2,
+        "hint": "先筛出 score >= 60 的学生，再用 len 得到人数。"
+      },
+      {
+        "id": "average-score",
+        "label": "average 等于 75",
+        "type": "variable_equals",
+        "name": "average",
+        "expected": 75,
+        "hint": "把所有 score 求和后除以学生数量，再用 round(..., 1)。"
+      },
+      {
         "id": "grade-report",
-        "label": "report ??????????",
+        "label": "report 包含通过人数和平均分",
         "type": "variable_equals",
         "name": "report",
         "expected": {
           "passed_count": 2,
           "average": 75
         },
-        "hint": "passed_count ?? score >= 60 ????average ?? round(..., 1)?"
+        "hint": "把 passed_count 和 average 放进 report 字典，key 名要完全一致。"
       }
     ],
     "hints": [
-      "??? score >= 60 ????",
-      "?????? score ????????",
-      "report = {\"passed_count\": ..., \"average\": ...}?"
+      "通过人数来自 score >= 60 的学生数量。",
+      "平均分可以用所有 score 的和除以学生数量。",
+      "最后写 report = {\"passed_count\": passed_count, \"average\": average}。"
     ],
     "visualizer": "mapping",
-    "successMessage": "????????????????????"
+    "successMessage": "通过。你已经能把列表数据整理成可交付的小报告。"
   }
 ]

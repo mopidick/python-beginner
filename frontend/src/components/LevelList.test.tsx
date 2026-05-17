@@ -20,5 +20,8 @@ describe("LevelList", () => {
     expect(screen.getByText("第 1 章：运行状态 · 1/4")).toBeInTheDocument();
     expect(screen.getByLabelText("变量与执行状态，已获得 3 星")).toBeInTheDocument();
     expect(screen.getByText("★★★")).toBeInTheDocument();
+    expect(screen.getAllByText("新课").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("复习").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("项目").length).toBeGreaterThan(0);
   });
 });

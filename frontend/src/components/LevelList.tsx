@@ -9,6 +9,12 @@ type Props = {
   onSelect: (level: Level) => void;
 };
 
+const modeLabels: Record<Level["mode"], string> = {
+  lesson: "新课",
+  review: "复习",
+  project: "项目",
+};
+
 export function LevelList({ levels, currentId, completed, attempted, starsByLevel = {}, onSelect }: Props) {
   const chapters = Array.from(new Set(levels.map((level) => level.chapter)));
 
@@ -61,6 +67,7 @@ export function LevelList({ levels, currentId, completed, attempted, starsByLeve
                   <span>
                     <strong>{level.title}</strong>
                     <small>
+                      <b className={`mode-badge ${level.mode}`}>{modeLabels[level.mode]}</b>
                       {level.difficulty} · {level.estimatedMinutes} 分钟 · {level.concept}
                     </small>
                   </span>

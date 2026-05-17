@@ -8,6 +8,7 @@ import { LevelList } from "./components/LevelList";
 import { ProgressSummary } from "./components/ProgressSummary";
 import { StatePanel } from "./components/StatePanel";
 import { levels, type Level } from "./levels/levels";
+import { getWeakTags } from "./progress/mastery";
 import { getLearningRecommendation, getReviewCandidates } from "./progress/recommendations";
 import "./styles/global.css";
 
@@ -20,7 +21,7 @@ type Progress = {
   starsByLevel: Record<string, number>;
 };
 
-const VERSION = "0.3.0";
+const VERSION = "0.3.1";
 const STORAGE_KEY = "python-beginner-progress";
 
 function emptyProgress(): Progress {
@@ -76,6 +77,7 @@ export default function App() {
   const currentStars = progress.starsByLevel[currentLevel.id] || 0;
   const recommendation = getLearningRecommendation(levels, progress);
   const reviewCandidates = getReviewCandidates(levels, progress);
+  const weakTags = getWeakTags(levels, progress);
 
   function starsFor(levelId: string) {
     const hintCount = progress.hintStepsByLevel[levelId] || 0;
@@ -207,6 +209,7 @@ export default function App() {
             currentLevelTitle={currentLevel.title}
             recommendation={recommendation}
             reviewCount={reviewCandidates.length}
+            weakTags={weakTags}
             onGoToRecommendation={goToRecommendation}
             onReset={resetProgress}
           />

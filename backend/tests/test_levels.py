@@ -41,7 +41,7 @@ VALID_SOLUTIONS = {
     "review-functions-errors-01": "def parse_count(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n\nvalid = parse_count('12')\ninvalid = parse_count('oops')",
     "booleans-01": "enabled = True\nrole = 'admin'\ncan_publish = enabled and role == 'admin'",
     "none-empty-01": "items = []\nif items:\n    display_items = items\nelse:\n    display_items = ['\\u6682\\u65e0\\u6570\\u636e']",
-    "project-csv-cleanup-01": "rows = [' ada, 92', 'lin, 58', ' MAX, 75']\nnames = []\nfor row in rows:\n    name, score = row.split(',')\n    names.append(name.strip().title())",
+    "project-csv-cleanup-01": "rows = [' ada, 92', 'lin, 58', ' MAX, 75']\nnames = []\nscores = []\nfor row in rows:\n    name, score = row.split(',')\n    names.append(name.strip().title())\n    scores.append(int(score.strip()))",
     "project-grade-report-01": "students = [{'name': 'Ada', 'score': 92}, {'name': 'Lin', 'score': 58}, {'name': 'Max', 'score': 75}]\npassed_count = len([student for student in students if student['score'] >= 60])\naverage = round(sum(student['score'] for student in students) / len(students), 1)\nreport = {'passed_count': passed_count, 'average': average}",
 }
 
@@ -62,3 +62,38 @@ def test_starter_code_does_not_pass_by_default():
         result = run_python(level_id, level["starterCode"])
 
         assert result["passed"] is False, level_id
+
+
+def test_level_copy_is_human_readable():
+    text_fields = ["title", "chapter", "difficulty", "story", "goal", "pattern", "recap", "concept", "instructions"]
+
+    for level_id, level in LEVELS.items():
+        for field in text_fields:
+            assert_readable(level[field], f"{level_id}.{field}")
+
+        assert len(level["tags"]) > 0, level_id
+        for index, tag in enumerate(level["tags"]):
+            assert_readable(tag, f"{level_id}.tags[{index}]")
+
+        assert len(level["hints"]) >= 3, level_id
+        for index, hint in enumerate(level["hints"]):
+            assert_readable(hint, f"{level_id}.hints[{index}]")
+
+        for check in level["checks"]:
+            assert_readable(check["label"], f"{level_id}.{check['id']}.label")
+            assert_readable(check.get("hint", ""), f"{level_id}.{check['id']}.hint")
+
+
+def test_project_levels_have_multiple_checks():
+    project_levels = [level for level in LEVELS.values() if level["mode"] == "project"]
+
+    assert project_levels
+    for level in project_levels:
+        assert len(level["checks"]) >= 2, level["id"]
+
+
+def assert_readable(value: str, label: str):
+    assert value.strip(), label
+    assert "??" not in value, label
+    assert "\ufffd" not in value, label
+    assert "TODO" not in value.upper(), label

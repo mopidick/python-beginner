@@ -24,6 +24,7 @@ describe("ProgressSummary", () => {
         currentLevelTitle="变量与执行状态"
         recommendation={recommendation}
         reviewCount={1}
+        weakTags={[{ tag: "列表", score: 4, reason: "有未通关尝试" }]}
         onGoToRecommendation={vi.fn()}
         onReset={vi.fn()}
       />,
@@ -36,8 +37,10 @@ describe("ProgressSummary", () => {
     expect(screen.getByText("6")).toBeInTheDocument();
     expect(screen.getByText("210 分钟")).toBeInTheDocument();
     expect(screen.getByText(/变量与执行状态/)).toBeInTheDocument();
-    expect(screen.getByText("下一步建议")).toBeInTheDocument();
+    expect(screen.getByText("继续学习")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "继续基础类型" })).toBeInTheDocument();
+    expect(screen.getByText("薄弱知识点")).toBeInTheDocument();
+    expect(screen.getByText("列表")).toBeInTheDocument();
   });
 
   test("can reset local progress", async () => {
@@ -54,6 +57,7 @@ describe("ProgressSummary", () => {
         currentLevelTitle="变量与执行状态"
         recommendation={recommendation}
         reviewCount={0}
+        weakTags={[]}
         onGoToRecommendation={vi.fn()}
         onReset={onReset}
       />,
