@@ -16,13 +16,21 @@ type Progress = {
   currentLevelId: string;
   codeByLevel: Record<string, string>;
   hintStepsByLevel: Record<string, number>;
+  starsByLevel: Record<string, number>;
 };
 
 const VERSION = "0.2.5";
 const STORAGE_KEY = "python-beginner-progress";
 
 function emptyProgress(): Progress {
-  return { completed: [], attempted: [], currentLevelId: levels[0].id, codeByLevel: {}, hintStepsByLevel: {} };
+  return {
+    completed: [],
+    attempted: [],
+    currentLevelId: levels[0].id,
+    codeByLevel: {},
+    hintStepsByLevel: {},
+    starsByLevel: {},
+  };
 }
 
 function loadProgress(): Progress {
@@ -38,6 +46,7 @@ function loadProgress(): Progress {
       currentLevelId: parsed.currentLevelId || levels[0].id,
       codeByLevel: parsed.codeByLevel || {},
       hintStepsByLevel: parsed.hintStepsByLevel || {},
+      starsByLevel: parsed.starsByLevel || {},
     };
   } catch {
     return emptyProgress();
@@ -61,6 +70,20 @@ export default function App() {
   const currentIndex = levels.findIndex((level) => level.id === currentLevel.id);
   const nextLevel = currentIndex >= 0 ? levels[currentIndex + 1] : undefined;
   const usedHintCount = Object.values(progress.hintStepsByLevel).reduce((total, count) => total + count, 0);
+  const chapterCount = new Set(levels.map((level) => level.chapter)).size;
+  const totalMinutes = levels.reduce((total, level) => total + level.estimatedMinutes, 0);
+  const currentStars = progress.starsByLevel[currentLevel.id] || 0;
+
+  function starsFor(levelId: string) {
+    const hintCount = progress.hintStepsByLevel[levelId] || 0;
+    if (hintCount === 0) {
+      return 3;
+    }
+    if (hintCount === 1) {
+      return 2;
+    }
+    return 1;
+  }
 
   function updateProgress(next: Progress) {
     setProgress(next);
@@ -118,9 +141,14 @@ export default function App() {
       };
 
       if (response.passed) {
+        const stars = starsFor(currentLevel.id);
         updateProgress({
           ...baseProgress,
           completed: Array.from(new Set([...progress.completed, currentLevel.id])),
+          starsByLevel: {
+            ...progress.starsByLevel,
+            [currentLevel.id]: Math.max(progress.starsByLevel[currentLevel.id] || 0, stars),
+          },
         });
       } else {
         updateProgress(baseProgress);
@@ -158,12 +186,17 @@ export default function App() {
             attemptedCount={progress.attempted.length}
             hintCount={usedHintCount}
             totalCount={levels.length}
+            chapterCount={chapterCount}
+            totalMinutes={totalMinutes}
             currentLevelTitle={currentLevel.title}
             onReset={resetProgress}
           />
           <div className="lesson-copy">
-            <span>{currentLevel.concept}</span>
+            <span>
+              {currentLevel.chapter} · {currentLevel.difficulty} · {currentLevel.estimatedMinutes} 分钟
+            </span>
             <h2>{currentLevel.title}</h2>
+            <p>{currentLevel.story}</p>
             <p>{currentLevel.instructions}</p>
             <ul>
               {currentLevel.checks.map((check) => (
@@ -184,7 +217,9 @@ export default function App() {
       {networkError && <div className="toast error">{networkError}</div>}
       {result?.passed && (
         <div className="toast success">
-          <span>{currentLevel.successMessage}</span>
+          <span>
+            获得 {currentStars || starsFor(currentLevel.id)} 星 · {currentLevel.successMessage}
+          </span>
           {nextLevel && (
             <button type="button" onClick={goToNextLevel}>
               进入下一关

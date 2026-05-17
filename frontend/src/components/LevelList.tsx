@@ -20,23 +20,32 @@ export function LevelList({ levels, currentId, completed, attempted, onSelect }:
   }
 
   return (
-    <aside className="level-list" aria-label="关卡列表">
+    <aside className="level-list" aria-label="课程地图">
       <div className="panel-title">关卡</div>
-      {levels.map((level, index) => (
-        <button
-          className={`level-item ${level.id === currentId ? "active" : ""}`}
-          key={level.id}
-          onClick={() => onSelect(level)}
-          type="button"
-        >
-          <span className="level-index">{String(index + 1).padStart(2, "0")}</span>
-          <span>
-            <strong>{level.title}</strong>
-            <small>{level.concept}</small>
-          </span>
-          <span className="level-status">{statusFor(level.id)}</span>
-        </button>
-      ))}
+      {levels.map((level, index) => {
+        const previous = levels[index - 1];
+        const showChapter = !previous || previous.chapter !== level.chapter;
+
+        return (
+          <div className="level-row" key={level.id}>
+            {showChapter && <div className="chapter-label">{level.chapter}</div>}
+            <button
+              className={`level-item ${level.id === currentId ? "active" : ""}`}
+              onClick={() => onSelect(level)}
+              type="button"
+            >
+              <span className="level-index">{String(index + 1).padStart(2, "0")}</span>
+              <span>
+                <strong>{level.title}</strong>
+                <small>
+                  {level.difficulty} · {level.estimatedMinutes} 分钟 · {level.concept}
+                </small>
+              </span>
+              <span className="level-status">{statusFor(level.id)}</span>
+            </button>
+          </div>
+        );
+      })}
     </aside>
   );
 }

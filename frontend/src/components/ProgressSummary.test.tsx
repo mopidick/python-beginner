@@ -11,16 +11,20 @@ describe("ProgressSummary", () => {
         completedCount={3}
         attemptedCount={5}
         hintCount={2}
-        totalCount={15}
+        totalCount={30}
+        chapterCount={6}
+        totalMinutes={210}
         currentLevelTitle="变量与执行状态"
         onReset={vi.fn()}
       />,
     );
 
     expect(screen.getByText("学习概览")).toBeInTheDocument();
-    expect(screen.getByText("3/15")).toBeInTheDocument();
+    expect(screen.getByText("3/30")).toBeInTheDocument();
     expect(screen.getByText("5")).toBeInTheDocument();
     expect(screen.getByText("2")).toBeInTheDocument();
+    expect(screen.getByText("6")).toBeInTheDocument();
+    expect(screen.getByText("210 分钟")).toBeInTheDocument();
     expect(screen.getByText(/变量与执行状态/)).toBeInTheDocument();
   });
 
@@ -32,7 +36,9 @@ describe("ProgressSummary", () => {
         completedCount={0}
         attemptedCount={0}
         hintCount={0}
-        totalCount={15}
+        totalCount={30}
+        chapterCount={6}
+        totalMinutes={210}
         currentLevelTitle="变量与执行状态"
         onReset={onReset}
       />,

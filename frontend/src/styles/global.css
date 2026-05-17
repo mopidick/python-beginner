@@ -133,6 +133,19 @@ p {
   font-weight: 800;
 }
 
+.level-row {
+  display: grid;
+  gap: 6px;
+}
+
+.chapter-label {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 900;
+  margin-top: 6px;
+  padding: 6px 2px 0;
+}
+
 .lesson-panel {
   display: grid;
   gap: 14px;
@@ -166,7 +179,7 @@ p {
 .summary-metrics {
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .summary-metrics div {

@@ -116,6 +116,126 @@ LEVELS = {
             {"id": "order-labels", "label": "labels 描述每个订单数量", "type": "variable_equals", "name": "labels", "expected": ["book x2", "pen x4"]},
         ],
     },
+    "operators-01": {
+        "id": "operators-01",
+        "title": "数值运算：折扣价",
+        "checks": [
+            {"id": "final-price", "label": "final_price 等于 96.0", "type": "variable_equals", "name": "final_price", "expected": 96.0},
+        ],
+    },
+    "rounding-01": {
+        "id": "rounding-01",
+        "title": "四舍五入：平均分",
+        "checks": [
+            {"id": "average-rounded", "label": "average 等于 86.3", "type": "variable_equals", "name": "average", "expected": 86.3},
+        ],
+    },
+    "strings-index-01": {
+        "id": "strings-index-01",
+        "title": "字符串索引：提取代号",
+        "checks": [
+            {"id": "region-cn", "label": "region 等于 CN", "type": "variable_equals", "name": "region", "expected": "CN"},
+        ],
+    },
+    "strings-cleanup-02": {
+        "id": "strings-cleanup-02",
+        "title": "字符串清洗：用户名",
+        "checks": [
+            {"id": "username-clean", "label": "username 等于 ada_lovelace", "type": "variable_equals", "name": "username", "expected": "ada_lovelace"},
+        ],
+    },
+    "conditionals-02": {
+        "id": "conditionals-02",
+        "title": "条件分支：免运费",
+        "checks": [
+            {"id": "shipping-12", "label": "shipping 等于 12", "type": "variable_equals", "name": "shipping", "expected": 12},
+        ],
+    },
+    "conditionals-boss-01": {
+        "id": "conditionals-boss-01",
+        "title": "Boss：成绩评级器",
+        "checks": [
+            {"id": "grade-c", "label": "grade 等于 C", "type": "variable_equals", "name": "grade", "expected": "C"},
+        ],
+    },
+    "list-append-01": {
+        "id": "list-append-01",
+        "title": "列表追加：任务清单",
+        "checks": [
+            {"id": "tasks-appended", "label": "tasks 等于 ['review', 'deploy']", "type": "variable_equals", "name": "tasks", "expected": ["review", "deploy"]},
+        ],
+    },
+    "list-sort-01": {
+        "id": "list-sort-01",
+        "title": "列表排序：排行榜",
+        "checks": [
+            {"id": "ranked-desc", "label": "ranked 等于 [95, 88, 72]", "type": "variable_equals", "name": "ranked", "expected": [95, 88, 72]},
+        ],
+    },
+    "loop-sum-01": {
+        "id": "loop-sum-01",
+        "title": "循环累计：购物车",
+        "checks": [
+            {"id": "total-55", "label": "total 等于 55", "type": "variable_equals", "name": "total", "expected": 55},
+        ],
+    },
+    "loop-boss-01": {
+        "id": "loop-boss-01",
+        "title": "Boss：猜数字结果",
+        "checks": [
+            {"id": "found-at-2", "label": "found_at 等于 2", "type": "variable_equals", "name": "found_at", "expected": 2},
+        ],
+    },
+    "dict-update-01": {
+        "id": "dict-update-01",
+        "title": "字典更新：库存入库",
+        "checks": [
+            {"id": "stock-pen-15", "label": "stock.pen 等于 15", "type": "variable_equals", "name": "stock", "expected": {"pen": 15, "book": 4}},
+        ],
+    },
+    "dict-counting-01": {
+        "id": "dict-counting-01",
+        "title": "字典计数：标签统计",
+        "checks": [
+            {"id": "tag-counts", "label": "counts 正确统计标签", "type": "variable_equals", "name": "counts", "expected": {"python": 2, "web": 1, "data": 1}},
+        ],
+    },
+    "function-params-01": {
+        "id": "function-params-01",
+        "title": "函数参数：欢迎语",
+        "checks": [
+            {"id": "message-welcome", "label": "message 等于 Welcome, Ada!", "type": "variable_equals", "name": "message", "expected": "Welcome, Ada!"},
+        ],
+    },
+    "function-return-02": {
+        "id": "function-return-02",
+        "title": "函数返回值：订单小计",
+        "checks": [
+            {"id": "subtotal-result", "label": "result 等于 45", "type": "variable_equals", "name": "result", "expected": 45},
+        ],
+    },
+    "project-calculator-01": {
+        "id": "project-calculator-01",
+        "title": "项目：命令行计算器核心",
+        "checks": [
+            {"id": "calculator-result", "label": "result 等于 42", "type": "variable_equals", "name": "result", "expected": 42},
+        ],
+    },
+    "project-word-count-01": {
+        "id": "project-word-count-01",
+        "title": "项目：单词统计器",
+        "checks": [
+            {"id": "word-counts", "label": "counts 统计单词频次", "type": "variable_equals", "name": "counts", "expected": {"python": 2, "is": 2, "fun": 1, "and": 1, "useful": 1}},
+        ],
+    },
+    "project-students-01": {
+        "id": "project-students-01",
+        "title": "项目：学生成绩管理",
+        "checks": [
+            {"id": "passed-names", "label": "passed_names 等于 ['Ada', 'Max']", "type": "variable_equals", "name": "passed_names", "expected": ["Ada", "Max"]},
+            {"id": "average-score", "label": "average_score 等于 75.0", "type": "variable_equals", "name": "average_score", "expected": 75.0},
+        ],
+    },
 }
 
 

@@ -5,6 +5,8 @@ type Props = {
   attemptedCount: number;
   hintCount: number;
   totalCount: number;
+  chapterCount: number;
+  totalMinutes: number;
   currentLevelTitle: string;
   onReset: () => void;
 };
@@ -14,6 +16,8 @@ export function ProgressSummary({
   attemptedCount,
   hintCount,
   totalCount,
+  chapterCount,
+  totalMinutes,
   currentLevelTitle,
   onReset,
 }: Props) {
@@ -42,6 +46,14 @@ export function ProgressSummary({
         <div>
           <span>已用提示</span>
           <strong>{hintCount}</strong>
+        </div>
+        <div>
+          <span>章节</span>
+          <strong>{chapterCount}</strong>
+        </div>
+        <div>
+          <span>预计时长</span>
+          <strong>{totalMinutes} 分钟</strong>
         </div>
       </div>
     </section>

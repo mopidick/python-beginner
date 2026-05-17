@@ -58,6 +58,20 @@ describe("Python beginner app", () => {
     expect(JSON.parse(localStorage.getItem("python-beginner-progress") || "{}").completed).toContain("variables-01");
   });
 
+  test("awards three stars when a level passes without hints", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue({
+      ok: true,
+      json: async () => successResponse,
+    } as Response);
+
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: "运行代码" }));
+
+    await waitFor(() => expect(screen.getByText(/获得 3 星/)).toBeInTheDocument());
+    const progress = JSON.parse(localStorage.getItem("python-beginner-progress") || "{}");
+    expect(progress.starsByLevel["variables-01"]).toBe(3);
+  });
+
   test("reset restores starter code", async () => {
     render(<App />);
     const editor = screen.getByLabelText("Python 代码编辑器");

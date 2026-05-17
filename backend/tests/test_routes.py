@@ -71,7 +71,7 @@ def test_levels_endpoint_returns_backend_level_metadata():
 
     assert response.status_code == 200
     body = response.json()
-    assert len(body["levels"]) == 15
+    assert len(body["levels"]) >= 30
     assert body["levels"][0] == {
         "id": "variables-01",
         "title": "变量与执行状态",
