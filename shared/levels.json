@@ -28,7 +28,11 @@
     "story": "用 变量 完成一个贴近日常脚本的小任务。",
     "goal": "掌握变量在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。你已经看到 Python 代码执行后，变量会以运行时对象的形式留在命名空间里。"
+    "recap": "通过。你已经看到 Python 代码执行后，变量会以运行时对象的形式留在命名空间里。",
+    "mode": "lesson",
+    "tags": [
+      "变量"
+    ]
   },
   {
     "id": "types-01",
@@ -75,7 +79,11 @@
     "story": "用 类型 完成一个贴近日常脚本的小任务。",
     "goal": "掌握类型在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。Python 不需要声明变量类型，但每个值在运行时仍然有明确类型。"
+    "recap": "通过。Python 不需要声明变量类型，但每个值在运行时仍然有明确类型。",
+    "mode": "lesson",
+    "tags": [
+      "类型"
+    ]
   },
   {
     "id": "strings-01",
@@ -106,7 +114,11 @@
     "story": "用 字符串 完成一个贴近日常脚本的小任务。",
     "goal": "掌握字符串在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。f-string 是 Python 中最常用、最清晰的字符串插值方式。"
+    "recap": "通过。f-string 是 Python 中最常用、最清晰的字符串插值方式。",
+    "mode": "lesson",
+    "tags": [
+      "字符串"
+    ]
   },
   {
     "id": "lists-01",
@@ -155,7 +167,11 @@
     "story": "用 列表 完成一个贴近日常脚本的小任务。",
     "goal": "掌握列表在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。列表适合表达有序集合，切片能稳定取出子序列。"
+    "recap": "通过。列表适合表达有序集合，切片能稳定取出子序列。",
+    "mode": "lesson",
+    "tags": [
+      "列表"
+    ]
   },
   {
     "id": "dicts-01",
@@ -189,7 +205,11 @@
     "story": "用 字典 完成一个贴近日常脚本的小任务。",
     "goal": "掌握字典在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。字典把数据从有序集合推进到键值结构，很适合表达记录。"
+    "recap": "通过。字典把数据从有序集合推进到键值结构，很适合表达记录。",
+    "mode": "lesson",
+    "tags": [
+      "字典"
+    ]
   },
   {
     "id": "conditionals-01",
@@ -220,7 +240,11 @@
     "story": "用 条件 完成一个贴近日常脚本的小任务。",
     "goal": "掌握条件在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。条件分支把数据状态映射成业务分类，是脚本逻辑的核心。"
+    "recap": "通过。条件分支把数据状态映射成业务分类，是脚本逻辑的核心。",
+    "mode": "lesson",
+    "tags": [
+      "条件"
+    ]
   },
   {
     "id": "loops-01",
@@ -255,7 +279,11 @@
     "story": "用 循环 完成一个贴近日常脚本的小任务。",
     "goal": "掌握循环在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。循环让你对集合里的每个元素应用同一套规则。"
+    "recap": "通过。循环让你对集合里的每个元素应用同一套规则。",
+    "mode": "lesson",
+    "tags": [
+      "循环"
+    ]
   },
   {
     "id": "functions-01",
@@ -286,7 +314,11 @@
     "story": "用 函数 完成一个贴近日常脚本的小任务。",
     "goal": "掌握函数在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。函数把一段规则变成可复用接口，后续关卡会用它组织更真实的脚本。"
+    "recap": "通过。函数把一段规则变成可复用接口，后续关卡会用它组织更真实的脚本。",
+    "mode": "lesson",
+    "tags": [
+      "函数"
+    ]
   },
   {
     "id": "errors-01",
@@ -317,7 +349,11 @@
     "story": "用 异常 完成一个贴近日常脚本的小任务。",
     "goal": "掌握异常在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。异常处理让脚本面对坏输入时仍能给出可预测结果。"
+    "recap": "通过。异常处理让脚本面对坏输入时仍能给出可预测结果。",
+    "mode": "lesson",
+    "tags": [
+      "异常"
+    ]
   },
   {
     "id": "challenge-01",
@@ -348,7 +384,11 @@
     "story": "用 综合 完成一个贴近日常脚本的小任务。",
     "goal": "掌握综合在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。你已经把字符串、列表、循环和变量组合成了一个小型 Python 脚本。"
+    "recap": "通过。你已经把字符串、列表、循环和变量组合成了一个小型 Python 脚本。",
+    "mode": "lesson",
+    "tags": [
+      "综合"
+    ]
   },
   {
     "id": "string-methods-01",
@@ -383,7 +423,11 @@
     "story": "用 字符串 完成一个贴近日常脚本的小任务。",
     "goal": "掌握字符串在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。字符串方法很适合把粗糙文本清洗成稳定结构。"
+    "recap": "通过。字符串方法很适合把粗糙文本清洗成稳定结构。",
+    "mode": "lesson",
+    "tags": [
+      "字符串"
+    ]
   },
   {
     "id": "comprehensions-01",
@@ -418,7 +462,11 @@
     "story": "用 列表推导式 完成一个贴近日常脚本的小任务。",
     "goal": "掌握列表推导式在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。列表推导式把“遍历、过滤、变换”压缩成了清晰的一行。"
+    "recap": "通过。列表推导式把“遍历、过滤、变换”压缩成了清晰的一行。",
+    "mode": "lesson",
+    "tags": [
+      "列表推导式"
+    ]
   },
   {
     "id": "nested-data-01",
@@ -452,7 +500,11 @@
     "story": "用 嵌套结构 完成一个贴近日常脚本的小任务。",
     "goal": "掌握嵌套结构在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。真实 Python 任务里经常会处理列表套字典这样的结构。"
+    "recap": "通过。真实 Python 任务里经常会处理列表套字典这样的结构。",
+    "mode": "lesson",
+    "tags": [
+      "嵌套结构"
+    ]
   },
   {
     "id": "file-lines-01",
@@ -494,7 +546,11 @@
     "story": "用 文本行处理 完成一个贴近日常脚本的小任务。",
     "goal": "掌握文本行处理在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。很多自动化脚本本质上就是读取一批文本行、过滤、统计。"
+    "recap": "通过。很多自动化脚本本质上就是读取一批文本行、过滤、统计。",
+    "mode": "lesson",
+    "tags": [
+      "文本行处理"
+    ]
   },
   {
     "id": "challenge-02",
@@ -536,7 +592,11 @@
     "story": "用 综合 完成一个贴近日常脚本的小任务。",
     "goal": "掌握综合在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。你已经把嵌套数据、循环、推导式和字符串格式化组合成了更接近业务脚本的小任务。"
+    "recap": "通过。你已经把嵌套数据、循环、推导式和字符串格式化组合成了更接近业务脚本的小任务。",
+    "mode": "lesson",
+    "tags": [
+      "综合"
+    ]
   },
   {
     "id": "operators-01",
@@ -567,7 +627,11 @@
     "successMessage": "通过。数值运算是自动化脚本里最常见的第一步。",
     "goal": "掌握数值运算在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。数值运算是自动化脚本里最常见的第一步。"
+    "recap": "通过。数值运算是自动化脚本里最常见的第一步。",
+    "mode": "lesson",
+    "tags": [
+      "数值运算"
+    ]
   },
   {
     "id": "rounding-01",
@@ -598,7 +662,11 @@
     "successMessage": "通过。round 能把计算结果整理成更适合展示的数字。",
     "goal": "掌握数值运算在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。round 能把计算结果整理成更适合展示的数字。"
+    "recap": "通过。round 能把计算结果整理成更适合展示的数字。",
+    "mode": "lesson",
+    "tags": [
+      "数值运算"
+    ]
   },
   {
     "id": "strings-index-01",
@@ -629,7 +697,11 @@
     "successMessage": "通过。字符串切片很适合提取固定格式文本的一部分。",
     "goal": "掌握字符串在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。字符串切片很适合提取固定格式文本的一部分。"
+    "recap": "通过。字符串切片很适合提取固定格式文本的一部分。",
+    "mode": "lesson",
+    "tags": [
+      "字符串"
+    ]
   },
   {
     "id": "strings-cleanup-02",
@@ -660,7 +732,11 @@
     "successMessage": "通过。输入清洗能让后续比较和统计更稳定。",
     "goal": "掌握字符串在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。输入清洗能让后续比较和统计更稳定。"
+    "recap": "通过。输入清洗能让后续比较和统计更稳定。",
+    "mode": "lesson",
+    "tags": [
+      "字符串"
+    ]
   },
   {
     "id": "conditionals-02",
@@ -691,7 +767,11 @@
     "successMessage": "通过。条件分支可以把业务规则写成明确的代码路径。",
     "goal": "掌握条件在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。条件分支可以把业务规则写成明确的代码路径。"
+    "recap": "通过。条件分支可以把业务规则写成明确的代码路径。",
+    "mode": "lesson",
+    "tags": [
+      "条件"
+    ]
   },
   {
     "id": "conditionals-boss-01",
@@ -722,7 +802,11 @@
     "successMessage": "Boss 通过。你已经能把多分支规则写成稳定的判断链。",
     "goal": "掌握条件在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "Boss 通过。你已经能把多分支规则写成稳定的判断链。"
+    "recap": "Boss 通过。你已经能把多分支规则写成稳定的判断链。",
+    "mode": "lesson",
+    "tags": [
+      "条件"
+    ]
   },
   {
     "id": "list-append-01",
@@ -756,7 +840,11 @@
     "successMessage": "通过。append 是构建结果列表时最常用的动作之一。",
     "goal": "掌握列表在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。append 是构建结果列表时最常用的动作之一。"
+    "recap": "通过。append 是构建结果列表时最常用的动作之一。",
+    "mode": "lesson",
+    "tags": [
+      "列表"
+    ]
   },
   {
     "id": "list-sort-01",
@@ -791,7 +879,11 @@
     "successMessage": "通过。排序能把无序数据变成可比较的视图。",
     "goal": "掌握列表在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。排序能把无序数据变成可比较的视图。"
+    "recap": "通过。排序能把无序数据变成可比较的视图。",
+    "mode": "lesson",
+    "tags": [
+      "列表"
+    ]
   },
   {
     "id": "loop-sum-01",
@@ -822,7 +914,11 @@
     "successMessage": "通过。累计模式是循环里最重要的基本套路之一。",
     "goal": "掌握循环在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。累计模式是循环里最重要的基本套路之一。"
+    "recap": "通过。累计模式是循环里最重要的基本套路之一。",
+    "mode": "lesson",
+    "tags": [
+      "循环"
+    ]
   },
   {
     "id": "loop-boss-01",
@@ -853,7 +949,11 @@
     "successMessage": "Boss 通过。你已经能用循环搜索列表里的目标值。",
     "goal": "掌握循环在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "Boss 通过。你已经能用循环搜索列表里的目标值。"
+    "recap": "Boss 通过。你已经能用循环搜索列表里的目标值。",
+    "mode": "lesson",
+    "tags": [
+      "循环"
+    ]
   },
   {
     "id": "dict-update-01",
@@ -887,7 +987,11 @@
     "successMessage": "通过。字典很适合维护带名称的状态。",
     "goal": "掌握字典在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。字典很适合维护带名称的状态。"
+    "recap": "通过。字典很适合维护带名称的状态。",
+    "mode": "lesson",
+    "tags": [
+      "字典"
+    ]
   },
   {
     "id": "dict-counting-01",
@@ -922,7 +1026,11 @@
     "successMessage": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。",
     "goal": "掌握字典在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。"
+    "recap": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。",
+    "mode": "lesson",
+    "tags": [
+      "字典"
+    ]
   },
   {
     "id": "function-params-01",
@@ -953,7 +1061,11 @@
     "successMessage": "通过。参数让函数可以复用同一套规则处理不同输入。",
     "goal": "掌握函数在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。参数让函数可以复用同一套规则处理不同输入。"
+    "recap": "通过。参数让函数可以复用同一套规则处理不同输入。",
+    "mode": "lesson",
+    "tags": [
+      "函数"
+    ]
   },
   {
     "id": "function-return-02",
@@ -984,7 +1096,11 @@
     "successMessage": "通过。返回值让函数计算结果能继续参与后续流程。",
     "goal": "掌握函数在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "通过。返回值让函数计算结果能继续参与后续流程。"
+    "recap": "通过。返回值让函数计算结果能继续参与后续流程。",
+    "mode": "lesson",
+    "tags": [
+      "函数"
+    ]
   },
   {
     "id": "project-calculator-01",
@@ -1015,7 +1131,11 @@
     "successMessage": "项目通过。你已经把条件和数值运算组合成了计算器核心。",
     "goal": "掌握综合在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "项目通过。你已经把条件和数值运算组合成了计算器核心。"
+    "recap": "项目通过。你已经把条件和数值运算组合成了计算器核心。",
+    "mode": "lesson",
+    "tags": [
+      "综合"
+    ]
   },
   {
     "id": "project-word-count-01",
@@ -1052,7 +1172,11 @@
     "successMessage": "项目通过。你完成了一个真实文本分析脚本的核心。",
     "goal": "掌握综合在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "项目通过。你完成了一个真实文本分析脚本的核心。"
+    "recap": "项目通过。你完成了一个真实文本分析脚本的核心。",
+    "mode": "lesson",
+    "tags": [
+      "综合"
+    ]
   },
   {
     "id": "project-students-01",
@@ -1094,6 +1218,337 @@
     "successMessage": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。",
     "goal": "掌握综合在本关任务中的核心用法。",
     "pattern": "先读懂已给数据，再把目标变量拆成可验证的小步骤。",
-    "recap": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。"
+    "recap": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。",
+    "mode": "lesson",
+    "tags": [
+      "综合"
+    ]
+  },
+  {
+    "id": "review-basics-01",
+    "title": "??????????",
+    "chapter": "第 8 章：真实脚本",
+    "difficulty": "进阶",
+    "estimatedMinutes": 8,
+    "story": "????????????????????",
+    "goal": "???????? f-string ??????",
+    "pattern": "?????????? f-string ???????????",
+    "recap": "??????????????????????",
+    "concept": "??",
+    "mode": "review",
+    "tags": [
+      "??",
+      "???",
+      "??"
+    ],
+    "instructions": "?? name ? task_count ?? summary????? Ada has 3 tasks?",
+    "starterCode": "name = \"Ada\"\ntask_count = 3\nsummary = \"\"",
+    "checks": [
+      {
+        "id": "summary-text",
+        "label": "summary ?? Ada has 3 tasks",
+        "type": "variable_equals",
+        "name": "summary",
+        "expected": "Ada has 3 tasks",
+        "hint": "?? summary ???? name ? task_count ???????????"
+      }
+    ],
+    "hints": [
+      "???????????????",
+      "f-string ????????????",
+      "???? f\"{name} has {task_count} tasks\"?"
+    ],
+    "visualizer": "variables",
+    "successMessage": "??????????????????????"
+  },
+  {
+    "id": "review-collections-01",
+    "title": "??????????",
+    "chapter": "第 8 章：真实脚本",
+    "difficulty": "进阶",
+    "estimatedMinutes": 9,
+    "story": "????????????????????",
+    "goal": "?????????????",
+    "pattern": "???????????????????????",
+    "recap": "?????????????????????",
+    "concept": "??",
+    "mode": "review",
+    "tags": [
+      "??",
+      "??",
+      "??"
+    ],
+    "instructions": "? amounts ??????? 50 ???? large_orders???? total_large?",
+    "starterCode": "amounts = [12, 80, 35, 120]\nlarge_orders = []\ntotal_large = 0",
+    "checks": [
+      {
+        "id": "large-orders",
+        "label": "large_orders ?? [80, 120]",
+        "type": "variable_equals",
+        "name": "large_orders",
+        "expected": [
+          80,
+          120
+        ],
+        "hint": "?????? 50 ????? large_orders????????"
+      },
+      {
+        "id": "total-large",
+        "label": "total_large ?? 200",
+        "type": "variable_equals",
+        "name": "total_large",
+        "expected": 200,
+        "hint": "total_large ??????????????"
+      }
+    ],
+    "hints": [
+      "??? amounts?",
+      "? if amount >= 50 ??????????",
+      "????? append ? total_large += amount?"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "????????????????????"
+  },
+  {
+    "id": "review-dicts-01",
+    "title": "?????????",
+    "chapter": "第 8 章：真实脚本",
+    "difficulty": "进阶",
+    "estimatedMinutes": 9,
+    "story": "????????????????",
+    "goal": "?????????????",
+    "pattern": "?????? key??????????????",
+    "recap": "??????????????????????????",
+    "concept": "??",
+    "mode": "review",
+    "tags": [
+      "??",
+      "??",
+      "??"
+    ],
+    "instructions": "?? statuses???????????? counts?",
+    "starterCode": "statuses = [\"ok\", \"fail\", \"ok\", \"retry\", \"fail\"]\ncounts = {}",
+    "checks": [
+      {
+        "id": "status-counts",
+        "label": "counts ??????",
+        "type": "variable_equals",
+        "name": "counts",
+        "expected": {
+          "ok": 2,
+          "fail": 2,
+          "retry": 1
+        },
+        "hint": "counts ? key ????????value ??????"
+      }
+    ],
+    "hints": [
+      "????? status?",
+      "get(status, 0) ??????????",
+      "counts[status] = counts.get(status, 0) + 1?"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "???????????????"
+  },
+  {
+    "id": "review-functions-errors-01",
+    "title": "??????????",
+    "chapter": "第 8 章：真实脚本",
+    "difficulty": "挑战",
+    "estimatedMinutes": 11,
+    "story": "?????????????????????",
+    "goal": "?????????????",
+    "pattern": "? risky ???? try?????????????????",
+    "recap": "?????????????????????????",
+    "concept": "??",
+    "mode": "review",
+    "tags": [
+      "??",
+      "??",
+      "??"
+    ],
+    "instructions": "?? parse_count(text)????????????????? 0?",
+    "starterCode": "def parse_count(text):\n    return text\n\nvalid = parse_count(\"12\")\ninvalid = parse_count(\"oops\")",
+    "checks": [
+      {
+        "id": "valid-count",
+        "label": "valid ?? 12",
+        "type": "variable_equals",
+        "name": "valid",
+        "expected": 12,
+        "hint": "parse_count ??????????? int(text)?"
+      },
+      {
+        "id": "invalid-count",
+        "label": "invalid ?? 0",
+        "type": "variable_equals",
+        "name": "invalid",
+        "expected": 0,
+        "hint": "parse_count ?? ValueError ????? 0?"
+      }
+    ],
+    "hints": [
+      "int(text) ?????????",
+      "?????? ValueError?",
+      "? try / except ValueError ?? int(text)?"
+    ],
+    "visualizer": "variables",
+    "successMessage": "??????????????????"
+  },
+  {
+    "id": "booleans-01",
+    "title": "?????????",
+    "chapter": "第 9 章：脚本实战",
+    "difficulty": "基础",
+    "estimatedMinutes": 7,
+    "story": "????????????????????",
+    "goal": "?? and / or ???????",
+    "pattern": "????????????????????????",
+    "recap": "????????????????????",
+    "concept": "????",
+    "mode": "lesson",
+    "tags": [
+      "??",
+      "??"
+    ],
+    "instructions": "? enabled ? True ? role ? admin ??? can_publish ? True?",
+    "starterCode": "enabled = True\nrole = \"admin\"\ncan_publish = False",
+    "checks": [
+      {
+        "id": "can-publish",
+        "label": "can_publish ? True",
+        "type": "variable_equals",
+        "name": "can_publish",
+        "expected": true,
+        "hint": "can_publish ?????? enabled ? role == \"admin\"?"
+      }
+    ],
+    "hints": [
+      "???????????",
+      "and ???????? True?",
+      "can_publish = enabled and role == \"admin\"?"
+    ],
+    "visualizer": "variables",
+    "successMessage": "????????????????????"
+  },
+  {
+    "id": "none-empty-01",
+    "title": "None ?????????",
+    "chapter": "第 9 章：脚本实战",
+    "difficulty": "进阶",
+    "estimatedMinutes": 8,
+    "story": "??????????????????????",
+    "goal": "?? None????????????????",
+    "pattern": "?????????????????????????????",
+    "recap": "???????????????",
+    "concept": "????",
+    "mode": "lesson",
+    "tags": [
+      "None",
+      "??",
+      "?????"
+    ],
+    "instructions": "如果 items 为空列表，就让 display_items 等于 [\"暂无数据\"]。",
+    "starterCode": "items = []\ndisplay_items = items",
+    "checks": [
+      {
+        "id": "display-fallback",
+        "label": "display_items 等于 [\"暂无数据\"]",
+        "type": "variable_equals",
+        "name": "display_items",
+        "expected": [
+          "暂无数据"
+        ],
+        "hint": "空列表在 if 判断里会被当作 False，可以用它触发兜底。"
+      }
+    ],
+    "hints": [
+      "?????? if items ???",
+      "???????? display_items ???????",
+      "可以写 if items: ... else: display_items = [\"暂无数据\"]。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "??????????????????"
+  },
+  {
+    "id": "project-csv-cleanup-01",
+    "title": "???CSV ??????",
+    "chapter": "第 9 章：脚本实战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 14,
+    "story": "????? CSV ??????????????",
+    "goal": "????????????????",
+    "pattern": "?? split????????????????????",
+    "recap": "???????????????????????",
+    "concept": "??",
+    "mode": "project",
+    "tags": [
+      "???",
+      "??",
+      "????"
+    ],
+    "instructions": "? rows ???????????????????? names?",
+    "starterCode": "rows = [\" ada, 92\", \"lin, 58\", \" MAX, 75\"]\nnames = []",
+    "checks": [
+      {
+        "id": "clean-names",
+        "label": "names ?? [\"Ada\", \"Lin\", \"Max\"]",
+        "type": "variable_equals",
+        "name": "names",
+        "expected": [
+          "Ada",
+          "Lin",
+          "Max"
+        ],
+        "hint": "??????????? strip() ? title()?"
+      }
+    ],
+    "hints": [
+      "??? rows?",
+      "row.split(\",\") ??????????",
+      "? name.strip().title() ??? names?"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "????????????? CSV ?????"
+  },
+  {
+    "id": "project-grade-report-01",
+    "title": "?????????",
+    "chapter": "第 9 章：脚本实战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 15,
+    "story": "???????????????????",
+    "goal": "??????????????",
+    "pattern": "???????????????????????",
+    "recap": "????????????????????????",
+    "concept": "??",
+    "mode": "project",
+    "tags": [
+      "??",
+      "??",
+      "????"
+    ],
+    "instructions": "?? students ?? report??? passed_count ? average?",
+    "starterCode": "students = [{\"name\": \"Ada\", \"score\": 92}, {\"name\": \"Lin\", \"score\": 58}, {\"name\": \"Max\", \"score\": 75}]\nreport = {}",
+    "checks": [
+      {
+        "id": "grade-report",
+        "label": "report ??????????",
+        "type": "variable_equals",
+        "name": "report",
+        "expected": {
+          "passed_count": 2,
+          "average": 75
+        },
+        "hint": "passed_count ?? score >= 60 ????average ?? round(..., 1)?"
+      }
+    ],
+    "hints": [
+      "??? score >= 60 ????",
+      "?????? score ????????",
+      "report = {\"passed_count\": ..., \"average\": ...}?"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "????????????????????"
   }
 ]

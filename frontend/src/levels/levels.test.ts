@@ -4,8 +4,8 @@ import { levels } from "./levels";
 
 describe("course content", () => {
   test("contains a substantial learning path", () => {
-    expect(levels.length).toBeGreaterThanOrEqual(30);
-    expect(new Set(levels.map((level) => level.chapter)).size).toBeGreaterThanOrEqual(6);
+    expect(levels.length).toBeGreaterThanOrEqual(40);
+    expect(new Set(levels.map((level) => level.chapter)).size).toBeGreaterThanOrEqual(8);
   });
 
   test("each level has visible learning metadata and progressive hints", () => {
@@ -18,6 +18,8 @@ describe("course content", () => {
       expect(level.goal.length).toBeGreaterThan(0);
       expect(level.pattern.length).toBeGreaterThan(0);
       expect(level.recap.length).toBeGreaterThan(0);
+      expect(["lesson", "review", "project"]).toContain(level.mode);
+      expect(level.tags.length).toBeGreaterThan(0);
     }
   });
 });

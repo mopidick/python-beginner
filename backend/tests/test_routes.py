@@ -65,11 +65,11 @@ def test_run_endpoint_rejects_too_large_code():
     assert response.status_code == 422
 
 
-def test_health_endpoint_returns_v011():
+def test_health_endpoint_returns_current_version():
     response = client.get("/api/health")
 
     assert response.status_code == 200
-    assert response.json() == {"version": "0.2.5", "status": "ok"}
+    assert response.json() == {"version": "0.3.0", "status": "ok"}
 
 
 def test_levels_endpoint_returns_backend_level_metadata():
@@ -77,7 +77,7 @@ def test_levels_endpoint_returns_backend_level_metadata():
 
     assert response.status_code == 200
     body = response.json()
-    assert len(body["levels"]) >= 30
+    assert len(body["levels"]) >= 40
     assert body["levels"][0] == {
         "id": "variables-01",
         "title": "变量与执行状态",

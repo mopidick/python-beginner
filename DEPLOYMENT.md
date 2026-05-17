@@ -65,7 +65,7 @@ Invoke-RestMethod http://127.0.0.1:8000/api/health
 
 ```json
 {
-  "version": "0.2.5",
+  "version": "0.3.0",
   "status": "ok"
 }
 ```
@@ -197,6 +197,10 @@ npm.cmd run dev -- --host 127.0.0.1 --port 5174
 ```
 
 注意：前端开发代理默认指向 `8000`，如果后端改端口，需要同步调整 `frontend/vite.config.ts`。
+
+### 健康检查版本不是最新
+
+如果 `http://127.0.0.1:8000/api/health` 返回的版本号不是 README 中的当前版本，通常说明旧的 `uvicorn` 进程还在占用端口。先停止旧后端，再重新执行启动命令。
 
 ### npm install 很慢
 

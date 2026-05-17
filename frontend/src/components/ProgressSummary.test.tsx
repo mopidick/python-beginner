@@ -4,6 +4,13 @@ import { describe, expect, test, vi } from "vitest";
 
 import { ProgressSummary } from "./ProgressSummary";
 
+const recommendation = {
+  kind: "continue" as const,
+  levelId: "types-01",
+  title: "继续基础类型",
+  reason: "下一关会把刚学过的变量继续用起来。",
+};
+
 describe("ProgressSummary", () => {
   test("shows learning progress totals", () => {
     render(
@@ -15,6 +22,9 @@ describe("ProgressSummary", () => {
         chapterCount={6}
         totalMinutes={210}
         currentLevelTitle="变量与执行状态"
+        recommendation={recommendation}
+        reviewCount={1}
+        onGoToRecommendation={vi.fn()}
         onReset={vi.fn()}
       />,
     );
@@ -26,6 +36,8 @@ describe("ProgressSummary", () => {
     expect(screen.getByText("6")).toBeInTheDocument();
     expect(screen.getByText("210 分钟")).toBeInTheDocument();
     expect(screen.getByText(/变量与执行状态/)).toBeInTheDocument();
+    expect(screen.getByText("下一步建议")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "继续基础类型" })).toBeInTheDocument();
   });
 
   test("can reset local progress", async () => {
@@ -40,6 +52,9 @@ describe("ProgressSummary", () => {
         chapterCount={6}
         totalMinutes={210}
         currentLevelTitle="变量与执行状态"
+        recommendation={recommendation}
+        reviewCount={0}
+        onGoToRecommendation={vi.fn()}
         onReset={onReset}
       />,
     );

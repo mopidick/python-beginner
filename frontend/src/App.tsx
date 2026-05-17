@@ -8,6 +8,7 @@ import { LevelList } from "./components/LevelList";
 import { ProgressSummary } from "./components/ProgressSummary";
 import { StatePanel } from "./components/StatePanel";
 import { levels, type Level } from "./levels/levels";
+import { getLearningRecommendation, getReviewCandidates } from "./progress/recommendations";
 import "./styles/global.css";
 
 type Progress = {
@@ -19,7 +20,7 @@ type Progress = {
   starsByLevel: Record<string, number>;
 };
 
-const VERSION = "0.2.5";
+const VERSION = "0.3.0";
 const STORAGE_KEY = "python-beginner-progress";
 
 function emptyProgress(): Progress {
@@ -73,6 +74,8 @@ export default function App() {
   const chapterCount = new Set(levels.map((level) => level.chapter)).size;
   const totalMinutes = levels.reduce((total, level) => total + level.estimatedMinutes, 0);
   const currentStars = progress.starsByLevel[currentLevel.id] || 0;
+  const recommendation = getLearningRecommendation(levels, progress);
+  const reviewCandidates = getReviewCandidates(levels, progress);
 
   function starsFor(levelId: string) {
     const hintCount = progress.hintStepsByLevel[levelId] || 0;
@@ -108,6 +111,13 @@ export default function App() {
   function goToNextLevel() {
     if (nextLevel) {
       selectLevel(nextLevel);
+    }
+  }
+
+  function goToRecommendation() {
+    const level = levels.find((item) => item.id === recommendation.levelId);
+    if (level) {
+      selectLevel(level);
     }
   }
 
@@ -195,6 +205,9 @@ export default function App() {
             chapterCount={chapterCount}
             totalMinutes={totalMinutes}
             currentLevelTitle={currentLevel.title}
+            recommendation={recommendation}
+            reviewCount={reviewCandidates.length}
+            onGoToRecommendation={goToRecommendation}
             onReset={resetProgress}
           />
           <div className="lesson-copy">

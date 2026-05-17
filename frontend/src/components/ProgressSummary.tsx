@@ -1,5 +1,7 @@
 import { Trash2 } from "lucide-react";
 
+import type { LearningRecommendation } from "../progress/recommendations";
+
 type Props = {
   completedCount: number;
   attemptedCount: number;
@@ -8,6 +10,9 @@ type Props = {
   chapterCount: number;
   totalMinutes: number;
   currentLevelTitle: string;
+  recommendation: LearningRecommendation;
+  reviewCount: number;
+  onGoToRecommendation: () => void;
   onReset: () => void;
 };
 
@@ -19,6 +24,9 @@ export function ProgressSummary({
   chapterCount,
   totalMinutes,
   currentLevelTitle,
+  recommendation,
+  reviewCount,
+  onGoToRecommendation,
   onReset,
 }: Props) {
   return (
@@ -55,6 +63,17 @@ export function ProgressSummary({
           <span>预计时长</span>
           <strong>{totalMinutes} 分钟</strong>
         </div>
+      </div>
+      <div className="recommendation-card">
+        <div>
+          <span>下一步建议</span>
+          <strong>{recommendation.title}</strong>
+          <p>{recommendation.reason}</p>
+          <small>{reviewCount > 0 ? `建议复习 ${reviewCount} 关` : "当前没有需要优先复习的关卡"}</small>
+        </div>
+        <button type="button" onClick={onGoToRecommendation}>
+          {recommendation.title}
+        </button>
       </div>
     </section>
   );

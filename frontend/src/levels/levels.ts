@@ -1,6 +1,7 @@
 import sharedLevels from "../../../shared/levels.json";
 
 export type LevelDifficulty = "基础" | "进阶" | "挑战";
+export type LevelMode = "lesson" | "review" | "project";
 
 export type LevelCheck = {
   id: string;
@@ -21,6 +22,8 @@ export type Level = {
   goal: string;
   pattern: string;
   recap: string;
+  mode: LevelMode;
+  tags: string[];
   concept: string;
   instructions: string;
   starterCode: string;

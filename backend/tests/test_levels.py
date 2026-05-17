@@ -35,6 +35,14 @@ VALID_SOLUTIONS = {
     "project-calculator-01": "a = 6\nb = 7\nop = '*'\nif op == '+':\n    result = a + b\nelif op == '-':\n    result = a - b\nelif op == '*':\n    result = a * b\nelse:\n    result = a / b",
     "project-word-count-01": "text = 'Python is fun and python is useful'\ncounts = {}\nfor word in text.lower().split():\n    counts[word] = counts.get(word, 0) + 1",
     "project-students-01": "students = [{'name': 'Ada', 'score': 92}, {'name': 'Lin', 'score': 58}, {'name': 'Max', 'score': 75}]\npassed_names = [student['name'] for student in students if student['score'] >= 60]\naverage_score = round(sum(student['score'] for student in students) / len(students), 1)",
+    "review-basics-01": "name = 'Ada'\ntask_count = 3\nsummary = f'{name} has {task_count} tasks'",
+    "review-collections-01": "amounts = [12, 80, 35, 120]\nlarge_orders = []\ntotal_large = 0\nfor amount in amounts:\n    if amount >= 50:\n        large_orders.append(amount)\n        total_large += amount",
+    "review-dicts-01": "statuses = ['ok', 'fail', 'ok', 'retry', 'fail']\ncounts = {}\nfor status in statuses:\n    counts[status] = counts.get(status, 0) + 1",
+    "review-functions-errors-01": "def parse_count(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n\nvalid = parse_count('12')\ninvalid = parse_count('oops')",
+    "booleans-01": "enabled = True\nrole = 'admin'\ncan_publish = enabled and role == 'admin'",
+    "none-empty-01": "items = []\nif items:\n    display_items = items\nelse:\n    display_items = ['\\u6682\\u65e0\\u6570\\u636e']",
+    "project-csv-cleanup-01": "rows = [' ada, 92', 'lin, 58', ' MAX, 75']\nnames = []\nfor row in rows:\n    name, score = row.split(',')\n    names.append(name.strip().title())",
+    "project-grade-report-01": "students = [{'name': 'Ada', 'score': 92}, {'name': 'Lin', 'score': 58}, {'name': 'Max', 'score': 75}]\npassed_count = len([student for student in students if student['score'] >= 60])\naverage = round(sum(student['score'] for student in students) / len(students), 1)\nreport = {'passed_count': passed_count, 'average': average}",
 }
 
 

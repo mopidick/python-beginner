@@ -37,12 +37,14 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.2\.5/)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /变量与执行状态/ })).toBeInTheDocument();
+  expect(screen.getByText(/v0\.3\.0/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
     expect(screen.getByText("学习目标")).toBeInTheDocument();
     expect(screen.getByText("解题套路")).toBeInTheDocument();
+    expect(screen.getByText("下一步建议")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "继续基础类型" })).toBeInTheDocument();
   });
 
   test("runs code and renders summary stdout variables and passed checks", async () => {
@@ -228,12 +230,29 @@ describe("Python beginner app", () => {
 
     await userEvent.clear(editor);
     await userEvent.type(editor, "x = 42");
-    await userEvent.click(screen.getByRole("button", { name: /基础类型/ }));
-    await userEvent.click(screen.getByRole("button", { name: /变量与执行状态/ }));
+    await userEvent.click(screen.getByRole("button", { name: /^02基础类型/ }));
+    await userEvent.click(screen.getByRole("button", { name: /^01变量与执行状态/ }));
 
     expect(screen.getByLabelText("Python 代码编辑器")).toHaveValue("x = 42");
     expect(JSON.parse(localStorage.getItem("python-beginner-progress") || "{}").codeByLevel["variables-01"]).toBe(
       "x = 42",
     );
+  });
+
+  test("jumps to the recommended review level", async () => {
+    localStorage.setItem(
+      "python-beginner-progress",
+      JSON.stringify({
+        completed: ["variables-01"],
+        attempted: ["variables-01", "types-01"],
+        currentLevelId: "variables-01",
+        starsByLevel: { "variables-01": 3 },
+      }),
+    );
+
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: "收口基础类型" }));
+
+    expect(screen.getByRole("heading", { name: "基础类型" })).toBeInTheDocument();
   });
 });

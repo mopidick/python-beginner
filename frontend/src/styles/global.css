@@ -215,6 +215,51 @@ p {
   margin-top: 4px;
 }
 
+.recommendation-card {
+  align-items: center;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr auto;
+  padding: 12px;
+}
+
+.recommendation-card span,
+.recommendation-card small {
+  color: #047857;
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.recommendation-card strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.recommendation-card p {
+  color: #31554a;
+  line-height: 1.5;
+  margin-top: 5px;
+}
+
+.recommendation-card small {
+  margin-top: 7px;
+}
+
+.recommendation-card button {
+  background: #047857;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 800;
+  min-height: 38px;
+  padding: 0 12px;
+}
+
 .lesson-copy span {
   color: #b45309;
   font-size: 13px;
