@@ -1,5 +1,5 @@
 def values_equal(actual, expected):
-    if isinstance(actual, float) and isinstance(expected, float):
+    if isinstance(actual, (int, float)) and isinstance(expected, (int, float)):
         return abs(actual - expected) < 0.000001
     return actual == expected
 

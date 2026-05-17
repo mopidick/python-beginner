@@ -200,7 +200,7 @@ export default function App() {
             <p>{currentLevel.instructions}</p>
             <ul>
               {currentLevel.checks.map((check) => (
-                <li key={check}>{check}</li>
+                <li key={check.id}>{check.label}</li>
               ))}
             </ul>
           </div>

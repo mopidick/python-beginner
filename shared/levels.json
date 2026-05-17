@@ -1,0 +1,966 @@
+[
+  {
+    "id": "variables-01",
+    "title": "变量与执行状态",
+    "concept": "变量",
+    "instructions": "把 x 改成 10，并运行代码。观察右侧变量快照如何从代码里提取当前状态。",
+    "starterCode": "x = 0\nprint(x)",
+    "checks": [
+      {
+        "id": "x-is-10",
+        "label": "创建变量 x，并让它等于 10",
+        "type": "variable_equals",
+        "name": "x",
+        "expected": 10,
+        "hint": "检查变量名是否是 x，并确认它的值是整数 10。"
+      }
+    ],
+    "hints": [
+      "这一关只需要改变量的值。",
+      "保留变量名 x，让等号右侧变成目标数字。",
+      "运行前可以让代码看起来像 x = 10。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。你已经看到 Python 代码执行后，变量会以运行时对象的形式留在命名空间里。",
+    "chapter": "第 1 章：运行状态",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 变量 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "types-01",
+    "title": "基础类型",
+    "concept": "类型",
+    "instructions": "创建 count、name、active 三个变量，分别使用数字、字符串和布尔值。",
+    "starterCode": "count = 0\nname = \"\"\nactive = False",
+    "checks": [
+      {
+        "id": "count-is-3",
+        "label": "count 等于 3",
+        "type": "variable_equals",
+        "name": "count",
+        "expected": 3
+      },
+      {
+        "id": "name-is-python",
+        "label": "name 等于 Python",
+        "type": "variable_equals",
+        "name": "name",
+        "expected": "Python"
+      },
+      {
+        "id": "active-is-true",
+        "label": "active 为 True",
+        "type": "variable_equals",
+        "name": "active",
+        "expected": true
+      }
+    ],
+    "hints": [
+      "三个变量分别要使用数字、字符串和布尔值。",
+      "字符串需要用引号包起来，布尔值首字母大写。",
+      "可以写成 count = 3、name = \"Python\"、active = True。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。Python 不需要声明变量类型，但每个值在运行时仍然有明确类型。",
+    "chapter": "第 1 章：运行状态",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 类型 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "strings-01",
+    "title": "字符串格式化",
+    "concept": "字符串",
+    "instructions": "使用 f-string 生成 message，让它等于 Hello, Ada!",
+    "starterCode": "name = \"Ada\"\nmessage = \"\"",
+    "checks": [
+      {
+        "id": "message-is-hello",
+        "label": "message 等于 Hello, Ada!",
+        "type": "variable_equals",
+        "name": "message",
+        "expected": "Hello, Ada!"
+      }
+    ],
+    "hints": [
+      "message 需要根据 name 生成。",
+      "f-string 可以把变量放进字符串里。",
+      "试试 message = f\"Hello, {name}!\"。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。f-string 是 Python 中最常用、最清晰的字符串插值方式。",
+    "chapter": "第 2 章：文本处理",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 字符串 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "lists-01",
+    "title": "列表与索引",
+    "concept": "列表",
+    "instructions": "修改 numbers，让它包含 1 到 5，并创建 middle 保存中间三个元素。",
+    "starterCode": "numbers = []\nmiddle = []",
+    "checks": [
+      {
+        "id": "numbers-1-to-5",
+        "label": "numbers 等于 [1, 2, 3, 4, 5]",
+        "type": "variable_equals",
+        "name": "numbers",
+        "expected": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "id": "middle-slice",
+        "label": "middle 等于 [2, 3, 4]",
+        "type": "variable_equals",
+        "name": "middle",
+        "expected": [
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "hints": [
+      "先把完整列表 numbers 准备好。",
+      "列表切片可以用起点和终点取中间部分。",
+      "middle 可以来自 numbers[1:4]。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。列表适合表达有序集合，切片能稳定取出子序列。",
+    "chapter": "第 3 章：集合与循环",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 列表 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "dicts-01",
+    "title": "字典与结构化数据",
+    "concept": "字典",
+    "instructions": "从 profile 中取出 name 和 score，生成 summary 字典。",
+    "starterCode": "profile = {\"name\": \"Lin\", \"score\": 8}\nsummary = {}",
+    "checks": [
+      {
+        "id": "summary-name",
+        "label": "summary.name 等于 Lin",
+        "type": "variable_equals",
+        "name": "summary",
+        "expected": {
+          "name": "Lin",
+          "passed": true
+        }
+      }
+    ],
+    "hints": [
+      "summary 也应该是一个字典。",
+      "可以从 profile 里读取 name 和 score。",
+      "passed 可以由 profile[\"score\"] >= 6 得到。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。字典把数据从有序集合推进到键值结构，很适合表达记录。",
+    "chapter": "第 4 章：结构化数据",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 字典 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "conditionals-01",
+    "title": "条件分支",
+    "concept": "条件",
+    "instructions": "根据 score 设置 grade：90 及以上为 A，60 及以上为 B，否则为 C。",
+    "starterCode": "score = 86\ngrade = \"\"",
+    "checks": [
+      {
+        "id": "grade-is-b",
+        "label": "score 为 86 时 grade 等于 B",
+        "type": "variable_equals",
+        "name": "grade",
+        "expected": "B"
+      }
+    ],
+    "hints": [
+      "用 if / elif / else 表达分数区间。",
+      "先判断最高分段，再判断下一档。",
+      "86 小于 90 且大于等于 80，所以 grade 应该是 \"B\"。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。条件分支把数据状态映射成业务分类，是脚本逻辑的核心。",
+    "chapter": "第 2 章：控制流程",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 条件 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "loops-01",
+    "title": "循环与过滤",
+    "concept": "循环",
+    "instructions": "从 numbers 中筛选偶数，保存到 evens。",
+    "starterCode": "numbers = [1, 2, 3, 4, 5, 6]\nevens = []",
+    "checks": [
+      {
+        "id": "evens-list",
+        "label": "evens 等于 [2, 4, 6]",
+        "type": "variable_equals",
+        "name": "evens",
+        "expected": [
+          2,
+          4,
+          6
+        ]
+      }
+    ],
+    "hints": [
+      "需要遍历 numbers。",
+      "偶数可以用 number % 2 == 0 判断。",
+      "符合条件时用 evens.append(number) 加入结果。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。循环让你对集合里的每个元素应用同一套规则。",
+    "chapter": "第 3 章：集合与循环",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 循环 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "functions-01",
+    "title": "函数",
+    "concept": "函数",
+    "instructions": "实现 add_tax(price)，返回加 10% 税后的价格。",
+    "starterCode": "def add_tax(price):\n    return price\n\nresult = add_tax(100)",
+    "checks": [
+      {
+        "id": "result-tax",
+        "label": "result 等于 110.0",
+        "type": "variable_equals",
+        "name": "result",
+        "expected": 110
+      }
+    ],
+    "hints": [
+      "函数返回的是含税价格。",
+      "10% 税意味着乘以 1.1。",
+      "让 add_tax 返回 price * 1.1。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。函数把一段规则变成可复用接口，后续关卡会用它组织更真实的脚本。",
+    "chapter": "第 5 章：函数与抽象",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 函数 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "errors-01",
+    "title": "异常与防御",
+    "concept": "异常",
+    "instructions": "实现 safe_divide(a, b)，当 b 为 0 时返回 None。",
+    "starterCode": "def safe_divide(a, b):\n    return a / b\n\nresult = safe_divide(10, 0)",
+    "checks": [
+      {
+        "id": "result-none",
+        "label": "result 为 None",
+        "type": "variable_equals",
+        "name": "result",
+        "expected": null
+      }
+    ],
+    "hints": [
+      "先处理 b 为 0 的特殊情况。",
+      "遇到无法计算的情况可以 return None。",
+      "在除法之前写 if b == 0: return None。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。异常处理让脚本面对坏输入时仍能给出可预测结果。",
+    "chapter": "第 5 章：函数与抽象",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 异常 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "challenge-01",
+    "title": "综合挑战：日志统计",
+    "concept": "综合",
+    "instructions": "统计 logs 中 ERROR 的数量，保存到 error_count。",
+    "starterCode": "logs = [\"INFO start\", \"ERROR disk\", \"INFO retry\", \"ERROR timeout\"]\nerror_count = 0",
+    "checks": [
+      {
+        "id": "error-count",
+        "label": "error_count 等于 2",
+        "type": "variable_equals",
+        "name": "error_count",
+        "expected": 2
+      }
+    ],
+    "hints": [
+      "需要遍历每一条日志字符串。",
+      "判断字符串里是否包含 ERROR。",
+      "每发现一次 ERROR，就让 error_count 增加 1。"
+    ],
+    "visualizer": "output",
+    "successMessage": "通过。你已经把字符串、列表、循环和变量组合成了一个小型 Python 脚本。",
+    "chapter": "第 6 章：小项目挑战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 12,
+    "story": "用 综合 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "string-methods-01",
+    "title": "字符串方法",
+    "concept": "字符串",
+    "instructions": "清理 raw 字符串，生成 topics 列表，让每个主题去掉空格并首字母大写。",
+    "starterCode": "raw = \"  python,testing,debugging  \"\ntopics = []",
+    "checks": [
+      {
+        "id": "topics-title",
+        "label": "topics 等于 ['Python', 'Testing', 'Debugging']",
+        "type": "variable_equals",
+        "name": "topics",
+        "expected": [
+          "Python",
+          "Testing",
+          "Debugging"
+        ]
+      }
+    ],
+    "hints": [
+      "先去掉 raw 两端空格。",
+      "split(',') 可以按逗号拆成多个字符串。",
+      "对每一项 strip() 后再 title()。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。字符串方法很适合把粗糙文本清洗成稳定结构。",
+    "chapter": "第 2 章：文本处理",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 字符串 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "comprehensions-01",
+    "title": "列表推导式",
+    "concept": "列表推导式",
+    "instructions": "用一行列表推导式筛选偶数，并保存它们的平方到 squares。",
+    "starterCode": "numbers = [1, 2, 3, 4, 5, 6]\nsquares = []",
+    "checks": [
+      {
+        "id": "even-squares",
+        "label": "squares 等于 [4, 16, 36]",
+        "type": "variable_equals",
+        "name": "squares",
+        "expected": [
+          4,
+          16,
+          36
+        ]
+      }
+    ],
+    "hints": [
+      "先想清楚普通循环会怎么写。",
+      "列表推导式格式是 [表达式 for 变量 in 列表 if 条件]。",
+      "表达式可以是 number * number，条件可以是 number % 2 == 0。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。列表推导式把“遍历、过滤、变换”压缩成了清晰的一行。",
+    "chapter": "第 7 章：真实脚本",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 列表推导式 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "nested-data-01",
+    "title": "嵌套数据",
+    "concept": "嵌套结构",
+    "instructions": "从 students 中找出分数最高的学生，并把 name 和 score 保存到 summary 字典。",
+    "starterCode": "students = [{\"name\": \"Ada\", \"score\": 9}, {\"name\": \"Lin\", \"score\": 6}]\nsummary = {}",
+    "checks": [
+      {
+        "id": "top-student",
+        "label": "summary 记录最高分学生",
+        "type": "variable_equals",
+        "name": "summary",
+        "expected": {
+          "name": "Ada",
+          "score": 9
+        }
+      }
+    ],
+    "hints": [
+      "students 是列表，里面每一项都是字典。",
+      "可以用 max 配合 key 找最高分。",
+      "summary 只需要保存最高分学生的 name 和 score。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。真实 Python 任务里经常会处理列表套字典这样的结构。",
+    "chapter": "第 7 章：真实脚本",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 嵌套结构 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "file-lines-01",
+    "title": "模拟文件行处理",
+    "concept": "文本行处理",
+    "instructions": "把 lines 当作文件内容，筛选出 ERROR 行保存到 errors，并统计 error_count。",
+    "starterCode": "lines = [\"INFO start\", \"WARN cache\", \"ERROR disk\", \"ERROR timeout\"]\nerrors = []\nerror_count = 0",
+    "checks": [
+      {
+        "id": "errors-list",
+        "label": "errors 只包含 ERROR 行",
+        "type": "variable_equals",
+        "name": "errors",
+        "expected": [
+          "ERROR disk",
+          "ERROR timeout"
+        ]
+      },
+      {
+        "id": "error-count-lines",
+        "label": "error_count 等于 2",
+        "type": "variable_equals",
+        "name": "error_count",
+        "expected": 2
+      }
+    ],
+    "hints": [
+      "可以先遍历每一行。",
+      "startswith('ERROR') 能判断一行是否以 ERROR 开头。",
+      "error_count 可以直接用 len(errors)。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。很多自动化脚本本质上就是读取一批文本行、过滤、统计。",
+    "chapter": "第 7 章：真实脚本",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "用 文本行处理 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "challenge-02",
+    "title": "综合挑战：订单汇总",
+    "concept": "综合",
+    "instructions": "计算订单总价 total，并生成 labels 描述每个商品的数量。",
+    "starterCode": "orders = [{\"item\": \"book\", \"price\": 30, \"qty\": 2}, {\"item\": \"pen\", \"price\": 5, \"qty\": 4}]\ntotal = 0\nlabels = []",
+    "checks": [
+      {
+        "id": "order-total",
+        "label": "total 等于 80",
+        "type": "variable_equals",
+        "name": "total",
+        "expected": 80
+      },
+      {
+        "id": "order-labels",
+        "label": "labels 描述每个订单数量",
+        "type": "variable_equals",
+        "name": "labels",
+        "expected": [
+          "book x2",
+          "pen x4"
+        ]
+      }
+    ],
+    "hints": [
+      "每个订单的小计是 price * qty。",
+      "total 可以用 sum 汇总所有小计。",
+      "labels 可以用 f-string 生成，比如 book x2。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经把嵌套数据、循环、推导式和字符串格式化组合成了更接近业务脚本的小任务。",
+    "chapter": "第 6 章：小项目挑战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 12,
+    "story": "用 综合 完成一个贴近日常脚本的小任务。"
+  },
+  {
+    "id": "operators-01",
+    "title": "数值运算：折扣价",
+    "chapter": "第 1 章：运行状态",
+    "difficulty": "基础",
+    "estimatedMinutes": 5,
+    "story": "帮一家小店计算商品打折后的价格。",
+    "concept": "数值运算",
+    "instructions": "根据 price 和 discount 计算 final_price，让它等于打折后的价格。",
+    "starterCode": "price = 120\ndiscount = 0.8\nfinal_price = 0",
+    "checks": [
+      {
+        "id": "final-price",
+        "label": "final_price 等于 96.0",
+        "type": "variable_equals",
+        "name": "final_price",
+        "expected": 96
+      }
+    ],
+    "hints": [
+      "折扣价来自原价乘以折扣。",
+      "discount 已经是 0.8，不需要再除以 100。",
+      "让 final_price = price * discount。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。数值运算是自动化脚本里最常见的第一步。"
+  },
+  {
+    "id": "rounding-01",
+    "title": "四舍五入：平均分",
+    "chapter": "第 1 章：运行状态",
+    "difficulty": "基础",
+    "estimatedMinutes": 5,
+    "story": "把三次测验成绩汇总成一个更容易阅读的平均分。",
+    "concept": "数值运算",
+    "instructions": "计算 scores 的平均值，并用 round 保留 1 位小数。",
+    "starterCode": "scores = [88, 92, 79]\naverage = 0",
+    "checks": [
+      {
+        "id": "average-rounded",
+        "label": "average 等于 86.3",
+        "type": "variable_equals",
+        "name": "average",
+        "expected": 86.3
+      }
+    ],
+    "hints": [
+      "平均值是总和除以数量。",
+      "sum(scores) 可以求总分，len(scores) 可以求数量。",
+      "round(value, 1) 可以保留 1 位小数。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。round 能把计算结果整理成更适合展示的数字。"
+  },
+  {
+    "id": "strings-index-01",
+    "title": "字符串索引：提取代号",
+    "chapter": "第 2 章：文本处理",
+    "difficulty": "基础",
+    "estimatedMinutes": 5,
+    "story": "从工单编号里取出代表地区的前缀。",
+    "concept": "字符串",
+    "instructions": "从 ticket 中取出前两个字符，保存到 region。",
+    "starterCode": "ticket = \"CN-2026-042\"\nregion = \"\"",
+    "checks": [
+      {
+        "id": "region-cn",
+        "label": "region 等于 CN",
+        "type": "variable_equals",
+        "name": "region",
+        "expected": "CN"
+      }
+    ],
+    "hints": [
+      "字符串可以像列表一样切片。",
+      "前两个字符的切片范围从 0 到 2。",
+      "region 可以来自 ticket[:2]。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。字符串切片很适合提取固定格式文本的一部分。"
+  },
+  {
+    "id": "strings-cleanup-02",
+    "title": "字符串清洗：用户名",
+    "chapter": "第 2 章：文本处理",
+    "difficulty": "进阶",
+    "estimatedMinutes": 6,
+    "story": "把用户输入整理成统一的小写用户名。",
+    "concept": "字符串",
+    "instructions": "清理 raw_name 两端空格，并转换成小写，保存到 username。",
+    "starterCode": "raw_name = \"  Ada_Lovelace  \"\nusername = \"\"",
+    "checks": [
+      {
+        "id": "username-clean",
+        "label": "username 等于 ada_lovelace",
+        "type": "variable_equals",
+        "name": "username",
+        "expected": "ada_lovelace"
+      }
+    ],
+    "hints": [
+      "先去掉两端空格。",
+      "lower() 可以转换成小写。",
+      "可以链式调用 strip().lower()。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。输入清洗能让后续比较和统计更稳定。"
+  },
+  {
+    "id": "conditionals-02",
+    "title": "条件分支：免运费",
+    "chapter": "第 2 章：控制流程",
+    "difficulty": "进阶",
+    "estimatedMinutes": 6,
+    "story": "给订单判断是否达到免运费门槛。",
+    "concept": "条件",
+    "instructions": "当 subtotal 大于等于 99 时 shipping 为 0，否则为 12。",
+    "starterCode": "subtotal = 86\nshipping = None",
+    "checks": [
+      {
+        "id": "shipping-12",
+        "label": "shipping 等于 12",
+        "type": "variable_equals",
+        "name": "shipping",
+        "expected": 12
+      }
+    ],
+    "hints": [
+      "这是一个二选一判断。",
+      "用 if subtotal >= 99 判断是否免运费。",
+      "当前 subtotal 是 86，所以 shipping 应该是 12。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。条件分支可以把业务规则写成明确的代码路径。"
+  },
+  {
+    "id": "conditionals-boss-01",
+    "title": "Boss：成绩评级器",
+    "chapter": "第 2 章：控制流程",
+    "difficulty": "挑战",
+    "estimatedMinutes": 10,
+    "story": "把考试分数转换成可读等级，用于成绩看板。",
+    "concept": "条件",
+    "instructions": "根据 score 设置 grade：90 及以上 A，80 及以上 B，60 及以上 C，否则 D。",
+    "starterCode": "score = 72\ngrade = \"\"",
+    "checks": [
+      {
+        "id": "grade-c",
+        "label": "grade 等于 C",
+        "type": "variable_equals",
+        "name": "grade",
+        "expected": "C"
+      }
+    ],
+    "hints": [
+      "从最高分段开始判断。",
+      "elif 可以继续判断下一个分段。",
+      "72 大于等于 60 但小于 80，所以是 C。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "Boss 通过。你已经能把多分支规则写成稳定的判断链。"
+  },
+  {
+    "id": "list-append-01",
+    "title": "列表追加：任务清单",
+    "chapter": "第 3 章：集合与循环",
+    "difficulty": "基础",
+    "estimatedMinutes": 5,
+    "story": "把今天的新任务追加到待办列表。",
+    "concept": "列表",
+    "instructions": "把 new_task 追加到 tasks 末尾。",
+    "starterCode": "tasks = [\"review\"]\nnew_task = \"deploy\"\n# 在这里追加任务",
+    "checks": [
+      {
+        "id": "tasks-appended",
+        "label": "tasks 等于 ['review', 'deploy']",
+        "type": "variable_equals",
+        "name": "tasks",
+        "expected": [
+          "review",
+          "deploy"
+        ]
+      }
+    ],
+    "hints": [
+      "列表有 append 方法。",
+      "append 会把元素放到列表末尾。",
+      "调用 tasks.append(new_task)。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。append 是构建结果列表时最常用的动作之一。"
+  },
+  {
+    "id": "list-sort-01",
+    "title": "列表排序：排行榜",
+    "chapter": "第 3 章：集合与循环",
+    "difficulty": "进阶",
+    "estimatedMinutes": 6,
+    "story": "把分数从高到低排序，生成排行榜。",
+    "concept": "列表",
+    "instructions": "把 scores 从高到低排序，保存到 ranked。",
+    "starterCode": "scores = [72, 95, 88]\nranked = []",
+    "checks": [
+      {
+        "id": "ranked-desc",
+        "label": "ranked 等于 [95, 88, 72]",
+        "type": "variable_equals",
+        "name": "ranked",
+        "expected": [
+          95,
+          88,
+          72
+        ]
+      }
+    ],
+    "hints": [
+      "sorted 可以返回一个新列表。",
+      "reverse=True 可以倒序。",
+      "ranked = sorted(scores, reverse=True)。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。排序能把无序数据变成可比较的视图。"
+  },
+  {
+    "id": "loop-sum-01",
+    "title": "循环累计：购物车",
+    "chapter": "第 3 章：集合与循环",
+    "difficulty": "进阶",
+    "estimatedMinutes": 7,
+    "story": "逐项累加购物车金额。",
+    "concept": "循环",
+    "instructions": "遍历 prices，把总价保存到 total。",
+    "starterCode": "prices = [12, 35, 8]\ntotal = 0",
+    "checks": [
+      {
+        "id": "total-55",
+        "label": "total 等于 55",
+        "type": "variable_equals",
+        "name": "total",
+        "expected": 55
+      }
+    ],
+    "hints": [
+      "需要遍历每个价格。",
+      "每次循环都把当前价格加到 total。",
+      "写成 total += price。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。累计模式是循环里最重要的基本套路之一。"
+  },
+  {
+    "id": "loop-boss-01",
+    "title": "Boss：猜数字结果",
+    "chapter": "第 3 章：集合与循环",
+    "difficulty": "挑战",
+    "estimatedMinutes": 10,
+    "story": "根据一组猜测记录，找出第一次猜中的位置。",
+    "concept": "循环",
+    "instructions": "遍历 guesses，找到第一个等于 target 的索引，保存到 found_at。",
+    "starterCode": "target = 7\nguesses = [3, 5, 7, 9]\nfound_at = -1",
+    "checks": [
+      {
+        "id": "found-at-2",
+        "label": "found_at 等于 2",
+        "type": "variable_equals",
+        "name": "found_at",
+        "expected": 2
+      }
+    ],
+    "hints": [
+      "需要同时拿到索引和值。",
+      "enumerate 可以返回 index 和 guess。",
+      "猜中后设置 found_at，然后 break。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "Boss 通过。你已经能用循环搜索列表里的目标值。"
+  },
+  {
+    "id": "dict-update-01",
+    "title": "字典更新：库存入库",
+    "chapter": "第 4 章：结构化数据",
+    "difficulty": "基础",
+    "estimatedMinutes": 5,
+    "story": "新到一批库存，需要更新商品数量。",
+    "concept": "字典",
+    "instructions": "把 stock 中 pen 的数量增加 incoming。",
+    "starterCode": "stock = {\"pen\": 10, \"book\": 4}\nincoming = 5",
+    "checks": [
+      {
+        "id": "stock-pen-15",
+        "label": "stock.pen 等于 15",
+        "type": "variable_equals",
+        "name": "stock",
+        "expected": {
+          "pen": 15,
+          "book": 4
+        }
+      }
+    ],
+    "hints": [
+      "字典可以通过 key 读取和修改值。",
+      "先取出 stock['pen']，再加 incoming。",
+      "写成 stock['pen'] += incoming。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。字典很适合维护带名称的状态。"
+  },
+  {
+    "id": "dict-counting-01",
+    "title": "字典计数：标签统计",
+    "chapter": "第 4 章：结构化数据",
+    "difficulty": "进阶",
+    "estimatedMinutes": 8,
+    "story": "统计一批文章标签出现了多少次。",
+    "concept": "字典",
+    "instructions": "遍历 tags，统计每个标签出现次数，保存到 counts。",
+    "starterCode": "tags = [\"python\", \"web\", \"python\", \"data\"]\ncounts = {}",
+    "checks": [
+      {
+        "id": "tag-counts",
+        "label": "counts 正确统计标签",
+        "type": "variable_equals",
+        "name": "counts",
+        "expected": {
+          "python": 2,
+          "web": 1,
+          "data": 1
+        }
+      }
+    ],
+    "hints": [
+      "counts 的 key 是标签名。",
+      "第一次出现时给它设为 0 或 1。",
+      "counts[tag] = counts.get(tag, 0) + 1。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。字典计数是日志分析、文本统计和数据清洗的核心模式。"
+  },
+  {
+    "id": "function-params-01",
+    "title": "函数参数：欢迎语",
+    "chapter": "第 5 章：函数与抽象",
+    "difficulty": "基础",
+    "estimatedMinutes": 6,
+    "story": "把固定格式的欢迎语封装成函数。",
+    "concept": "函数",
+    "instructions": "实现 greet(name)，返回 Welcome, Ada! 这样的字符串。",
+    "starterCode": "def greet(name):\n    return \"\"\n\nmessage = greet(\"Ada\")",
+    "checks": [
+      {
+        "id": "message-welcome",
+        "label": "message 等于 Welcome, Ada!",
+        "type": "variable_equals",
+        "name": "message",
+        "expected": "Welcome, Ada!"
+      }
+    ],
+    "hints": [
+      "函数参数 name 会接收调用时传入的值。",
+      "可以用 f-string 拼出结果。",
+      "return f\"Welcome, {name}!\"。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。参数让函数可以复用同一套规则处理不同输入。"
+  },
+  {
+    "id": "function-return-02",
+    "title": "函数返回值：订单小计",
+    "chapter": "第 5 章：函数与抽象",
+    "difficulty": "进阶",
+    "estimatedMinutes": 7,
+    "story": "把订单小计计算封装成可复用函数。",
+    "concept": "函数",
+    "instructions": "实现 subtotal(price, qty)，并让 result 等于 45。",
+    "starterCode": "def subtotal(price, qty):\n    return 0\n\nresult = subtotal(15, 3)",
+    "checks": [
+      {
+        "id": "subtotal-result",
+        "label": "result 等于 45",
+        "type": "variable_equals",
+        "name": "result",
+        "expected": 45
+      }
+    ],
+    "hints": [
+      "小计是单价乘以数量。",
+      "函数应该 return 计算结果。",
+      "return price * qty。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。返回值让函数计算结果能继续参与后续流程。"
+  },
+  {
+    "id": "project-calculator-01",
+    "title": "项目：命令行计算器核心",
+    "chapter": "第 6 章：小项目挑战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 12,
+    "story": "实现一个迷你计算器的核心分发逻辑。",
+    "concept": "综合",
+    "instructions": "根据 op 执行加减乘除，把结果保存到 result。当前 op 是 '*'。",
+    "starterCode": "a = 6\nb = 7\nop = \"*\"\nresult = None",
+    "checks": [
+      {
+        "id": "calculator-result",
+        "label": "result 等于 42",
+        "type": "variable_equals",
+        "name": "result",
+        "expected": 42
+      }
+    ],
+    "hints": [
+      "需要根据 op 做条件分支。",
+      "分别处理 '+', '-', '*', '/'。",
+      "当前 op 是 '*'，所以 result 应该是 a * b。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "项目通过。你已经把条件和数值运算组合成了计算器核心。"
+  },
+  {
+    "id": "project-word-count-01",
+    "title": "项目：单词统计器",
+    "chapter": "第 6 章：小项目挑战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 12,
+    "story": "统计一段文本里每个单词出现的次数。",
+    "concept": "综合",
+    "instructions": "把 text 转小写后按空格拆分，统计每个单词出现次数到 counts。",
+    "starterCode": "text = \"Python is fun and python is useful\"\ncounts = {}",
+    "checks": [
+      {
+        "id": "word-counts",
+        "label": "counts 统计单词频次",
+        "type": "variable_equals",
+        "name": "counts",
+        "expected": {
+          "python": 2,
+          "is": 2,
+          "fun": 1,
+          "and": 1,
+          "useful": 1
+        }
+      }
+    ],
+    "hints": [
+      "先把文本 lower()。",
+      "split() 可以按空白拆成单词。",
+      "用 counts[word] = counts.get(word, 0) + 1 累计。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "项目通过。你完成了一个真实文本分析脚本的核心。"
+  },
+  {
+    "id": "project-students-01",
+    "title": "项目：学生成绩管理",
+    "chapter": "第 6 章：小项目挑战",
+    "difficulty": "挑战",
+    "estimatedMinutes": 14,
+    "story": "从学生成绩表里筛选通过者并计算平均分。",
+    "concept": "综合",
+    "instructions": "生成 passed_names，并计算 average_score 保留 1 位小数。",
+    "starterCode": "students = [{\"name\": \"Ada\", \"score\": 92}, {\"name\": \"Lin\", \"score\": 58}, {\"name\": \"Max\", \"score\": 75}]\npassed_names = []\naverage_score = 0",
+    "checks": [
+      {
+        "id": "passed-names",
+        "label": "passed_names 等于 ['Ada', 'Max']",
+        "type": "variable_equals",
+        "name": "passed_names",
+        "expected": [
+          "Ada",
+          "Max"
+        ]
+      },
+      {
+        "id": "average-score",
+        "label": "average_score 等于 75.0",
+        "type": "variable_equals",
+        "name": "average_score",
+        "expected": 75
+      }
+    ],
+    "hints": [
+      "通过者是 score >= 60 的学生。",
+      "平均分来自所有学生分数总和除以人数。",
+      "average_score 可以用 round(..., 1)。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "项目通过。你已经能组合列表、字典、条件和统计逻辑处理一张小表。"
+  }
+]
