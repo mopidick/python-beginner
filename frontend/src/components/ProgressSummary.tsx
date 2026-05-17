@@ -13,8 +13,11 @@ type Props = {
   currentLevelTitle: string;
   recommendation: LearningRecommendation;
   reviewCount: number;
+  reviewCandidates: LearningRecommendation[];
   weakTags: WeakTag[];
+  practiceCount: number;
   onGoToRecommendation: () => void;
+  onGoToLevel: (levelId: string) => void;
   onReset: () => void;
 };
 
@@ -35,8 +38,11 @@ export function ProgressSummary({
   currentLevelTitle,
   recommendation,
   reviewCount,
+  reviewCandidates,
   weakTags,
+  practiceCount,
   onGoToRecommendation,
+  onGoToLevel,
   onReset,
 }: Props) {
   return (
@@ -58,8 +64,8 @@ export function ProgressSummary({
           </strong>
         </div>
         <div>
-          <span>已尝试</span>
-          <strong>{attemptedCount}</strong>
+          <span>练习次数</span>
+          <strong title={`已尝试 ${attemptedCount} 关`}>{practiceCount}</strong>
         </div>
         <div>
           <span>已用提示</span>
@@ -85,6 +91,18 @@ export function ProgressSummary({
           {recommendation.title}
         </button>
       </div>
+      {reviewCandidates.length > 0 && (
+        <div className="review-queue">
+          <span>复习队列</span>
+          <div>
+            {reviewCandidates.map((candidate) => (
+              <button type="button" key={candidate.levelId} onClick={() => onGoToLevel(candidate.levelId)}>
+                {candidate.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="weak-tags">
         <span>薄弱知识点</span>
         {weakTags.length > 0 ? (

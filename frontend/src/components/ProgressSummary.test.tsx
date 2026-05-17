@@ -24,21 +24,25 @@ describe("ProgressSummary", () => {
         currentLevelTitle="变量与执行状态"
         recommendation={recommendation}
         reviewCount={1}
+        reviewCandidates={[recommendation]}
         weakTags={[{ tag: "列表", score: 4, reason: "有未通关尝试" }]}
+        practiceCount={7}
         onGoToRecommendation={vi.fn()}
+        onGoToLevel={vi.fn()}
         onReset={vi.fn()}
       />,
     );
 
     expect(screen.getByText("学习概览")).toBeInTheDocument();
     expect(screen.getByText("3/30")).toBeInTheDocument();
-    expect(screen.getByText("5")).toBeInTheDocument();
+    expect(screen.getByText("7")).toBeInTheDocument();
     expect(screen.getByText("2")).toBeInTheDocument();
     expect(screen.getByText("6")).toBeInTheDocument();
     expect(screen.getByText("210 分钟")).toBeInTheDocument();
     expect(screen.getByText(/变量与执行状态/)).toBeInTheDocument();
     expect(screen.getByText("继续学习")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "继续基础类型" })).toBeInTheDocument();
+    expect(screen.getAllByRole("button", { name: "继续基础类型" })).toHaveLength(2);
+    expect(screen.getByText("复习队列")).toBeInTheDocument();
     expect(screen.getByText("薄弱知识点")).toBeInTheDocument();
     expect(screen.getByText("列表")).toBeInTheDocument();
   });
@@ -57,8 +61,11 @@ describe("ProgressSummary", () => {
         currentLevelTitle="变量与执行状态"
         recommendation={recommendation}
         reviewCount={0}
+        reviewCandidates={[]}
         weakTags={[]}
+        practiceCount={0}
         onGoToRecommendation={vi.fn()}
+        onGoToLevel={vi.fn()}
         onReset={onReset}
       />,
     );

@@ -10,54 +10,10 @@ import { StatePanel } from "./components/StatePanel";
 import { levels, type Level } from "./levels/levels";
 import { getWeakTags } from "./progress/mastery";
 import { getLearningRecommendation, getReviewCandidates } from "./progress/recommendations";
+import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-type Progress = {
-  completed: string[];
-  attempted: string[];
-  currentLevelId: string;
-  codeByLevel: Record<string, string>;
-  hintStepsByLevel: Record<string, number>;
-  starsByLevel: Record<string, number>;
-};
-
-const VERSION = "0.3.1";
-const STORAGE_KEY = "python-beginner-progress";
-
-function emptyProgress(): Progress {
-  return {
-    completed: [],
-    attempted: [],
-    currentLevelId: levels[0].id,
-    codeByLevel: {},
-    hintStepsByLevel: {},
-    starsByLevel: {},
-  };
-}
-
-function loadProgress(): Progress {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      return emptyProgress();
-    }
-    const parsed = JSON.parse(raw) as Partial<Progress>;
-    return {
-      completed: Array.isArray(parsed.completed) ? parsed.completed : [],
-      attempted: Array.isArray(parsed.attempted) ? parsed.attempted : [],
-      currentLevelId: parsed.currentLevelId || levels[0].id,
-      codeByLevel: parsed.codeByLevel || {},
-      hintStepsByLevel: parsed.hintStepsByLevel || {},
-      starsByLevel: parsed.starsByLevel || {},
-    };
-  } catch {
-    return emptyProgress();
-  }
-}
-
-function saveProgress(progress: Progress) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-}
+const VERSION = "0.3.2";
 
 export default function App() {
   const [progress, setProgress] = useState(loadProgress);
@@ -78,6 +34,7 @@ export default function App() {
   const recommendation = getLearningRecommendation(levels, progress);
   const reviewCandidates = getReviewCandidates(levels, progress);
   const weakTags = getWeakTags(levels, progress);
+  const practiceCount = Object.values(progress.attemptCountByLevel).reduce((total, count) => total + count, 0);
 
   function starsFor(levelId: string) {
     const hintCount = progress.hintStepsByLevel[levelId] || 0;
@@ -117,7 +74,11 @@ export default function App() {
   }
 
   function goToRecommendation() {
-    const level = levels.find((item) => item.id === recommendation.levelId);
+    goToLevelId(recommendation.levelId);
+  }
+
+  function goToLevelId(levelId: string) {
+    const level = levels.find((item) => item.id === levelId);
     if (level) {
       selectLevel(level);
     }
@@ -151,10 +112,19 @@ export default function App() {
     try {
       const response = await runCode(currentLevel.id, code);
       setResult(response);
+      const now = new Date().toISOString();
       const baseProgress = {
         ...progress,
         attempted: Array.from(new Set([...progress.attempted, currentLevel.id])),
         codeByLevel: { ...progress.codeByLevel, [currentLevel.id]: code },
+        attemptCountByLevel: {
+          ...progress.attemptCountByLevel,
+          [currentLevel.id]: (progress.attemptCountByLevel[currentLevel.id] || 0) + 1,
+        },
+        lastPracticedAtByLevel: {
+          ...progress.lastPracticedAtByLevel,
+          [currentLevel.id]: now,
+        },
       };
 
       if (response.passed) {
@@ -165,6 +135,10 @@ export default function App() {
           starsByLevel: {
             ...progress.starsByLevel,
             [currentLevel.id]: Math.max(progress.starsByLevel[currentLevel.id] || 0, stars),
+          },
+          passedAtByLevel: {
+            ...progress.passedAtByLevel,
+            [currentLevel.id]: progress.passedAtByLevel[currentLevel.id] || now,
           },
         });
       } else {
@@ -209,8 +183,11 @@ export default function App() {
             currentLevelTitle={currentLevel.title}
             recommendation={recommendation}
             reviewCount={reviewCandidates.length}
+            reviewCandidates={reviewCandidates.slice(0, 3)}
             weakTags={weakTags}
+            practiceCount={practiceCount}
             onGoToRecommendation={goToRecommendation}
+            onGoToLevel={goToLevelId}
             onReset={resetProgress}
           />
           <div className="lesson-copy">

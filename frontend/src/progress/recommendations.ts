@@ -6,6 +6,7 @@ export type RecommendationProgress = {
   currentLevelId: string;
   hintStepsByLevel: Record<string, number>;
   starsByLevel: Record<string, number>;
+  attemptCountByLevel?: Record<string, number>;
 };
 
 export type LearningRecommendation = {
@@ -20,6 +21,7 @@ export function getReviewCandidates(levels: Level[], progress: RecommendationPro
   const attempted = new Set(progress.attempted);
   const unfinishedAttempts = levels
     .filter((level) => attempted.has(level.id) && !completed.has(level.id))
+    .sort((a, b) => (progress.attemptCountByLevel?.[b.id] || 0) - (progress.attemptCountByLevel?.[a.id] || 0))
     .map((level) => ({
       kind: "stuck" as const,
       levelId: level.id,

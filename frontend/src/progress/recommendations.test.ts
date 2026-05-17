@@ -4,9 +4,9 @@ import type { Level } from "../levels/levels";
 import { getLearningRecommendation, getReviewCandidates } from "./recommendations";
 
 const sampleLevels = [
-  { id: "one", title: "第一关", estimatedMinutes: 5 },
-  { id: "two", title: "第二关", estimatedMinutes: 6 },
-  { id: "three", title: "第三关", estimatedMinutes: 7 },
+  { id: "one", title: "第一关", estimatedMinutes: 5, tags: ["变量"] },
+  { id: "two", title: "第二关", estimatedMinutes: 6, tags: ["类型"] },
+  { id: "three", title: "第三关", estimatedMinutes: 7, tags: ["列表"] },
 ] as Level[];
 
 describe("learning recommendations", () => {
@@ -51,6 +51,19 @@ describe("learning recommendations", () => {
 
     expect(candidates.map((candidate) => candidate.levelId)).toEqual(["three", "one"]);
     expect(candidates[0].reason).toBe("已经尝试过但还没有通关，适合优先回到这里收口。");
+  });
+
+  test("sorts unfinished review candidates by attempt count", () => {
+    const candidates = getReviewCandidates(sampleLevels, {
+      completed: [],
+      attempted: ["two", "three"],
+      currentLevelId: "one",
+      hintStepsByLevel: {},
+      starsByLevel: {},
+      attemptCountByLevel: { two: 1, three: 4 },
+    });
+
+    expect(candidates.map((candidate) => candidate.levelId)).toEqual(["three", "two"]);
   });
 
   test("reports completion when everything is finished with three stars", () => {
