@@ -4,6 +4,8 @@ export type WeakTag = {
   tag: string;
   score: number;
   reason: string;
+  levelId: string;
+  levelTitle: string;
 };
 
 export type MasteryProgress = {
@@ -16,12 +18,22 @@ export type MasteryProgress = {
 export function getWeakTags(levels: Level[], progress: MasteryProgress): WeakTag[] {
   const completed = new Set(progress.completed);
   const attempted = new Set(progress.attempted);
-  const tagScores = new Map<string, { score: number; reasons: Set<string> }>();
+  const tagScores = new Map<string, { score: number; reasons: Set<string>; levelId: string; levelTitle: string }>();
 
-  function add(tag: string, score: number, reason: string) {
-    const current = tagScores.get(tag) || { score: 0, reasons: new Set<string>() };
+  function add(level: Level, tag: string, score: number, reason: string) {
+    const current = tagScores.get(tag) || {
+      score: 0,
+      reasons: new Set<string>(),
+      levelId: level.id,
+      levelTitle: level.title,
+    };
+    const previousScore = current.score;
     current.score += score;
     current.reasons.add(reason);
+    if (score >= previousScore) {
+      current.levelId = level.id;
+      current.levelTitle = level.title;
+    }
     tagScores.set(tag, current);
   }
 
@@ -33,13 +45,13 @@ export function getWeakTags(levels: Level[], progress: MasteryProgress): WeakTag
 
     for (const tag of level.tags) {
       if (isAttempted && !isCompleted) {
-        add(tag, 4, "有未通关尝试");
+        add(level, tag, 4, "有未通关尝试");
       }
       if (isCompleted && stars > 0 && stars < 3) {
-        add(tag, 3, `${stars} 星通关`);
+        add(level, tag, 3, `${stars} 星通关`);
       }
       if (hints > 0) {
-        add(tag, hints, "使用过提示");
+        add(level, tag, hints, "使用过提示");
       }
     }
   }
@@ -49,6 +61,8 @@ export function getWeakTags(levels: Level[], progress: MasteryProgress): WeakTag
       tag,
       score: value.score,
       reason: Array.from(value.reasons).join("、"),
+      levelId: value.levelId,
+      levelTitle: value.levelTitle,
     }))
     .sort((a, b) => b.score - a.score || a.tag.localeCompare(b.tag))
     .slice(0, 3);

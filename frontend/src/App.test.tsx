@@ -37,7 +37,7 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.3\.3/)).toBeInTheDocument();
+  expect(screen.getByText(/v0\.3\.4/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
@@ -278,6 +278,24 @@ describe("Python beginner app", () => {
 
     render(<App />);
     await userEvent.click(screen.getAllByRole("button", { name: "收口基础类型" })[0]);
+
+    expect(screen.getByRole("heading", { name: "基础类型" })).toBeInTheDocument();
+  });
+
+  test("jumps from a weak tag to its highest-risk level", async () => {
+    localStorage.setItem(
+      "python-beginner-progress",
+      JSON.stringify({
+        completed: ["types-01"],
+        attempted: ["types-01"],
+        currentLevelId: "variables-01",
+        starsByLevel: { "types-01": 1 },
+        hintStepsByLevel: { "types-01": 2 },
+      }),
+    );
+
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: /^类型基础类型$/ }));
 
     expect(screen.getByRole("heading", { name: "基础类型" })).toBeInTheDocument();
   });

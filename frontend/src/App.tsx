@@ -14,7 +14,7 @@ import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } 
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.3.3";
+const VERSION = "0.3.4";
 
 type StarGain = {
   levelId: string;

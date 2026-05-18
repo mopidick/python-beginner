@@ -119,9 +119,10 @@ export function ProgressSummary({
         {weakTags.length > 0 ? (
           <div>
             {weakTags.map((item) => (
-              <small key={item.tag} title={item.reason}>
+              <button type="button" key={item.tag} title={item.reason} onClick={() => onGoToLevel(item.levelId)}>
                 {item.tag}
-              </small>
+                <small>{item.levelTitle}</small>
+              </button>
             ))}
           </div>
         ) : (

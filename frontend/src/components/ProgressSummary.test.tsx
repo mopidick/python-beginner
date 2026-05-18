@@ -25,7 +25,7 @@ describe("ProgressSummary", () => {
         recommendation={recommendation}
         reviewCount={1}
         reviewCandidates={[recommendation]}
-        weakTags={[{ tag: "列表", score: 4, reason: "有未通关尝试" }]}
+        weakTags={[{ tag: "列表", score: 4, reason: "有未通关尝试", levelId: "lists-01", levelTitle: "列表练习" }]}
         practiceCount={7}
         studyGoal="完成 1 个新关卡，并尽量少用提示拿高星。"
         streakDays={3}
@@ -49,6 +49,7 @@ describe("ProgressSummary", () => {
     expect(screen.getByText("连续学习 3 天")).toBeInTheDocument();
     expect(screen.getByText("薄弱知识点")).toBeInTheDocument();
     expect(screen.getByText("列表")).toBeInTheDocument();
+    expect(screen.getByText("列表练习")).toBeInTheDocument();
   });
 
   test("can reset local progress", async () => {

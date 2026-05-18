@@ -69,7 +69,7 @@ def test_health_endpoint_returns_current_version():
     response = client.get("/api/health")
 
     assert response.status_code == 200
-    assert response.json() == {"version": "0.3.3", "status": "ok"}
+    assert response.json() == {"version": "0.3.4", "status": "ok"}
 
 
 def test_levels_endpoint_returns_backend_level_metadata():
