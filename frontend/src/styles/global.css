@@ -321,6 +321,16 @@ p {
   padding: 0 10px;
 }
 
+.review-queue.empty {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.review-queue strong {
+  color: #166534;
+  font-size: 13px;
+}
+
 .study-goal-card {
   align-items: center;
   background: #eff6ff;

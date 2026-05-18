@@ -102,9 +102,9 @@ export function ProgressSummary({
         </div>
         <small>{streakDays > 0 ? `连续学习 ${streakDays} 天` : "今天运行一次代码就会开始记录连续学习"}</small>
       </div>
-      {reviewCandidates.length > 0 && (
-        <div className="review-queue">
-          <span>复习队列</span>
+      <div className={`review-queue ${reviewCandidates.length === 0 ? "empty" : ""}`}>
+        <span>{reviewCandidates.length > 0 ? "复习队列" : "复习队列已清空"}</span>
+        {reviewCandidates.length > 0 ? (
           <div>
             {reviewCandidates.map((candidate) => (
               <button type="button" key={candidate.levelId} onClick={() => onGoToLevel(candidate.levelId)}>
@@ -112,8 +112,10 @@ export function ProgressSummary({
               </button>
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <strong>{recommendation.kind === "complete" ? "全部关卡已满星，可以回顾项目关保持手感。" : "当前没有需要优先复习的关卡。"}</strong>
+        )}
+      </div>
       <div className="weak-tags">
         <span>薄弱知识点</span>
         {weakTags.length > 0 ? (

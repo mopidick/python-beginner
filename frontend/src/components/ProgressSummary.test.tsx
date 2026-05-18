@@ -81,4 +81,31 @@ describe("ProgressSummary", () => {
 
     expect(onReset).toHaveBeenCalled();
   });
+
+  test("shows a completed review queue state", () => {
+    render(
+      <ProgressSummary
+        completedCount={30}
+        attemptedCount={30}
+        hintCount={0}
+        totalCount={30}
+        chapterCount={6}
+        totalMinutes={210}
+        currentLevelTitle="项目回顾"
+        recommendation={{ kind: "complete", levelId: "done", title: "课程已完成", reason: "全部完成。" }}
+        reviewCount={0}
+        reviewCandidates={[]}
+        weakTags={[]}
+        practiceCount={40}
+        studyGoal="今天做 1 个项目关回顾，保持手感。"
+        streakDays={5}
+        onGoToRecommendation={vi.fn()}
+        onGoToLevel={vi.fn()}
+        onReset={vi.fn()}
+      />,
+    );
+
+    expect(screen.getByText("复习队列已清空")).toBeInTheDocument();
+    expect(screen.getByText("全部关卡已满星，可以回顾项目关保持手感。")).toBeInTheDocument();
+  });
 });
