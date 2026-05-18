@@ -10,10 +10,17 @@ import { StatePanel } from "./components/StatePanel";
 import { levels, type Level } from "./levels/levels";
 import { getWeakTags } from "./progress/mastery";
 import { getLearningRecommendation, getReviewCandidates } from "./progress/recommendations";
+import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } from "./progress/session";
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.3.2";
+const VERSION = "0.3.3";
+
+type StarGain = {
+  levelId: string;
+  previous: number;
+  current: number;
+};
 
 export default function App() {
   const [progress, setProgress] = useState(loadProgress);
@@ -25,6 +32,7 @@ export default function App() {
   const [result, setResult] = useState<RunResponse | null>(null);
   const [networkError, setNetworkError] = useState("");
   const [running, setRunning] = useState(false);
+  const [starGain, setStarGain] = useState<StarGain | null>(null);
   const currentIndex = levels.findIndex((level) => level.id === currentLevel.id);
   const nextLevel = currentIndex >= 0 ? levels[currentIndex + 1] : undefined;
   const usedHintCount = Object.values(progress.hintStepsByLevel).reduce((total, count) => total + count, 0);
@@ -35,6 +43,8 @@ export default function App() {
   const reviewCandidates = getReviewCandidates(levels, progress);
   const weakTags = getWeakTags(levels, progress);
   const practiceCount = Object.values(progress.attemptCountByLevel).reduce((total, count) => total + count, 0);
+  const studyGoal = getStudyGoal(recommendation, reviewCandidates.length);
+  const streakDays = calculateStudyStreak(progress.practiceDates);
 
   function starsFor(levelId: string) {
     const hintCount = progress.hintStepsByLevel[levelId] || 0;
@@ -58,12 +68,14 @@ export default function App() {
     updateProgress(next);
     setCode(codeByLevel[level.id] || level.starterCode);
     setResult(null);
+    setStarGain(null);
     setNetworkError("");
   }
 
   function resetCode() {
     setCode(currentLevel.starterCode);
     setResult(null);
+    setStarGain(null);
     setNetworkError("");
   }
 
@@ -103,6 +115,7 @@ export default function App() {
     updateProgress(next);
     setCode(levels[0].starterCode);
     setResult(null);
+    setStarGain(null);
     setNetworkError("");
   }
 
@@ -113,6 +126,7 @@ export default function App() {
       const response = await runCode(currentLevel.id, code);
       setResult(response);
       const now = new Date().toISOString();
+      const today = getLocalDateKey();
       const baseProgress = {
         ...progress,
         attempted: Array.from(new Set([...progress.attempted, currentLevel.id])),
@@ -125,16 +139,20 @@ export default function App() {
           ...progress.lastPracticedAtByLevel,
           [currentLevel.id]: now,
         },
+        practiceDates: addPracticeDate(progress.practiceDates, today),
       };
 
       if (response.passed) {
         const stars = starsFor(currentLevel.id);
+        const previousStars = progress.starsByLevel[currentLevel.id] || 0;
+        const nextStars = Math.max(previousStars, stars);
+        setStarGain({ levelId: currentLevel.id, previous: previousStars, current: nextStars });
         updateProgress({
           ...baseProgress,
           completed: Array.from(new Set([...progress.completed, currentLevel.id])),
           starsByLevel: {
             ...progress.starsByLevel,
-            [currentLevel.id]: Math.max(progress.starsByLevel[currentLevel.id] || 0, stars),
+            [currentLevel.id]: nextStars,
           },
           passedAtByLevel: {
             ...progress.passedAtByLevel,
@@ -142,6 +160,7 @@ export default function App() {
           },
         });
       } else {
+        setStarGain(null);
         updateProgress(baseProgress);
       }
     } catch (error) {
@@ -186,6 +205,8 @@ export default function App() {
             reviewCandidates={reviewCandidates.slice(0, 3)}
             weakTags={weakTags}
             practiceCount={practiceCount}
+            studyGoal={studyGoal}
+            streakDays={streakDays}
             onGoToRecommendation={goToRecommendation}
             onGoToLevel={goToLevelId}
             onReset={resetProgress}
@@ -227,7 +248,9 @@ export default function App() {
       {result?.passed && (
         <div className="toast success">
           <span>
-            获得 {currentStars || starsFor(currentLevel.id)} 星 · {currentLevel.recap}
+            {starGain && starGain.levelId === currentLevel.id && starGain.previous > 0 && starGain.current > starGain.previous
+              ? `星级从 ${starGain.previous} 提升到 ${starGain.current} · ${currentLevel.recap}`
+              : `获得 ${currentStars || starsFor(currentLevel.id)} 星 · ${currentLevel.recap}`}
           </span>
           {nextLevel && (
             <button type="button" onClick={goToNextLevel}>

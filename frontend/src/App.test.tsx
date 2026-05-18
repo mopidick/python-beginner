@@ -37,7 +37,7 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.3\.2/)).toBeInTheDocument();
+  expect(screen.getByText(/v0\.3\.3/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
@@ -73,6 +73,31 @@ describe("Python beginner app", () => {
     await userEvent.click(screen.getByRole("button", { name: "运行代码" }));
 
     await waitFor(() => expect(screen.getByText(/获得 3 星/)).toBeInTheDocument());
+    const progress = JSON.parse(localStorage.getItem("python-beginner-progress") || "{}");
+    expect(progress.starsByLevel["variables-01"]).toBe(3);
+    expect(progress.practiceDates.length).toBe(1);
+  });
+
+  test("shows star upgrade feedback when reviewing a low-star level", async () => {
+    localStorage.setItem(
+      "python-beginner-progress",
+      JSON.stringify({
+        completed: ["variables-01"],
+        attempted: ["variables-01"],
+        currentLevelId: "variables-01",
+        starsByLevel: { "variables-01": 1 },
+        hintStepsByLevel: { "variables-01": 0 },
+      }),
+    );
+    vi.spyOn(globalThis, "fetch").mockResolvedValue({
+      ok: true,
+      json: async () => successResponse,
+    } as Response);
+
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", { name: "运行代码" }));
+
+    await waitFor(() => expect(screen.getByText(/星级从 1 提升到 3/)).toBeInTheDocument());
     const progress = JSON.parse(localStorage.getItem("python-beginner-progress") || "{}");
     expect(progress.starsByLevel["variables-01"]).toBe(3);
   });

@@ -16,6 +16,8 @@ type Props = {
   reviewCandidates: LearningRecommendation[];
   weakTags: WeakTag[];
   practiceCount: number;
+  studyGoal: string;
+  streakDays: number;
   onGoToRecommendation: () => void;
   onGoToLevel: (levelId: string) => void;
   onReset: () => void;
@@ -41,6 +43,8 @@ export function ProgressSummary({
   reviewCandidates,
   weakTags,
   practiceCount,
+  studyGoal,
+  streakDays,
   onGoToRecommendation,
   onGoToLevel,
   onReset,
@@ -90,6 +94,13 @@ export function ProgressSummary({
         <button type="button" onClick={onGoToRecommendation}>
           {recommendation.title}
         </button>
+      </div>
+      <div className="study-goal-card">
+        <div>
+          <span>今日目标</span>
+          <strong>{studyGoal}</strong>
+        </div>
+        <small>{streakDays > 0 ? `连续学习 ${streakDays} 天` : "今天运行一次代码就会开始记录连续学习"}</small>
       </div>
       {reviewCandidates.length > 0 && (
         <div className="review-queue">

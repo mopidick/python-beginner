@@ -26,6 +26,7 @@ describe("progress storage", () => {
     expect(progress.attemptCountByLevel).toEqual({});
     expect(progress.lastPracticedAtByLevel).toEqual({});
     expect(progress.passedAtByLevel).toEqual({});
+    expect(progress.practiceDates).toEqual([]);
   });
 
   test("falls back to empty progress for broken JSON", () => {
@@ -46,7 +47,7 @@ describe("progress storage", () => {
     });
 
     expect(JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")).toMatchObject({
-      schemaVersion: 2,
+      schemaVersion: 3,
       attemptCountByLevel: { "variables-01": 2 },
     });
   });

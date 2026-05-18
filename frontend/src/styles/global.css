@@ -321,6 +321,34 @@ p {
   padding: 0 10px;
 }
 
+.study-goal-card {
+  align-items: center;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 11px 12px;
+}
+
+.study-goal-card span,
+.study-goal-card small {
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.study-goal-card strong {
+  color: #1f2937;
+  display: block;
+  margin-top: 4px;
+}
+
+.study-goal-card small {
+  flex: 0 0 auto;
+}
+
 .weak-tags {
   align-items: center;
   background: #f8fafc;

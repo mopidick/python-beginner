@@ -27,6 +27,8 @@ describe("ProgressSummary", () => {
         reviewCandidates={[recommendation]}
         weakTags={[{ tag: "列表", score: 4, reason: "有未通关尝试" }]}
         practiceCount={7}
+        studyGoal="完成 1 个新关卡，并尽量少用提示拿高星。"
+        streakDays={3}
         onGoToRecommendation={vi.fn()}
         onGoToLevel={vi.fn()}
         onReset={vi.fn()}
@@ -43,6 +45,8 @@ describe("ProgressSummary", () => {
     expect(screen.getByText("继续学习")).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: "继续基础类型" })).toHaveLength(2);
     expect(screen.getByText("复习队列")).toBeInTheDocument();
+    expect(screen.getByText("今日目标")).toBeInTheDocument();
+    expect(screen.getByText("连续学习 3 天")).toBeInTheDocument();
     expect(screen.getByText("薄弱知识点")).toBeInTheDocument();
     expect(screen.getByText("列表")).toBeInTheDocument();
   });
@@ -64,6 +68,8 @@ describe("ProgressSummary", () => {
         reviewCandidates={[]}
         weakTags={[]}
         practiceCount={0}
+        studyGoal="完成 1 个新关卡，并尽量少用提示拿高星。"
+        streakDays={0}
         onGoToRecommendation={vi.fn()}
         onGoToLevel={vi.fn()}
         onReset={onReset}
