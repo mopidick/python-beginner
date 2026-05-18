@@ -50,6 +50,8 @@ describe("StatePanel", () => {
           actual: 9,
           expected: 10,
           reason: "x 当前是 9，目标是 10。",
+          failureType: "value_mismatch",
+          nextStep: "保留变量 x，把它的值调整到目标值。",
         },
       ],
       diagnostics: [],
@@ -60,6 +62,8 @@ describe("StatePanel", () => {
 
     expect(screen.getByText("本次要修正")).toBeInTheDocument();
     expect(screen.getByText("x 当前是 9，目标是 10。")).toBeInTheDocument();
+    expect(screen.getByText("值不对")).toBeInTheDocument();
+    expect(screen.getByText("保留变量 x，把它的值调整到目标值。")).toBeInTheDocument();
     expect(screen.getByText("当前值")).toBeInTheDocument();
     expect(screen.getByText("目标值")).toBeInTheDocument();
     expect(screen.getAllByText("9").length).toBeGreaterThan(0);

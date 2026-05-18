@@ -43,6 +43,8 @@ def test_run_endpoint_keeps_failed_checks_false():
     assert body["checks"][0]["actual"] == 9
     assert body["checks"][0]["expected"] == 10
     assert body["checks"][0]["reason"] == "x 当前是 9，目标是 10。"
+    assert body["checks"][0]["failureType"] == "value_mismatch"
+    assert "x" in body["checks"][0]["nextStep"]
     assert body["passed"] is False
 
 
@@ -69,7 +71,7 @@ def test_health_endpoint_returns_current_version():
     response = client.get("/api/health")
 
     assert response.status_code == 200
-    assert response.json() == {"version": "0.3.6", "status": "ok"}
+    assert response.json() == {"version": "0.4.0", "status": "ok"}
 
 
 def test_levels_endpoint_returns_backend_level_metadata():

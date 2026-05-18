@@ -2,13 +2,13 @@ from typing import Any
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from app.executor import run_python
 from app.levels import get_level, list_level_summaries
 
 
-VERSION = "0.3.6"
+VERSION = "0.4.0"
 
 
 class RunRequest(BaseModel):
@@ -28,6 +28,8 @@ class SerializedVariable(BaseModel):
 
 
 class CheckResult(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
     id: str
     label: str
     passed: bool

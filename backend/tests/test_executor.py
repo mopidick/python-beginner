@@ -122,6 +122,16 @@ def test_failed_checks_explain_expected_and_actual_values():
     assert result["checks"][0]["actual"] == 9
     assert result["checks"][0]["expected"] == 10
     assert result["checks"][0]["reason"] == "x 当前是 9，目标是 10。"
+    assert result["checks"][0]["failureType"] == "value_mismatch"
+    assert "x" in result["checks"][0]["nextStep"]
+
+
+def test_failed_checks_distinguish_missing_variables_and_type_mismatch():
+    missing = run_python("variables-01", "answer = 10")
+    assert missing["checks"][0]["failureType"] == "missing"
+
+    wrong_type = run_python("variables-01", "x = '10'")
+    assert wrong_type["checks"][0]["failureType"] == "type_mismatch"
 
 
 def test_bool_checks_do_not_accept_integer_standin():
@@ -131,3 +141,4 @@ def test_bool_checks_do_not_accept_integer_standin():
     active_check = next(check for check in result["checks"] if check["id"] == "active-is-true")
     assert active_check["passed"] is False
     assert active_check["reason"] == "active 当前是 1，目标是 true。"
+    assert active_check["failureType"] == "type_mismatch"

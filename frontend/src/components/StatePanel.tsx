@@ -23,6 +23,19 @@ function formatValue(value: unknown) {
   return typeof value === "string" ? value : JSON.stringify(value);
 }
 
+function failureLabel(kind: string | undefined) {
+  if (kind === "missing") {
+    return "缺少变量";
+  }
+  if (kind === "type_mismatch") {
+    return "类型不对";
+  }
+  if (kind === "value_mismatch") {
+    return "值不对";
+  }
+  return "需要调整";
+}
+
 export function StatePanel({ result }: Props) {
   const failedChecks = result?.checks.filter((check) => !check.passed) ?? [];
 
@@ -67,8 +80,12 @@ export function StatePanel({ result }: Props) {
               <div className="correction-list">
                 {failedChecks.map((check) => (
                   <article className="correction-card" key={check.id}>
-                    <strong>{check.label}</strong>
+                    <div className="correction-heading">
+                      <strong>{check.label}</strong>
+                      <span>{failureLabel(check.failureType)}</span>
+                    </div>
                     {check.reason && <p>{check.reason}</p>}
+                    {check.nextStep && <p className="next-step">{check.nextStep}</p>}
                     <div className="value-compare">
                       <div>
                         <span>当前值</span>

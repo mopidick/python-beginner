@@ -11,6 +11,8 @@ export type CheckResult = {
   actual?: unknown;
   expected?: unknown;
   reason?: string;
+  failureType?: "missing" | "type_mismatch" | "value_mismatch";
+  nextStep?: string;
 };
 
 export type RunError = {
