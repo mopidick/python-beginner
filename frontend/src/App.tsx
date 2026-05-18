@@ -8,13 +8,14 @@ import { LevelList } from "./components/LevelList";
 import { ProgressSummary } from "./components/ProgressSummary";
 import { StatePanel } from "./components/StatePanel";
 import { levels, type Level } from "./levels/levels";
+import { getChapterMilestone } from "./progress/chapters";
 import { getWeakTags } from "./progress/mastery";
 import { getLearningRecommendation, getReviewCandidates } from "./progress/recommendations";
 import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } from "./progress/session";
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.3.4";
+const VERSION = "0.3.5";
 
 type StarGain = {
   levelId: string;
@@ -45,6 +46,7 @@ export default function App() {
   const practiceCount = Object.values(progress.attemptCountByLevel).reduce((total, count) => total + count, 0);
   const studyGoal = getStudyGoal(recommendation, reviewCandidates.length);
   const streakDays = calculateStudyStreak(progress.practiceDates);
+  const chapterMilestone = getChapterMilestone(levels, currentLevel.chapter, progress);
 
   function starsFor(levelId: string) {
     const hintCount = progress.hintStepsByLevel[levelId] || 0;
@@ -234,6 +236,29 @@ export default function App() {
               ))}
             </ul>
           </div>
+          {chapterMilestone.completed && (
+            <div className="chapter-milestone">
+              <div>
+                <span>章节里程碑</span>
+                <strong>{chapterMilestone.chapter} 已完成</strong>
+                <p>
+                  本章 {chapterMilestone.completedCount}/{chapterMilestone.totalCount} 关通过，平均{" "}
+                  {chapterMilestone.averageStars} 星。
+                </p>
+              </div>
+              {chapterMilestone.lowStarLevelId ? (
+                <button type="button" onClick={() => goToLevelId(chapterMilestone.lowStarLevelId!)}>
+                  回刷 {chapterMilestone.lowStarLevelTitle}
+                </button>
+              ) : (
+                chapterMilestone.nextLevelId && (
+                  <button type="button" onClick={() => goToLevelId(chapterMilestone.nextLevelId!)}>
+                    进入 {chapterMilestone.nextLevelTitle}
+                  </button>
+                )
+              )}
+            </div>
+          )}
           <HintPanel
             hints={currentLevel.hints}
             revealedCount={progress.hintStepsByLevel[currentLevel.id] || 0}

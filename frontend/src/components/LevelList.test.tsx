@@ -17,7 +17,7 @@ describe("LevelList", () => {
       />,
     );
 
-    expect(screen.getByText("第 1 章：运行状态 · 1/4")).toBeInTheDocument();
+    expect(screen.getByText("第 1 章：运行状态 · 1/4 · 进行中")).toBeInTheDocument();
     expect(screen.getByLabelText("变量与执行状态，已获得 3 星")).toBeInTheDocument();
     expect(screen.getByText("★★★")).toBeInTheDocument();
     expect(screen.getAllByText("新课").length).toBeGreaterThan(0);

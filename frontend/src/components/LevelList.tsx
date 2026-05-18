@@ -1,4 +1,5 @@
 import type { Level } from "../levels/levels";
+import { getChapterMilestone, getChapterStatus } from "../progress/chapters";
 
 type Props = {
   levels: Level[];
@@ -29,9 +30,8 @@ export function LevelList({ levels, currentId, completed, attempted, starsByLeve
   }
 
   function chapterProgress(chapter: string) {
-    const chapterLevels = levels.filter((level) => level.chapter === chapter);
-    const completedCount = chapterLevels.filter((level) => completed.includes(level.id)).length;
-    return `${chapter} · ${completedCount}/${chapterLevels.length}`;
+    const milestone = getChapterMilestone(levels, chapter, { completed, starsByLevel });
+    return `${chapter} · ${milestone.completedCount}/${milestone.totalCount} · ${getChapterStatus(milestone)}`;
   }
 
   function starsFor(level: Level) {

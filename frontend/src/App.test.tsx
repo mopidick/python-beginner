@@ -37,7 +37,7 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.3\.4/)).toBeInTheDocument();
+  expect(screen.getByText(/v0\.3\.5/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
@@ -298,5 +298,24 @@ describe("Python beginner app", () => {
     await userEvent.click(screen.getByRole("button", { name: /^类型基础类型$/ }));
 
     expect(screen.getByRole("heading", { name: "基础类型" })).toBeInTheDocument();
+  });
+
+  test("shows a chapter milestone with a low-star review action", () => {
+    localStorage.setItem(
+      "python-beginner-progress",
+      JSON.stringify({
+        completed: ["variables-01", "types-01", "operators-01", "rounding-01"],
+        attempted: ["variables-01", "types-01", "operators-01", "rounding-01"],
+        currentLevelId: "rounding-01",
+        starsByLevel: { "variables-01": 3, "types-01": 2, "operators-01": 3, "rounding-01": 3 },
+      }),
+    );
+
+    render(<App />);
+
+    expect(screen.getByText("章节里程碑")).toBeInTheDocument();
+    expect(screen.getByText("第 1 章：运行状态 已完成")).toBeInTheDocument();
+    expect(screen.getByText(/平均 2\.8 星/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "回刷 基础类型" })).toBeInTheDocument();
   });
 });
