@@ -1,3 +1,5 @@
+import { useMemo, useState } from "react";
+
 import type { Level } from "../levels/levels";
 import { getChapterMilestone, getChapterStatus } from "../progress/chapters";
 
@@ -16,8 +18,29 @@ const modeLabels: Record<Level["mode"], string> = {
   project: "项目",
 };
 
+const modeFilters = [
+  { label: "全部", value: "all" },
+  { label: "只看新课", value: "lesson" },
+  { label: "只看复习", value: "review" },
+  { label: "只看项目", value: "project" },
+] as const;
+
+type ModeFilter = (typeof modeFilters)[number]["value"];
+
 export function LevelList({ levels, currentId, completed, attempted, starsByLevel = {}, onSelect }: Props) {
-  const chapters = Array.from(new Set(levels.map((level) => level.chapter)));
+  const [query, setQuery] = useState("");
+  const [modeFilter, setModeFilter] = useState<ModeFilter>("all");
+  const normalizedQuery = query.trim().toLowerCase();
+  const filteredLevels = useMemo(
+    () =>
+      levels.filter((level) => {
+        const matchesMode = modeFilter === "all" || level.mode === modeFilter;
+        const searchable = [level.title, level.chapter, level.concept, level.difficulty, ...level.tags].join(" ").toLowerCase();
+        return matchesMode && (!normalizedQuery || searchable.includes(normalizedQuery));
+      }),
+    [levels, modeFilter, normalizedQuery],
+  );
+  const chapters = Array.from(new Set(filteredLevels.map((level) => level.chapter)));
 
   function statusFor(levelId: string) {
     if (completed.includes(levelId)) {
@@ -49,10 +72,35 @@ export function LevelList({ levels, currentId, completed, attempted, starsByLeve
   return (
     <aside className="level-list" aria-label="课程地图">
       <div className="panel-title">关卡</div>
+      <div className="level-filters">
+        <label>
+          <span>搜索关卡</span>
+          <input
+            aria-label="搜索关卡"
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="标题、章节、知识点"
+            type="search"
+            value={query}
+          />
+        </label>
+        <div className="mode-filter" aria-label="关卡类型筛选">
+          {modeFilters.map((filter) => (
+            <button
+              className={modeFilter === filter.value ? "active" : ""}
+              key={filter.value}
+              onClick={() => setModeFilter(filter.value)}
+              type="button"
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+        <strong>筛选结果：{filteredLevels.length}/{levels.length} 关</strong>
+      </div>
       {chapters.map((chapter) => (
         <div className="level-row" key={chapter}>
           <div className="chapter-label">{chapterProgress(chapter)}</div>
-          {levels
+          {filteredLevels
             .filter((level) => level.chapter === chapter)
             .map((level) => {
               const index = levels.findIndex((item) => item.id === level.id);

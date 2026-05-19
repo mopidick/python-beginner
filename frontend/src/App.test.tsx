@@ -37,7 +37,7 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.5\.0/)).toBeInTheDocument();
+  expect(screen.getByText(/v0\.5\.1/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
