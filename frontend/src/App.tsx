@@ -15,7 +15,7 @@ import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } 
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.5.1";
+const VERSION = "0.5.2";
 
 type StarGain = {
   levelId: string;
@@ -262,6 +262,7 @@ export default function App() {
           <HintPanel
             hints={currentLevel.hints}
             revealedCount={progress.hintStepsByLevel[currentLevel.id] || 0}
+            solution={currentLevel.solution}
             onReveal={revealHint}
           />
           <EditorPanel code={code} running={running} onChange={setCode} onRun={handleRun} onReset={resetCode} />

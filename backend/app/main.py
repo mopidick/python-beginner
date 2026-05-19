@@ -8,7 +8,7 @@ from app.executor import run_python
 from app.levels import get_level, list_level_summaries
 
 
-VERSION = "0.5.1"
+VERSION = "0.5.2"
 
 
 class RunRequest(BaseModel):

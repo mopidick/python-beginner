@@ -32,7 +32,8 @@
     "mode": "lesson",
     "tags": [
       "变量"
-    ]
+    ],
+    "solution": "x = 10\nprint(x)"
   },
   {
     "id": "types-01",
@@ -83,7 +84,8 @@
     "mode": "lesson",
     "tags": [
       "类型"
-    ]
+    ],
+    "solution": "count = 3\nname = 'Python'\nactive = True"
   },
   {
     "id": "strings-01",
@@ -118,7 +120,8 @@
     "mode": "lesson",
     "tags": [
       "字符串"
-    ]
+    ],
+    "solution": "name = 'Ada'\nmessage = f'Hello, {name}!'"
   },
   {
     "id": "lists-01",
@@ -171,7 +174,8 @@
     "mode": "lesson",
     "tags": [
       "列表"
-    ]
+    ],
+    "solution": "numbers = [1, 2, 3, 4, 5]\nmiddle = numbers[1:4]"
   },
   {
     "id": "dicts-01",
@@ -209,7 +213,8 @@
     "mode": "lesson",
     "tags": [
       "字典"
-    ]
+    ],
+    "solution": "profile = {'name': 'Lin', 'score': 8}\nsummary = {'name': profile['name'], 'passed': profile['score'] >= 6}"
   },
   {
     "id": "conditionals-01",
@@ -244,7 +249,8 @@
     "mode": "lesson",
     "tags": [
       "条件"
-    ]
+    ],
+    "solution": "score = 86\nif score >= 90:\n    grade = 'A'\nelif score >= 60:\n    grade = 'B'\nelse:\n    grade = 'C'"
   },
   {
     "id": "loops-01",
@@ -283,7 +289,8 @@
     "mode": "lesson",
     "tags": [
       "循环"
-    ]
+    ],
+    "solution": "numbers = [1, 2, 3, 4, 5, 6]\nevens = [number for number in numbers if number % 2 == 0]"
   },
   {
     "id": "functions-01",
@@ -318,7 +325,8 @@
     "mode": "lesson",
     "tags": [
       "函数"
-    ]
+    ],
+    "solution": "def add_tax(price):\n    return price * 1.1\n\nresult = add_tax(100)"
   },
   {
     "id": "errors-01",
@@ -353,7 +361,8 @@
     "mode": "lesson",
     "tags": [
       "异常"
-    ]
+    ],
+    "solution": "def safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return None\n\nresult = safe_divide(10, 0)"
   },
   {
     "id": "challenge-01",
@@ -388,7 +397,8 @@
     "mode": "lesson",
     "tags": [
       "综合"
-    ]
+    ],
+    "solution": "logs = ['INFO start', 'ERROR disk', 'INFO retry', 'ERROR timeout']\nerror_count = 0\nfor line in logs:\n    if line.startswith('ERROR'):\n        error_count += 1"
   },
   {
     "id": "string-methods-01",
@@ -427,7 +437,8 @@
     "mode": "lesson",
     "tags": [
       "字符串"
-    ]
+    ],
+    "solution": "raw = '  python,testing,debugging  '\ntopics = [item.strip().title() for item in raw.strip().split(',')]"
   },
   {
     "id": "comprehensions-01",
@@ -466,7 +477,8 @@
     "mode": "lesson",
     "tags": [
       "列表推导式"
-    ]
+    ],
+    "solution": "numbers = [1, 2, 3, 4, 5, 6]\nsquares = [number * number for number in numbers if number % 2 == 0]"
   },
   {
     "id": "nested-data-01",
@@ -504,7 +516,8 @@
     "mode": "lesson",
     "tags": [
       "嵌套结构"
-    ]
+    ],
+    "solution": "students = [{'name': 'Ada', 'score': 9}, {'name': 'Lin', 'score': 6}]\ntop_student = max(students, key=lambda student: student['score'])\nsummary = {'name': top_student['name'], 'score': top_student['score']}"
   },
   {
     "id": "file-lines-01",
@@ -550,7 +563,8 @@
     "mode": "lesson",
     "tags": [
       "文本行处理"
-    ]
+    ],
+    "solution": "lines = ['INFO start', 'WARN cache', 'ERROR disk', 'ERROR timeout']\nerrors = [line for line in lines if line.startswith('ERROR')]\nerror_count = len(errors)"
   },
   {
     "id": "challenge-02",
@@ -596,7 +610,8 @@
     "mode": "lesson",
     "tags": [
       "综合"
-    ]
+    ],
+    "solution": "orders = [{'item': 'book', 'price': 30, 'qty': 2}, {'item': 'pen', 'price': 5, 'qty': 4}]\ntotal = sum(order['price'] * order['qty'] for order in orders)\nlabels = [f\"{order['item']} x{order['qty']}\" for order in orders]"
   },
   {
     "id": "operators-01",
@@ -631,7 +646,8 @@
     "mode": "lesson",
     "tags": [
       "数值运算"
-    ]
+    ],
+    "solution": "price = 120\ndiscount = 0.8\nfinal_price = price * discount"
   },
   {
     "id": "rounding-01",
@@ -666,7 +682,8 @@
     "mode": "lesson",
     "tags": [
       "数值运算"
-    ]
+    ],
+    "solution": "scores = [88, 92, 79]\naverage = round(sum(scores) / len(scores), 1)"
   },
   {
     "id": "strings-index-01",
@@ -701,7 +718,8 @@
     "mode": "lesson",
     "tags": [
       "字符串"
-    ]
+    ],
+    "solution": "ticket = 'CN-2026-042'\nregion = ticket[:2]"
   },
   {
     "id": "strings-cleanup-02",
@@ -736,7 +754,8 @@
     "mode": "lesson",
     "tags": [
       "字符串"
-    ]
+    ],
+    "solution": "raw_name = '  Ada_Lovelace  '\nusername = raw_name.strip().lower()"
   },
   {
     "id": "conditionals-02",
@@ -771,7 +790,8 @@
     "mode": "lesson",
     "tags": [
       "条件"
-    ]
+    ],
+    "solution": "subtotal = 86\nif subtotal >= 99:\n    shipping = 0\nelse:\n    shipping = 12"
   },
   {
     "id": "conditionals-boss-01",
@@ -806,7 +826,8 @@
     "mode": "lesson",
     "tags": [
       "条件"
-    ]
+    ],
+    "solution": "score = 72\nif score >= 90:\n    grade = 'A'\nelif score >= 80:\n    grade = 'B'\nelif score >= 60:\n    grade = 'C'\nelse:\n    grade = 'D'"
   },
   {
     "id": "list-append-01",
@@ -844,7 +865,8 @@
     "mode": "lesson",
     "tags": [
       "列表"
-    ]
+    ],
+    "solution": "tasks = ['review']\nnew_task = 'deploy'\ntasks.append(new_task)"
   },
   {
     "id": "list-sort-01",
@@ -883,7 +905,8 @@
     "mode": "lesson",
     "tags": [
       "列表"
-    ]
+    ],
+    "solution": "scores = [72, 95, 88]\nranked = [95, 88, 72]"
   },
   {
     "id": "loop-sum-01",
@@ -918,7 +941,8 @@
     "mode": "lesson",
     "tags": [
       "循环"
-    ]
+    ],
+    "solution": "prices = [12, 35, 8]\ntotal = 0\nfor price in prices:\n    total += price"
   },
   {
     "id": "loop-boss-01",
@@ -953,7 +977,8 @@
     "mode": "lesson",
     "tags": [
       "循环"
-    ]
+    ],
+    "solution": "target = 7\nguesses = [3, 5, 7, 9]\nfound_at = -1\nfor index, guess in enumerate(guesses):\n    if guess == target:\n        found_at = index\n        break"
   },
   {
     "id": "dict-update-01",
@@ -991,7 +1016,8 @@
     "mode": "lesson",
     "tags": [
       "字典"
-    ]
+    ],
+    "solution": "stock = {'pen': 10, 'book': 4}\nincoming = 5\nstock['pen'] += incoming"
   },
   {
     "id": "dict-counting-01",
@@ -1030,7 +1056,8 @@
     "mode": "lesson",
     "tags": [
       "字典"
-    ]
+    ],
+    "solution": "tags = ['python', 'web', 'python', 'data']\ncounts = {}\nfor tag in tags:\n    counts[tag] = counts.get(tag, 0) + 1"
   },
   {
     "id": "function-params-01",
@@ -1065,7 +1092,8 @@
     "mode": "lesson",
     "tags": [
       "函数"
-    ]
+    ],
+    "solution": "def greet(name):\n    return f'Welcome, {name}!'\n\nmessage = greet('Ada')"
   },
   {
     "id": "function-return-02",
@@ -1100,7 +1128,8 @@
     "mode": "lesson",
     "tags": [
       "函数"
-    ]
+    ],
+    "solution": "def subtotal(price, qty):\n    return price * qty\n\nresult = subtotal(15, 3)"
   },
   {
     "id": "project-calculator-01",
@@ -1135,7 +1164,8 @@
     "mode": "lesson",
     "tags": [
       "综合"
-    ]
+    ],
+    "solution": "a = 6\nb = 7\nop = '*'\nif op == '+':\n    result = a + b\nelif op == '-':\n    result = a - b\nelif op == '*':\n    result = a * b\nelse:\n    result = a / b"
   },
   {
     "id": "project-word-count-01",
@@ -1176,7 +1206,8 @@
     "mode": "lesson",
     "tags": [
       "综合"
-    ]
+    ],
+    "solution": "text = 'Python is fun and python is useful'\ncounts = {}\nfor word in text.lower().split():\n    counts[word] = counts.get(word, 0) + 1"
   },
   {
     "id": "project-students-01",
@@ -1222,7 +1253,8 @@
     "mode": "lesson",
     "tags": [
       "综合"
-    ]
+    ],
+    "solution": "students = [{'name': 'Ada', 'score': 92}, {'name': 'Lin', 'score': 58}, {'name': 'Max', 'score': 75}]\npassed_names = [student['name'] for student in students if student['score'] >= 60]\naverage_score = round(sum(student['score'] for student in students) / len(students), 1)"
   },
   {
     "id": "review-basics-01",
@@ -1259,7 +1291,8 @@
       "可以写成 summary = f\"{name} has {task_count} tasks\"。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。你已经能把多个基础值组合成清晰的脚本输出。"
+    "successMessage": "通过。你已经能把多个基础值组合成清晰的脚本输出。",
+    "solution": "name = 'Ada'\ntask_count = 3\nsummary = f'{name} has {task_count} tasks'"
   },
   {
     "id": "review-collections-01",
@@ -1307,7 +1340,8 @@
       "满足条件时同时执行 append 和 total_large += amount。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你完成了列表筛选和累计这两个高频组合动作。"
+    "successMessage": "通过。你完成了列表筛选和累计这两个高频组合动作。",
+    "solution": "amounts = [12, 80, 35, 120]\nlarge_orders = []\ntotal_large = 0\nfor amount in amounts:\n    if amount >= 50:\n        large_orders.append(amount)\n        total_large += amount"
   },
   {
     "id": "review-dicts-01",
@@ -1348,7 +1382,8 @@
       "可以写 counts[status] = counts.get(status, 0) + 1。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能用字典把重复数据压缩成统计结果。"
+    "successMessage": "通过。你已经能用字典把重复数据压缩成统计结果。",
+    "solution": "statuses = ['ok', 'fail', 'ok', 'retry', 'fail']\ncounts = {}\nfor status in statuses:\n    counts[status] = counts.get(status, 0) + 1"
   },
   {
     "id": "review-functions-errors-01",
@@ -1393,7 +1428,8 @@
       "在 except ValueError 中 return 0。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。你写出了能处理脏数据的函数。"
+    "successMessage": "通过。你写出了能处理脏数据的函数。",
+    "solution": "def parse_count(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n\nvalid = parse_count('12')\ninvalid = parse_count('oops')"
   },
   {
     "id": "booleans-01",
@@ -1430,7 +1466,8 @@
       "可以写 can_publish = enabled and role == \"admin\"。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。你已经能把多个条件合并成一个清晰判断。"
+    "successMessage": "通过。你已经能把多个条件合并成一个清晰判断。",
+    "solution": "enabled = True\nrole = 'admin'\ncan_publish = enabled and role == 'admin'"
   },
   {
     "id": "none-empty-01",
@@ -1469,7 +1506,8 @@
       "else 分支里写 display_items = [\"暂无数据\"]。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经能为无数据场景准备稳定的显示结果。"
+    "successMessage": "通过。你已经能为无数据场景准备稳定的显示结果。",
+    "solution": "items = []\nif items:\n    display_items = items\nelse:\n    display_items = ['\\u6682\\u65e0\\u6570\\u636e']"
   },
   {
     "id": "project-csv-cleanup-01",
@@ -1522,7 +1560,8 @@
       "循环里分别 append 到 names 和 scores。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经能把松散文本清洗成后续脚本可用的数据。"
+    "successMessage": "通过。你已经能把松散文本清洗成后续脚本可用的数据。",
+    "solution": "rows = [' ada, 92', 'lin, 58', ' MAX, 75']\nnames = []\nscores = []\nfor row in rows:\n    name, score = row.split(',')\n    names.append(name.strip().title())\n    scores.append(int(score.strip()))"
   },
   {
     "id": "project-grade-report-01",
@@ -1578,7 +1617,8 @@
       "最后写 report = {\"passed_count\": passed_count, \"average\": average}。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能把列表数据整理成可交付的小报告。"
+    "successMessage": "通过。你已经能把列表数据整理成可交付的小报告。",
+    "solution": "students = [{'name': 'Ada', 'score': 92}, {'name': 'Lin', 'score': 58}, {'name': 'Max', 'score': 75}]\npassed_count = len([student for student in students if student['score'] >= 60])\naverage = round(sum(student['score'] for student in students) / len(students), 1)\nreport = {'passed_count': passed_count, 'average': average}"
   },
   {
     "id": "review-string-pipeline-01",
@@ -1619,7 +1659,8 @@
       "用列表推导式一次生成 tags。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经能把文本清洗步骤串成稳定流水线。"
+    "successMessage": "通过。你已经能把文本清洗步骤串成稳定流水线。",
+    "solution": "raw_tags = ' Python | Testing | Debugging '\ntags = [tag.strip().lower() for tag in raw_tags.split('|')]"
   },
   {
     "id": "review-loop-accumulators-01",
@@ -1667,7 +1708,8 @@
       "positive_total 不应该包含负数。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经能在一次循环里维护多个统计结果。"
+    "successMessage": "通过。你已经能在一次循环里维护多个统计结果。",
+    "solution": "amounts = [30, -5, 18, -2, 12]\npositive_total = 0\nrefunds = []\nfor amount in amounts:\n    if amount > 0:\n        positive_total += amount\n    else:\n        refunds.append(amount)"
   },
   {
     "id": "function-normalize-01",
@@ -1708,7 +1750,8 @@
       "cleaned_names = [normalize_name(name) for name in raw_names]。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经把清洗步骤封装成函数。"
+    "successMessage": "通过。你已经把清洗步骤封装成函数。",
+    "solution": "raw_names = [' ada ', 'LIN', ' max chen ']\ndef normalize_name(name):\n    return name.strip().title()\n\ncleaned_names = [normalize_name(name) for name in raw_names]"
   },
   {
     "id": "defensive-index-01",
@@ -1753,7 +1796,8 @@
       "同一个 if/else 里同时设置 first_candidate 和 message。"
     ],
     "visualizer": "variables",
-    "successMessage": "通过。你已经能在取值前保护边界情况。"
+    "successMessage": "通过。你已经能在取值前保护边界情况。",
+    "solution": "candidates = []\nif candidates:\n    first_candidate = candidates[0]\n    message = first_candidate\nelse:\n    first_candidate = None\n    message = '暂无候选'"
   },
   {
     "id": "project-sales-tax-01",
@@ -1810,7 +1854,8 @@
       "invoice = {\"subtotal\": subtotal, \"tax\": tax, \"total\": total}。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能产出一个小型订单结算结果。"
+    "successMessage": "通过。你已经能产出一个小型订单结算结果。",
+    "solution": "orders = [{'item': 'book', 'price': 30, 'qty': 2}, {'item': 'course', 'price': 85, 'qty': 1}]\nsubtotal = sum(order['price'] * order['qty'] for order in orders)\ntax = round(subtotal * 0.08, 1)\ntotal = round(subtotal + tax, 1)\ninvoice = {'subtotal': subtotal, 'tax': tax, 'total': total}"
   },
   {
     "id": "project-inventory-alert-01",
@@ -1861,7 +1906,8 @@
       "字典的插入顺序会跟遍历顺序一致。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能从库存字典生成预警清单。"
+    "successMessage": "通过。你已经能从库存字典生成预警清单。",
+    "solution": "stock = {'paper': 5, 'pen': 18, 'ink': 13, 'staple': 9}\nlow_items = []\nreorder = {}\nfor item, count in stock.items():\n    if count < 10:\n        low_items.append(item)\n        reorder[item] = 20 - count"
   },
   {
     "id": "project-user-slugs-01",
@@ -1914,7 +1960,8 @@
       "循环里同时 append slug，并设置 lookup[slug] = clean_name。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能为用户数据生成稳定标识。"
+    "successMessage": "通过。你已经能为用户数据生成稳定标识。",
+    "solution": "raw_users = [' Ada Lovelace ', 'lin tan', 'MAX CHEN']\nslugs = []\nlookup = {}\nfor raw_user in raw_users:\n    clean_name = raw_user.strip().title()\n    slug = clean_name.lower().replace(' ', '-')\n    slugs.append(slug)\n    lookup[slug] = clean_name"
   },
   {
     "id": "project-support-triage-01",
@@ -1962,7 +2009,8 @@
       "urgent 条件需要再加 ticket[\"priority\"] == \"high\"。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经能把工单队列整理出处理优先级。"
+    "successMessage": "通过。你已经能把工单队列整理出处理优先级。",
+    "solution": "tickets = [{'id': 101, 'priority': 'low', 'status': 'open'}, {'id': 102, 'priority': 'high', 'status': 'open'}, {'id': 103, 'priority': 'high', 'status': 'closed'}, {'id': 104, 'priority': 'high', 'status': 'open'}]\nurgent_ids = []\nopen_count = 0\nfor ticket in tickets:\n    if ticket['status'] == 'open':\n        open_count += 1\n        if ticket['priority'] == 'high':\n            urgent_ids.append(ticket['id'])"
   },
   {
     "id": "project-expense-report-01",
@@ -2011,7 +2059,8 @@
       "approved_total 每次累加 approved 的 amount。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能按业务状态过滤并分组汇总。"
+    "successMessage": "通过。你已经能按业务状态过滤并分组汇总。",
+    "solution": "expenses = [{'category': 'travel', 'amount': 120, 'approved': True}, {'category': 'meal', 'amount': 45, 'approved': True}, {'category': 'travel', 'amount': 30, 'approved': False}, {'category': 'book', 'amount': 80, 'approved': True}]\ntotals = {}\napproved_total = 0\nfor expense in expenses:\n    if expense['approved']:\n        category = expense['category']\n        amount = expense['amount']\n        totals[category] = totals.get(category, 0) + amount\n        approved_total += amount"
   },
   {
     "id": "project-log-window-01",
@@ -2058,7 +2107,8 @@
       "过滤后用 len(recent_errors) 得到数量。"
     ],
     "visualizer": "sequence",
-    "successMessage": "通过。你已经能按窗口筛选关键日志。"
+    "successMessage": "通过。你已经能按窗口筛选关键日志。",
+    "solution": "logs = [{'minute': 3, 'message': 'ERROR boot'}, {'minute': 10, 'message': 'INFO ready'}, {'minute': 12, 'message': 'ERROR payment'}, {'minute': 15, 'message': 'WARN retry'}]\nrecent_errors = []\nfor log in logs:\n    if log['minute'] >= 10 and log['message'].startswith('ERROR'):\n        recent_errors.append(log['message'])\nerror_count = len(recent_errors)"
   },
   {
     "id": "project-feature-flags-01",
@@ -2109,7 +2159,8 @@
       "rollout = {\"enabled\": len(enabled_users), \"total\": len(users)}。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能根据规则生成灰度发布名单。"
+    "successMessage": "通过。你已经能根据规则生成灰度发布名单。",
+    "solution": "users = [{'name': 'Ada', 'plan': 'pro', 'beta': False}, {'name': 'Lin', 'plan': 'free', 'beta': False}, {'name': 'Max', 'plan': 'free', 'beta': True}]\nenabled_users = []\nfor user in users:\n    if user['plan'] == 'pro' or user['beta']:\n        enabled_users.append(user['name'])\nrollout = {'enabled': len(enabled_users), 'total': len(users)}"
   },
   {
     "id": "project-score-bands-01",
@@ -2163,6 +2214,7 @@
       "passed_names 可以在 score >= 60 时追加。"
     ],
     "visualizer": "mapping",
-    "successMessage": "通过。你已经能把成绩列表整理成分段报告。"
+    "successMessage": "通过。你已经能把成绩列表整理成分段报告。",
+    "solution": "scores = [{'name': 'Ada', 'score': 95}, {'name': 'Lin', 'score': 81}, {'name': 'Max', 'score': 67}, {'name': 'Yi', 'score': 92}]\nbands = {'A': 0, 'B': 0, 'C': 0}\npassed_names = []\nfor item in scores:\n    score = item['score']\n    if score >= 90:\n        bands['A'] += 1\n    elif score >= 75:\n        bands['B'] += 1\n    else:\n        bands['C'] += 1\n    if score >= 60:\n        passed_names.append(item['name'])"
   }
 ]

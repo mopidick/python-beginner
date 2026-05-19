@@ -27,6 +27,7 @@ export type Level = {
   concept: string;
   instructions: string;
   starterCode: string;
+  solution: string;
   checks: LevelCheck[];
   hints: string[];
   visualizer: "variables" | "sequence" | "mapping" | "output";

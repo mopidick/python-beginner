@@ -14,6 +14,7 @@ describe("course content", () => {
       expect(["基础", "进阶", "挑战"]).toContain(level.difficulty);
       expect(level.estimatedMinutes).toBeGreaterThanOrEqual(3);
       expect(level.hints).toHaveLength(3);
+      expect(level.solution.length).toBeGreaterThan(0);
       expect(level.story.length).toBeGreaterThan(0);
       expect(level.goal.length).toBeGreaterThan(0);
       expect(level.pattern.length).toBeGreaterThan(0);

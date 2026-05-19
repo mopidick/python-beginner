@@ -91,6 +91,7 @@ def test_level_copy_is_human_readable():
         for index, hint in enumerate(level["hints"]):
             assert_readable(hint, f"{level_id}.hints[{index}]")
 
+        assert level["solution"].strip(), level_id
         for check in level["checks"]:
             assert_readable(check["label"], f"{level_id}.{check['id']}.label")
             assert_readable(check.get("hint", ""), f"{level_id}.{check['id']}.hint")
