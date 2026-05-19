@@ -65,7 +65,7 @@ Invoke-RestMethod http://127.0.0.1:8000/api/health
 
 ```json
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "status": "ok"
 }
 ```

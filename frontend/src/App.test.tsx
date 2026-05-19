@@ -37,7 +37,7 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.4\.0/)).toBeInTheDocument();
+  expect(screen.getByText(/v0\.4\.1/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
@@ -169,7 +169,8 @@ describe("Python beginner app", () => {
     render(<App />);
     await userEvent.click(screen.getByRole("button", { name: "运行代码" }));
 
-    await waitFor(() => expect(screen.getByText("还差 1 项")).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText("已完成 0/1 项")).toBeInTheDocument());
+    expect(screen.getByText("下一步：创建变量 x，并让它等于 10")).toBeInTheDocument();
     expect(screen.getByText("本次要修正")).toBeInTheDocument();
     expect(screen.getByText("x 当前是 9，目标是 10。")).toBeInTheDocument();
     expect(screen.getAllByText("检查变量名是否是 x，并确认它的值是整数 10。").length).toBeGreaterThan(0);

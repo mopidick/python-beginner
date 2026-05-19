@@ -678,9 +678,19 @@ p {
 
 .result-summary {
   border-radius: 6px;
-  font-size: 18px;
-  font-weight: 800;
+  display: grid;
+  gap: 5px;
   padding: 12px;
+}
+
+.result-summary strong {
+  font-size: 18px;
+}
+
+.result-summary span {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
 }
 
 .result-summary.passed {

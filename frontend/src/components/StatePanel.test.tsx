@@ -69,4 +69,51 @@ describe("StatePanel", () => {
     expect(screen.getAllByText("9").length).toBeGreaterThan(0);
     expect(screen.getAllByText("10").length).toBeGreaterThan(0);
   });
+
+  test("summarizes partial progress and keeps passed checks visible", () => {
+    const result: RunResponse = {
+      stdout: "",
+      stderr: "",
+      error: null,
+      variables: {
+        username: { type: "str", value: "Ada" },
+        score: { type: "int", value: 80 },
+      },
+      checks: [
+        {
+          id: "username",
+          label: "创建用户名 username",
+          passed: true,
+          hint: "username 应该保存字符串。",
+        },
+        {
+          id: "score",
+          label: "创建分数 score",
+          passed: true,
+          hint: "score 应该保存整数。",
+        },
+        {
+          id: "passed",
+          label: "创建 passed 并让它为 True",
+          passed: false,
+          hint: "passed 应该是布尔值 True。",
+          actual: undefined,
+          expected: true,
+          reason: "没有找到变量 passed。",
+          failureType: "missing",
+          nextStep: "先创建变量 passed，再把它赋值为目标值。",
+        },
+      ],
+      diagnostics: [],
+      passed: false,
+    };
+
+    render(<StatePanel result={result} />);
+
+    expect(screen.getByText("已完成 2/3 项")).toBeInTheDocument();
+    expect(screen.getByText("下一步：创建 passed 并让它为 True")).toBeInTheDocument();
+    expect(screen.getByText("已通过的检查")).toBeInTheDocument();
+    expect(screen.getByText("创建用户名 username")).toBeInTheDocument();
+    expect(screen.getByText("创建分数 score")).toBeInTheDocument();
+  });
 });

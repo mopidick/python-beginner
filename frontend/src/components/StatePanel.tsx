@@ -9,11 +9,14 @@ function summaryFor(result: RunResponse) {
   if (result.error) {
     return "运行错误";
   }
+  if (result.checks.length > 0) {
+    const passed = result.checks.filter((check) => check.passed).length;
+    return `已完成 ${passed}/${result.checks.length} 项`;
+  }
   if (result.passed) {
     return "通过";
   }
-  const failed = result.checks.filter((check) => !check.passed).length;
-  return `还差 ${failed} 项`;
+  return "已运行";
 }
 
 function formatValue(value: unknown) {
@@ -38,13 +41,21 @@ function failureLabel(kind: string | undefined) {
 
 export function StatePanel({ result }: Props) {
   const failedChecks = result?.checks.filter((check) => !check.passed) ?? [];
+  const passedChecks = result?.checks.filter((check) => check.passed) ?? [];
+  const nextCheck = failedChecks[0];
 
   return (
     <section className="state-panel">
       <div className="panel-title">执行状态</div>
       {!result && <p className="empty-state">运行代码后，这里会显示 stdout、变量快照和检查结果。</p>}
 
-      {result && <div className={`result-summary ${result.passed ? "passed" : "failed"}`}>{summaryFor(result)}</div>}
+      {result && (
+        <div className={`result-summary ${result.passed ? "passed" : "failed"}`}>
+          <strong>{summaryFor(result)}</strong>
+          {!result.error && !result.passed && nextCheck && <span>下一步：{nextCheck.label}</span>}
+          {!result.error && result.passed && <span>本关目标全部完成，可以进入下一关。</span>}
+        </div>
+      )}
 
       {result?.error && (
         <div className="error-box">
@@ -114,12 +125,12 @@ export function StatePanel({ result }: Props) {
           </div>
 
           <div className="state-section">
-            <h3>检查结果</h3>
+            <h3>{failedChecks.length > 0 && passedChecks.length > 0 ? "已通过的检查" : "检查结果"}</h3>
             {result.checks.length === 0 ? (
               <p className="muted">没有检查结果</p>
             ) : (
               <ul className="checks">
-                {result.checks.map((check) => (
+                {(failedChecks.length > 0 && passedChecks.length > 0 ? passedChecks : result.checks).map((check) => (
                   <li className={check.passed ? "passed" : "failed"} key={check.id}>
                     <span>{check.passed ? "通过" : "未通过"}</span>
                     <div>
@@ -131,6 +142,23 @@ export function StatePanel({ result }: Props) {
               </ul>
             )}
           </div>
+
+          {failedChecks.length > 0 && passedChecks.length > 0 && (
+            <div className="state-section">
+              <h3>剩余检查</h3>
+              <ul className="checks">
+                {failedChecks.map((check) => (
+                  <li className="failed" key={check.id}>
+                    <span>未通过</span>
+                    <div>
+                      <strong>{check.label}</strong>
+                      <small>{check.hint}</small>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </>
       )}
     </section>
