@@ -15,7 +15,7 @@ import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } 
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.5.3";
+const VERSION = "0.5.4";
 
 type StarGain = {
   levelId: string;
@@ -49,6 +49,9 @@ export default function App() {
   const chapterMilestone = getChapterMilestone(levels, currentLevel.chapter, progress);
 
   function starsFor(levelId: string) {
+    if (progress.solutionUsedByLevel[levelId]) {
+      return 1;
+    }
     const hintCount = progress.hintStepsByLevel[levelId] || 0;
     if (hintCount === 0) {
       return 3;
@@ -109,6 +112,17 @@ export default function App() {
   }
 
   function useSolution(solution: string) {
+    updateProgress({
+      ...progress,
+      codeByLevel: {
+        ...progress.codeByLevel,
+        [currentLevel.id]: solution,
+      },
+      solutionUsedByLevel: {
+        ...progress.solutionUsedByLevel,
+        [currentLevel.id]: true,
+      },
+    });
     setCode(solution);
     setResult(null);
     setStarGain(null);
@@ -198,6 +212,7 @@ export default function App() {
           completed={progress.completed}
           attempted={progress.attempted}
           starsByLevel={progress.starsByLevel}
+          solutionUsedByLevel={progress.solutionUsedByLevel}
           onSelect={selectLevel}
         />
         <section className="lesson-panel">

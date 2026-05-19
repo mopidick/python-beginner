@@ -9,6 +9,7 @@ type Props = {
   completed: string[];
   attempted: string[];
   starsByLevel?: Record<string, number>;
+  solutionUsedByLevel?: Record<string, boolean>;
   onSelect: (level: Level) => void;
 };
 
@@ -27,7 +28,7 @@ const modeFilters = [
 
 type ModeFilter = (typeof modeFilters)[number]["value"];
 
-export function LevelList({ levels, currentId, completed, attempted, starsByLevel = {}, onSelect }: Props) {
+export function LevelList({ levels, currentId, completed, attempted, starsByLevel = {}, solutionUsedByLevel = {}, onSelect }: Props) {
   const [query, setQuery] = useState("");
   const [modeFilter, setModeFilter] = useState<ModeFilter>("all");
   const normalizedQuery = query.trim().toLowerCase();
@@ -67,6 +68,13 @@ export function LevelList({ levels, currentId, completed, attempted, starsByLeve
         {"★".repeat(count)}
       </span>
     );
+  }
+
+  function solutionBadgeFor(levelId: string) {
+    if (!solutionUsedByLevel[levelId]) {
+      return null;
+    }
+    return <small className="solution-used-badge">参考答案</small>;
   }
 
   return (
@@ -121,6 +129,7 @@ export function LevelList({ levels, currentId, completed, attempted, starsByLeve
                   </span>
                   <span className="level-status">
                     {starsFor(level)}
+                    {solutionBadgeFor(level.id)}
                     {statusFor(level.id)}
                   </span>
                 </button>

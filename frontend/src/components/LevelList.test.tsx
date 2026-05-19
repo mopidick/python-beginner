@@ -14,6 +14,7 @@ describe("LevelList", () => {
         completed={["variables-01"]}
         attempted={["variables-01", "types-01"]}
         starsByLevel={{ "variables-01": 3 }}
+        solutionUsedByLevel={{ "variables-01": true }}
         onSelect={vi.fn()}
       />,
     );
@@ -21,6 +22,7 @@ describe("LevelList", () => {
     expect(screen.getByText("第 1 章：运行状态 · 1/4 · 进行中")).toBeInTheDocument();
     expect(screen.getByLabelText("变量与执行状态，已获得 3 星")).toBeInTheDocument();
     expect(screen.getByText("★★★")).toBeInTheDocument();
+    expect(screen.getByText("参考答案")).toBeInTheDocument();
     expect(screen.getAllByText("新课").length).toBeGreaterThan(0);
     expect(screen.getAllByText("复习").length).toBeGreaterThan(0);
     expect(screen.getAllByText("项目").length).toBeGreaterThan(0);

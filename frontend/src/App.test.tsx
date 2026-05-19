@@ -37,7 +37,7 @@ describe("Python beginner app", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /Python 可视化闯关/ })).toBeInTheDocument();
-  expect(screen.getByText(/v0\.5\.3/)).toBeInTheDocument();
+  expect(screen.getByText(/v0\.5\.4/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^01变量与执行状态/ })).toBeInTheDocument();
     expect((screen.getByLabelText("Python 代码编辑器") as HTMLTextAreaElement).value).toContain("x = 0");
     expect(screen.getByText("创建变量 x，并让它等于 10")).toBeInTheDocument();
@@ -216,6 +216,30 @@ describe("Python beginner app", () => {
     expect(screen.getByText("这一关只需要改变量的值。")).toBeInTheDocument();
     const progress = JSON.parse(localStorage.getItem("python-beginner-progress") || "{}");
     expect(progress.hintStepsByLevel["variables-01"]).toBe(1);
+  });
+
+  test("using a reference solution records assisted progress and limits the level to one star", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue({
+      ok: true,
+      json: async () => successResponse,
+    } as Response);
+
+    render(<App />);
+
+    await userEvent.click(screen.getByRole("button", { name: "显示下一条提示" }));
+    await userEvent.click(screen.getByRole("button", { name: "显示下一条提示" }));
+    await userEvent.click(screen.getByRole("button", { name: "显示下一条提示" }));
+    await userEvent.click(screen.getByRole("button", { name: "查看参考答案" }));
+    await userEvent.click(screen.getByRole("button", { name: "使用参考答案" }));
+
+    expect(screen.getByLabelText("Python 代码编辑器")).toHaveValue("x = 10\nprint(x)");
+    expect(JSON.parse(localStorage.getItem("python-beginner-progress") || "{}").solutionUsedByLevel["variables-01"]).toBe(true);
+
+    await userEvent.click(screen.getByRole("button", { name: "运行代码" }));
+
+    await waitFor(() => expect(screen.getByText(/获得 1 星/)).toBeInTheDocument());
+    const progress = JSON.parse(localStorage.getItem("python-beginner-progress") || "{}");
+    expect(progress.starsByLevel["variables-01"]).toBe(1);
   });
 
   test("shows structured http errors without completing progress", async () => {

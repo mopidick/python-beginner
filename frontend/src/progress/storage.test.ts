@@ -27,6 +27,7 @@ describe("progress storage", () => {
     expect(progress.lastPracticedAtByLevel).toEqual({});
     expect(progress.passedAtByLevel).toEqual({});
     expect(progress.practiceDates).toEqual([]);
+    expect(progress.solutionUsedByLevel).toEqual({});
   });
 
   test("falls back to empty progress for broken JSON", () => {
@@ -38,17 +39,19 @@ describe("progress storage", () => {
     expect(progress.completed).toEqual([]);
   });
 
-  test("saves schema v2 fields", () => {
+  test("saves schema v4 fields", () => {
     const progress = loadProgress();
     saveProgress({
       ...progress,
       attemptCountByLevel: { "variables-01": 2 },
       lastPracticedAtByLevel: { "variables-01": "2026-05-17T00:00:00.000Z" },
+      solutionUsedByLevel: { "variables-01": true },
     });
 
     expect(JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")).toMatchObject({
-      schemaVersion: 3,
+      schemaVersion: 4,
       attemptCountByLevel: { "variables-01": 2 },
+      solutionUsedByLevel: { "variables-01": true },
     });
   });
 });

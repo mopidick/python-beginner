@@ -148,6 +148,16 @@ p {
   white-space: nowrap;
 }
 
+.solution-used-badge {
+  background: #fef3c7;
+  border-radius: 999px;
+  color: #92400e;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
 .mode-badge {
   border-radius: 999px;
   display: inline-flex;

@@ -1,6 +1,6 @@
 import { levels } from "../levels/levels";
 
-export const CURRENT_PROGRESS_SCHEMA_VERSION = 3;
+export const CURRENT_PROGRESS_SCHEMA_VERSION = 4;
 export const STORAGE_KEY = "python-beginner-progress";
 
 export type Progress = {
@@ -10,11 +10,12 @@ export type Progress = {
   codeByLevel: Record<string, string>;
   hintStepsByLevel: Record<string, number>;
   starsByLevel: Record<string, number>;
-  schemaVersion: 3;
+  schemaVersion: 4;
   attemptCountByLevel: Record<string, number>;
   lastPracticedAtByLevel: Record<string, string>;
   passedAtByLevel: Record<string, string>;
   practiceDates: string[];
+  solutionUsedByLevel: Record<string, boolean>;
 };
 
 type StoredProgress = Partial<Omit<Progress, "schemaVersion">> & {
@@ -34,6 +35,7 @@ export function emptyProgress(): Progress {
     lastPracticedAtByLevel: {},
     passedAtByLevel: {},
     practiceDates: [],
+    solutionUsedByLevel: {},
   };
 }
 
@@ -50,6 +52,7 @@ export function migrateProgress(parsed: StoredProgress): Progress {
     lastPracticedAtByLevel: parsed.lastPracticedAtByLevel || {},
     passedAtByLevel: parsed.passedAtByLevel || {},
     practiceDates: Array.isArray(parsed.practiceDates) ? parsed.practiceDates : [],
+    solutionUsedByLevel: parsed.solutionUsedByLevel || {},
   };
 }
 
