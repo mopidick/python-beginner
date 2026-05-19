@@ -1,4 +1,4 @@
-import { Eye, Lightbulb } from "lucide-react";
+import { ClipboardCheck, Eye, Lightbulb } from "lucide-react";
 import { useState } from "react";
 
 type Props = {
@@ -6,9 +6,10 @@ type Props = {
   revealedCount: number;
   solution?: string;
   onReveal: (count: number) => void;
+  onUseSolution?: (solution: string) => void;
 };
 
-export function HintPanel({ hints, revealedCount, solution, onReveal }: Props) {
+export function HintPanel({ hints, revealedCount, solution, onReveal, onUseSolution }: Props) {
   const [solutionVisible, setSolutionVisible] = useState(false);
   const safeCount = Math.min(revealedCount, hints.length);
   const allVisible = safeCount >= hints.length;
@@ -44,6 +45,12 @@ export function HintPanel({ hints, revealedCount, solution, onReveal }: Props) {
             </button>
           </div>
           {solutionVisible && <pre>{solution}</pre>}
+          {solutionVisible && (
+            <button className="use-solution-button" type="button" onClick={() => solution && onUseSolution?.(solution)}>
+              <ClipboardCheck size={16} />
+              使用参考答案
+            </button>
+          )}
         </div>
       )}
     </section>

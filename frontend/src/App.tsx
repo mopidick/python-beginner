@@ -15,7 +15,7 @@ import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } 
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.5.2";
+const VERSION = "0.5.3";
 
 type StarGain = {
   levelId: string;
@@ -106,6 +106,13 @@ export default function App() {
         [currentLevel.id]: count,
       },
     });
+  }
+
+  function useSolution(solution: string) {
+    setCode(solution);
+    setResult(null);
+    setStarGain(null);
+    setNetworkError("");
   }
 
   function resetProgress() {
@@ -264,6 +271,7 @@ export default function App() {
             revealedCount={progress.hintStepsByLevel[currentLevel.id] || 0}
             solution={currentLevel.solution}
             onReveal={revealHint}
+            onUseSolution={useSolution}
           />
           <EditorPanel code={code} running={running} onChange={setCode} onRun={handleRun} onReset={resetCode} />
         </section>

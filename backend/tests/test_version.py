@@ -16,11 +16,11 @@ def test_version_is_consistent_for_current_release():
     changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
     deployment = (ROOT / "DEPLOYMENT.md").read_text(encoding="utf-8")
 
-    assert VERSION == "0.5.2"
+    assert VERSION == "0.5.3"
     assert frontend_package["version"] == VERSION
     assert frontend_lock["version"] == VERSION
     assert frontend_lock["packages"][""]["version"] == VERSION
-    assert re.search(r'const VERSION = "0\.5\.2"', app_source)
+    assert re.search(r'const VERSION = "0\.5\.3"', app_source)
     assert f"版本：v{VERSION}" in readme
     assert f"## v{VERSION}" in changelog
     assert f'"version": "{VERSION}"' in deployment

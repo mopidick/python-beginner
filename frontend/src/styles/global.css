@@ -645,6 +645,14 @@ p {
   padding: 0 10px;
 }
 
+.solution-panel .use-solution-button {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #ffffff;
+  justify-content: center;
+  width: 100%;
+}
+
 .panel-header {
   align-items: center;
   border-bottom: 1px solid #e2e8f0;

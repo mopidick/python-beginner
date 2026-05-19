@@ -34,11 +34,28 @@ describe("HintPanel", () => {
   });
 
   test("unlocks reference solution only after all hints are visible", async () => {
-    render(<HintPanel hints={["先确认变量名。", "再确认值。"]} revealedCount={1} solution="x = 10\nprint(x)" onReveal={vi.fn()} />);
+    const onUseSolution = vi.fn();
+    render(
+      <HintPanel
+        hints={["先确认变量名。", "再确认值。"]}
+        revealedCount={1}
+        solution={"x = 10\nprint(x)"}
+        onReveal={vi.fn()}
+        onUseSolution={onUseSolution}
+      />,
+    );
 
     expect(screen.queryByText("参考答案")).not.toBeInTheDocument();
 
-    render(<HintPanel hints={["先确认变量名。", "再确认值。"]} revealedCount={2} solution="x = 10\nprint(x)" onReveal={vi.fn()} />);
+    render(
+      <HintPanel
+        hints={["先确认变量名。", "再确认值。"]}
+        revealedCount={2}
+        solution={"x = 10\nprint(x)"}
+        onReveal={vi.fn()}
+        onUseSolution={onUseSolution}
+      />,
+    );
 
     expect(screen.getByText("参考答案")).toBeInTheDocument();
     expect(screen.queryByText("x = 10\nprint(x)")).not.toBeInTheDocument();
@@ -46,5 +63,9 @@ describe("HintPanel", () => {
     await userEvent.click(screen.getByRole("button", { name: "查看参考答案" }));
 
     expect(screen.getByText((_, element) => element?.tagName.toLowerCase() === "pre" && element.textContent?.includes("print(x)") === true)).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole("button", { name: "使用参考答案" }));
+
+    expect(onUseSolution).toHaveBeenCalledWith("x = 10\nprint(x)");
   });
 });
