@@ -14,6 +14,7 @@ type Props = {
   recommendation: LearningRecommendation;
   reviewCount: number;
   reviewCandidates: LearningRecommendation[];
+  assistedReviewLevels: Array<{ levelId: string; title: string }>;
   weakTags: WeakTag[];
   practiceCount: number;
   studyGoal: string;
@@ -41,6 +42,7 @@ export function ProgressSummary({
   recommendation,
   reviewCount,
   reviewCandidates,
+  assistedReviewLevels,
   weakTags,
   practiceCount,
   studyGoal,
@@ -116,6 +118,18 @@ export function ProgressSummary({
           <strong>{recommendation.kind === "complete" ? "全部关卡已满星，可以回顾项目关保持手感。" : "当前没有需要优先复习的关卡。"}</strong>
         )}
       </div>
+      {assistedReviewLevels.length > 0 && (
+        <div className="assisted-review">
+          <span>参考答案回刷</span>
+          <div>
+            {assistedReviewLevels.map((level) => (
+              <button type="button" key={level.levelId} onClick={() => onGoToLevel(level.levelId)}>
+                {level.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="weak-tags">
         <span>薄弱知识点</span>
         {weakTags.length > 0 ? (

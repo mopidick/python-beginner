@@ -15,7 +15,7 @@ import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } 
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.5.4";
+const VERSION = "0.5.5";
 
 type StarGain = {
   levelId: string;
@@ -42,6 +42,10 @@ export default function App() {
   const currentStars = progress.starsByLevel[currentLevel.id] || 0;
   const recommendation = getLearningRecommendation(levels, progress);
   const reviewCandidates = getReviewCandidates(levels, progress);
+  const assistedReviewLevels = levels
+    .filter((level) => progress.solutionUsedByLevel[level.id])
+    .map((level) => ({ levelId: level.id, title: level.title }))
+    .slice(0, 3);
   const weakTags = getWeakTags(levels, progress);
   const practiceCount = Object.values(progress.attemptCountByLevel).reduce((total, count) => total + count, 0);
   const studyGoal = getStudyGoal(recommendation, reviewCandidates.length);
@@ -227,6 +231,7 @@ export default function App() {
             recommendation={recommendation}
             reviewCount={reviewCandidates.length}
             reviewCandidates={reviewCandidates.slice(0, 3)}
+            assistedReviewLevels={assistedReviewLevels}
             weakTags={weakTags}
             practiceCount={practiceCount}
             studyGoal={studyGoal}
