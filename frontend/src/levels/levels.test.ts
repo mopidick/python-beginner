@@ -4,8 +4,8 @@ import { levels } from "./levels";
 
 describe("course content", () => {
   test("contains a substantial learning path", () => {
-    expect(levels.length).toBeGreaterThanOrEqual(40);
-    expect(new Set(levels.map((level) => level.chapter)).size).toBeGreaterThanOrEqual(8);
+    expect(levels.length).toBeGreaterThanOrEqual(52);
+    expect(new Set(levels.map((level) => level.chapter)).size).toBeGreaterThanOrEqual(10);
   });
 
   test("each level has visible learning metadata and progressive hints", () => {

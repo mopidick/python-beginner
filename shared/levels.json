@@ -1579,5 +1579,590 @@
     ],
     "visualizer": "mapping",
     "successMessage": "通过。你已经能把列表数据整理成可交付的小报告。"
+  },
+  {
+    "id": "review-string-pipeline-01",
+    "title": "文本流水线复盘",
+    "chapter": "第 10 章：数据管道",
+    "difficulty": "进阶",
+    "estimatedMinutes": 8,
+    "story": "真实脚本经常先把脏文本清理成统一格式，再交给后续步骤处理。",
+    "goal": "复盘 strip、lower、replace、split 的组合使用。",
+    "pattern": "先清理首尾空格，再统一大小写和分隔符，最后拆成列表。",
+    "recap": "你把一段混乱标签整理成稳定的标签列表。",
+    "concept": "字符串流水线",
+    "mode": "review",
+    "tags": [
+      "字符串",
+      "数据清洗",
+      "复盘"
+    ],
+    "instructions": "把 raw_tags 清洗成 tags，结果为 [\"python\", \"testing\", \"debugging\"]。",
+    "starterCode": "raw_tags = \" Python | Testing | Debugging \"\ntags = []",
+    "checks": [
+      {
+        "id": "clean-tags",
+        "label": "tags 等于 [\"python\", \"testing\", \"debugging\"]",
+        "type": "variable_equals",
+        "name": "tags",
+        "expected": [
+          "python",
+          "testing",
+          "debugging"
+        ],
+        "hint": "可以先 split(\"|\")，再对每个片段 strip 和 lower。"
+      }
+    ],
+    "hints": [
+      "split(\"|\") 可以按竖线拆分。",
+      "每个片段都要 strip 和 lower。",
+      "用列表推导式一次生成 tags。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。你已经能把文本清洗步骤串成稳定流水线。"
+  },
+  {
+    "id": "review-loop-accumulators-01",
+    "title": "累计器复盘",
+    "chapter": "第 10 章：数据管道",
+    "difficulty": "进阶",
+    "estimatedMinutes": 8,
+    "story": "统计任务常常需要一边遍历一边累计总数和异常项。",
+    "goal": "复盘 for 循环里的计数器、求和器和列表追加。",
+    "pattern": "循环中按条件更新多个变量，最后得到摘要结果。",
+    "recap": "你完成了一个小型循环统计器。",
+    "concept": "循环累计器",
+    "mode": "review",
+    "tags": [
+      "循环",
+      "列表",
+      "复盘"
+    ],
+    "instructions": "遍历 amounts，算出 positive_total，并把负数放进 refunds。",
+    "starterCode": "amounts = [30, -5, 18, -2, 12]\npositive_total = 0\nrefunds = []",
+    "checks": [
+      {
+        "id": "positive-total",
+        "label": "positive_total 等于 60",
+        "type": "variable_equals",
+        "name": "positive_total",
+        "expected": 60,
+        "hint": "只累计大于 0 的金额。"
+      },
+      {
+        "id": "refunds-list",
+        "label": "refunds 等于 [-5, -2]",
+        "type": "variable_equals",
+        "name": "refunds",
+        "expected": [
+          -5,
+          -2
+        ],
+        "hint": "遇到小于 0 的金额时 append 到 refunds。"
+      }
+    ],
+    "hints": [
+      "循环每个 amount。",
+      "if amount > 0 时累计；否则追加到 refunds。",
+      "positive_total 不应该包含负数。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。你已经能在一次循环里维护多个统计结果。"
+  },
+  {
+    "id": "function-normalize-01",
+    "title": "函数：标准化用户名",
+    "chapter": "第 10 章：数据管道",
+    "difficulty": "进阶",
+    "estimatedMinutes": 9,
+    "story": "当同一段清洗逻辑会重复出现时，把它抽成函数能让脚本更好维护。",
+    "goal": "练习把字符串清洗封装为函数并复用。",
+    "pattern": "定义 normalize_name，内部完成 strip、title，再在列表推导式中调用。",
+    "recap": "你把重复清洗逻辑抽成了可复用函数。",
+    "concept": "函数复用",
+    "mode": "lesson",
+    "tags": [
+      "函数",
+      "字符串",
+      "复用"
+    ],
+    "instructions": "实现 normalize_name，并生成 cleaned_names。",
+    "starterCode": "raw_names = [\" ada \", \"LIN\", \" max chen \"]\ndef normalize_name(name):\n    return name\n\ncleaned_names = []",
+    "checks": [
+      {
+        "id": "cleaned-names",
+        "label": "cleaned_names 等于 [\"Ada\", \"Lin\", \"Max Chen\"]",
+        "type": "variable_equals",
+        "name": "cleaned_names",
+        "expected": [
+          "Ada",
+          "Lin",
+          "Max Chen"
+        ],
+        "hint": "函数里返回 name.strip().title()，再对 raw_names 逐个调用。"
+      }
+    ],
+    "hints": [
+      "title() 会把每个单词首字母转大写。",
+      "函数只负责清洗一个 name。",
+      "cleaned_names = [normalize_name(name) for name in raw_names]。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。你已经把清洗步骤封装成函数。"
+  },
+  {
+    "id": "defensive-index-01",
+    "title": "防御式取值",
+    "chapter": "第 10 章：数据管道",
+    "difficulty": "进阶",
+    "estimatedMinutes": 8,
+    "story": "脚本处理外部数据时，列表可能为空，直接取第一个元素会让程序崩掉。",
+    "goal": "练习在索引前先判断列表是否为空。",
+    "pattern": "先判断 candidates，再决定 first_candidate 和 message。",
+    "recap": "你写出了不会被空列表击穿的取值逻辑。",
+    "concept": "防御式编程",
+    "mode": "lesson",
+    "tags": [
+      "列表",
+      "条件判断",
+      "防御式编程"
+    ],
+    "instructions": "当 candidates 为空时，让 first_candidate 为 None，message 为 \"暂无候选\"。",
+    "starterCode": "candidates = []\nfirst_candidate = candidates[0] if candidates else \"\"\nmessage = \"\"",
+    "checks": [
+      {
+        "id": "first-candidate-none",
+        "label": "first_candidate 等于 None",
+        "type": "variable_equals",
+        "name": "first_candidate",
+        "expected": null,
+        "hint": "空列表时不要取 candidates[0]，直接使用 None。"
+      },
+      {
+        "id": "empty-message",
+        "label": "message 等于 \"暂无候选\"",
+        "type": "variable_equals",
+        "name": "message",
+        "expected": "暂无候选",
+        "hint": "空列表分支里给 message 一个友好说明。"
+      }
+    ],
+    "hints": [
+      "if candidates 可以判断列表是否有内容。",
+      "空列表分支里 first_candidate = None。",
+      "同一个 if/else 里同时设置 first_candidate 和 message。"
+    ],
+    "visualizer": "variables",
+    "successMessage": "通过。你已经能在取值前保护边界情况。"
+  },
+  {
+    "id": "project-sales-tax-01",
+    "title": "项目：订单税费汇总",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 14,
+    "story": "电商后台需要把订单行汇总成发票摘要，包括小计、税费和总价。",
+    "goal": "综合练习列表字典、sum、round 和报告字典。",
+    "pattern": "先算每行 price * qty，再计算税费和总价，最后组装 invoice。",
+    "recap": "你完成了从订单行到发票摘要的业务脚本。",
+    "concept": "订单汇总",
+    "mode": "project",
+    "tags": [
+      "字典",
+      "列表",
+      "项目综合"
+    ],
+    "instructions": "读取 orders，计算 subtotal、tax 和 invoice。税率为 8%。",
+    "starterCode": "orders = [{\"item\": \"book\", \"price\": 30, \"qty\": 2}, {\"item\": \"course\", \"price\": 85, \"qty\": 1}]\ninvoice = {}",
+    "checks": [
+      {
+        "id": "subtotal",
+        "label": "subtotal 等于 145",
+        "type": "variable_equals",
+        "name": "subtotal",
+        "expected": 145,
+        "hint": "每行金额是 price * qty，然后求和。"
+      },
+      {
+        "id": "tax",
+        "label": "tax 等于 11.6",
+        "type": "variable_equals",
+        "name": "tax",
+        "expected": 11.6,
+        "hint": "税费是 round(subtotal * 0.08, 1)。"
+      },
+      {
+        "id": "invoice",
+        "label": "invoice 包含小计、税费和总价",
+        "type": "variable_equals",
+        "name": "invoice",
+        "expected": {
+          "subtotal": 145,
+          "tax": 11.6,
+          "total": 156.6
+        },
+        "hint": "total 是 subtotal + tax，保持 key 名一致。"
+      }
+    ],
+    "hints": [
+      "sum 可以接收生成器表达式。",
+      "tax 和 total 都用 round(..., 1)。",
+      "invoice = {\"subtotal\": subtotal, \"tax\": tax, \"total\": total}。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经能产出一个小型订单结算结果。"
+  },
+  {
+    "id": "project-inventory-alert-01",
+    "title": "项目：库存预警",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 13,
+    "story": "运营同学需要知道哪些物料低于安全库存，以及每种物料要补多少。",
+    "goal": "综合练习字典遍历、条件判断和结果字典构造。",
+    "pattern": "遍历 stock，低于 threshold 的项目进入 low_items 和 reorder。",
+    "recap": "你做出了一个可直接用于补货提醒的库存脚本。",
+    "concept": "库存预警",
+    "mode": "project",
+    "tags": [
+      "字典",
+      "条件判断",
+      "项目综合"
+    ],
+    "instructions": "找出库存低于 10 的物品，并计算补到 20 还差多少。",
+    "starterCode": "stock = {\"paper\": 5, \"pen\": 18, \"ink\": 13, \"staple\": 9}\nlow_items = []\nreorder = {}",
+    "checks": [
+      {
+        "id": "low-items",
+        "label": "low_items 等于 [\"paper\", \"staple\"]",
+        "type": "variable_equals",
+        "name": "low_items",
+        "expected": [
+          "paper",
+          "staple"
+        ],
+        "hint": "只收集数量小于 10 的 key。"
+      },
+      {
+        "id": "reorder-map",
+        "label": "reorder 等于 {\"paper\": 15, \"staple\": 11}",
+        "type": "variable_equals",
+        "name": "reorder",
+        "expected": {
+          "paper": 15,
+          "staple": 11
+        },
+        "hint": "补货数量是 20 - 当前库存。"
+      }
+    ],
+    "hints": [
+      "用 stock.items() 同时拿到名称和数量。",
+      "if count < 10 时追加名称并写入 reorder。",
+      "字典的插入顺序会跟遍历顺序一致。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经能从库存字典生成预警清单。"
+  },
+  {
+    "id": "project-user-slugs-01",
+    "title": "项目：生成用户 Slug",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 13,
+    "story": "资料页 URL 需要稳定、可读的用户 slug，同时还要能反查原始姓名。",
+    "goal": "综合练习字符串清洗、列表生成和字典映射。",
+    "pattern": "把姓名 strip、lower，并把空格替换成连字符，再建立 slug 到姓名的映射。",
+    "recap": "你生成了可用于 URL 的 slug 和反查表。",
+    "concept": "标识符生成",
+    "mode": "project",
+    "tags": [
+      "字符串",
+      "字典",
+      "项目综合"
+    ],
+    "instructions": "生成 slugs，并创建 lookup 字典，key 是 slug，value 是标题格式姓名。",
+    "starterCode": "raw_users = [\" Ada Lovelace \", \"lin tan\", \"MAX CHEN\"]\nslugs = []\nlookup = {}",
+    "checks": [
+      {
+        "id": "slugs",
+        "label": "slugs 等于 [\"ada-lovelace\", \"lin-tan\", \"max-chen\"]",
+        "type": "variable_equals",
+        "name": "slugs",
+        "expected": [
+          "ada-lovelace",
+          "lin-tan",
+          "max-chen"
+        ],
+        "hint": "strip 后 lower，再把空格替换为 -。"
+      },
+      {
+        "id": "lookup",
+        "label": "lookup 能通过 slug 找回姓名",
+        "type": "variable_equals",
+        "name": "lookup",
+        "expected": {
+          "ada-lovelace": "Ada Lovelace",
+          "lin-tan": "Lin Tan",
+          "max-chen": "Max Chen"
+        },
+        "hint": "value 使用 title() 后的姓名。"
+      }
+    ],
+    "hints": [
+      "先得到 clean_name = raw.strip().title()。",
+      "slug 可以从 clean_name.lower().replace(\" \", \"-\") 得到。",
+      "循环里同时 append slug，并设置 lookup[slug] = clean_name。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经能为用户数据生成稳定标识。"
+  },
+  {
+    "id": "project-support-triage-01",
+    "title": "项目：工单分流",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 14,
+    "story": "客服系统需要优先处理仍然打开的高优先级工单。",
+    "goal": "综合练习字典列表、条件组合和计数。",
+    "pattern": "遍历 tickets，同时统计打开工单数量，并收集 open + high 的 id。",
+    "recap": "你写出了一个可用于队列分流的工单脚本。",
+    "concept": "工单分流",
+    "mode": "project",
+    "tags": [
+      "条件判断",
+      "列表",
+      "项目综合"
+    ],
+    "instructions": "找出 status 为 open 且 priority 为 high 的工单 id，并统计 open_count。",
+    "starterCode": "tickets = [{\"id\": 101, \"priority\": \"low\", \"status\": \"open\"}, {\"id\": 102, \"priority\": \"high\", \"status\": \"open\"}, {\"id\": 103, \"priority\": \"high\", \"status\": \"closed\"}, {\"id\": 104, \"priority\": \"high\", \"status\": \"open\"}]\nurgent_ids = []\nopen_count = 0",
+    "checks": [
+      {
+        "id": "urgent-ids",
+        "label": "urgent_ids 等于 [102, 104]",
+        "type": "variable_equals",
+        "name": "urgent_ids",
+        "expected": [
+          102,
+          104
+        ],
+        "hint": "同时满足 open 和 high 才加入 urgent_ids。"
+      },
+      {
+        "id": "open-count",
+        "label": "open_count 等于 3",
+        "type": "variable_equals",
+        "name": "open_count",
+        "expected": 3,
+        "hint": "只要 status 是 open 就计数，不要求 high。"
+      }
+    ],
+    "hints": [
+      "先判断 ticket[\"status\"] == \"open\"。",
+      "open_count 和 urgent_ids 的条件不完全相同。",
+      "urgent 条件需要再加 ticket[\"priority\"] == \"high\"。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。你已经能把工单队列整理出处理优先级。"
+  },
+  {
+    "id": "project-expense-report-01",
+    "title": "项目：报销汇总",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 15,
+    "story": "财务审核后，需要按类别汇总已通过的报销金额，并算出总额。",
+    "goal": "综合练习分组累计、状态过滤和结果字典。",
+    "pattern": "跳过未批准记录；批准记录按 category 累加，并同步更新总额。",
+    "recap": "你完成了一个小型报销统计脚本。",
+    "concept": "分组汇总",
+    "mode": "project",
+    "tags": [
+      "字典",
+      "循环",
+      "项目综合"
+    ],
+    "instructions": "只统计 approved 为 True 的报销，生成 totals 和 approved_total。",
+    "starterCode": "expenses = [{\"category\": \"travel\", \"amount\": 120, \"approved\": True}, {\"category\": \"meal\", \"amount\": 45, \"approved\": True}, {\"category\": \"travel\", \"amount\": 30, \"approved\": False}, {\"category\": \"book\", \"amount\": 80, \"approved\": True}]\ntotals = {}\napproved_total = 0",
+    "checks": [
+      {
+        "id": "category-totals",
+        "label": "totals 等于 {\"travel\": 120, \"meal\": 45, \"book\": 80}",
+        "type": "variable_equals",
+        "name": "totals",
+        "expected": {
+          "travel": 120,
+          "meal": 45,
+          "book": 80
+        },
+        "hint": "只累计 approved 为 True 的记录。"
+      },
+      {
+        "id": "approved-total",
+        "label": "approved_total 等于 245",
+        "type": "variable_equals",
+        "name": "approved_total",
+        "expected": 245,
+        "hint": "总额同样只包含已批准记录。"
+      }
+    ],
+    "hints": [
+      "if not expense[\"approved\"] 可以跳过。",
+      "totals[category] = totals.get(category, 0) + amount。",
+      "approved_total 每次累加 approved 的 amount。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经能按业务状态过滤并分组汇总。"
+  },
+  {
+    "id": "project-log-window-01",
+    "title": "项目：最近错误窗口",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 13,
+    "story": "线上排障时，工程师常常只关心最近几分钟内出现的错误。",
+    "goal": "综合练习时间窗口条件、字符串判断和列表追加。",
+    "pattern": "遍历日志，只保留 minute >= 10 且 message 以 ERROR 开头的记录。",
+    "recap": "你写出了一个简化版日志窗口过滤器。",
+    "concept": "日志过滤",
+    "mode": "project",
+    "tags": [
+      "字符串",
+      "条件判断",
+      "项目综合"
+    ],
+    "instructions": "找出 minute >= 10 的 ERROR 日志，生成 recent_errors 和 error_count。",
+    "starterCode": "logs = [{\"minute\": 3, \"message\": \"ERROR boot\"}, {\"minute\": 10, \"message\": \"INFO ready\"}, {\"minute\": 12, \"message\": \"ERROR payment\"}, {\"minute\": 15, \"message\": \"WARN retry\"}]\nrecent_errors = []\nerror_count = 0",
+    "checks": [
+      {
+        "id": "recent-errors",
+        "label": "recent_errors 等于 [\"ERROR payment\"]",
+        "type": "variable_equals",
+        "name": "recent_errors",
+        "expected": [
+          "ERROR payment"
+        ],
+        "hint": "同时满足 minute >= 10 和 message.startswith(\"ERROR\")。"
+      },
+      {
+        "id": "error-count",
+        "label": "error_count 等于 1",
+        "type": "variable_equals",
+        "name": "error_count",
+        "expected": 1,
+        "hint": "error_count 可以直接等于 len(recent_errors)。"
+      }
+    ],
+    "hints": [
+      "message.startswith(\"ERROR\") 可以判断错误日志。",
+      "不要把 3 分钟的 ERROR boot 算进去。",
+      "过滤后用 len(recent_errors) 得到数量。"
+    ],
+    "visualizer": "sequence",
+    "successMessage": "通过。你已经能按窗口筛选关键日志。"
+  },
+  {
+    "id": "project-feature-flags-01",
+    "title": "项目：灰度开关名单",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 14,
+    "story": "新功能上线前，团队会先给 beta 用户或高级套餐用户开放。",
+    "goal": "综合练习布尔逻辑、列表筛选和摘要字典。",
+    "pattern": "用户满足 beta 或 plan 为 pro 即可进入 enabled_users。",
+    "recap": "你写出了一个简化版灰度名单生成器。",
+    "concept": "灰度发布",
+    "mode": "project",
+    "tags": [
+      "布尔逻辑",
+      "列表",
+      "项目综合"
+    ],
+    "instructions": "生成 enabled_users，并把启用数量和总人数放进 rollout。",
+    "starterCode": "users = [{\"name\": \"Ada\", \"plan\": \"pro\", \"beta\": False}, {\"name\": \"Lin\", \"plan\": \"free\", \"beta\": False}, {\"name\": \"Max\", \"plan\": \"free\", \"beta\": True}]\nenabled_users = []\nrollout = {}",
+    "checks": [
+      {
+        "id": "enabled-users",
+        "label": "enabled_users 等于 [\"Ada\", \"Max\"]",
+        "type": "variable_equals",
+        "name": "enabled_users",
+        "expected": [
+          "Ada",
+          "Max"
+        ],
+        "hint": "plan 是 pro 或 beta 为 True 都应该启用。"
+      },
+      {
+        "id": "rollout-summary",
+        "label": "rollout 等于 {\"enabled\": 2, \"total\": 3}",
+        "type": "variable_equals",
+        "name": "rollout",
+        "expected": {
+          "enabled": 2,
+          "total": 3
+        },
+        "hint": "enabled 来自 enabled_users 的长度，total 来自 users 的长度。"
+      }
+    ],
+    "hints": [
+      "条件是 user[\"plan\"] == \"pro\" or user[\"beta\"]。",
+      "符合条件时 append user[\"name\"]。",
+      "rollout = {\"enabled\": len(enabled_users), \"total\": len(users)}。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经能根据规则生成灰度发布名单。"
+  },
+  {
+    "id": "project-score-bands-01",
+    "title": "项目：成绩分段统计",
+    "chapter": "第 11 章：业务脚本项目",
+    "difficulty": "挑战",
+    "estimatedMinutes": 15,
+    "story": "老师不只关心平均分，也需要知道不同分段各有多少学生。",
+    "goal": "综合练习多分支条件、字典计数和通过名单。",
+    "pattern": "按 score 分到 A/B/C 三档，同时收集及格学生姓名。",
+    "recap": "你完成了一个成绩分布统计脚本。",
+    "concept": "分段统计",
+    "mode": "project",
+    "tags": [
+      "条件判断",
+      "字典",
+      "项目综合"
+    ],
+    "instructions": "把 scores 分到 bands，并生成 passed_names。90 及以上是 A，75 及以上是 B，其余是 C。",
+    "starterCode": "scores = [{\"name\": \"Ada\", \"score\": 95}, {\"name\": \"Lin\", \"score\": 81}, {\"name\": \"Max\", \"score\": 67}, {\"name\": \"Yi\", \"score\": 92}]\nbands = {\"A\": 0, \"B\": 0, \"C\": 0}\npassed_names = []",
+    "checks": [
+      {
+        "id": "score-bands",
+        "label": "bands 等于 {\"A\": 2, \"B\": 1, \"C\": 1}",
+        "type": "variable_equals",
+        "name": "bands",
+        "expected": {
+          "A": 2,
+          "B": 1,
+          "C": 1
+        },
+        "hint": "先判断 >= 90，再判断 >= 75，最后归入 C。"
+      },
+      {
+        "id": "passed-names",
+        "label": "passed_names 等于 [\"Ada\", \"Lin\", \"Max\", \"Yi\"]",
+        "type": "variable_equals",
+        "name": "passed_names",
+        "expected": [
+          "Ada",
+          "Lin",
+          "Max",
+          "Yi"
+        ],
+        "hint": "本题 60 分以上都加入 passed_names。"
+      }
+    ],
+    "hints": [
+      "多分支判断顺序会影响分段结果。",
+      ">= 90 的学生不能再落入 B。",
+      "passed_names 可以在 score >= 60 时追加。"
+    ],
+    "visualizer": "mapping",
+    "successMessage": "通过。你已经能把成绩列表整理成分段报告。"
   }
 ]

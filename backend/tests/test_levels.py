@@ -43,11 +43,23 @@ VALID_SOLUTIONS = {
     "none-empty-01": "items = []\nif items:\n    display_items = items\nelse:\n    display_items = ['\\u6682\\u65e0\\u6570\\u636e']",
     "project-csv-cleanup-01": "rows = [' ada, 92', 'lin, 58', ' MAX, 75']\nnames = []\nscores = []\nfor row in rows:\n    name, score = row.split(',')\n    names.append(name.strip().title())\n    scores.append(int(score.strip()))",
     "project-grade-report-01": "students = [{'name': 'Ada', 'score': 92}, {'name': 'Lin', 'score': 58}, {'name': 'Max', 'score': 75}]\npassed_count = len([student for student in students if student['score'] >= 60])\naverage = round(sum(student['score'] for student in students) / len(students), 1)\nreport = {'passed_count': passed_count, 'average': average}",
+    "review-string-pipeline-01": "raw_tags = ' Python | Testing | Debugging '\ntags = [tag.strip().lower() for tag in raw_tags.split('|')]",
+    "review-loop-accumulators-01": "amounts = [30, -5, 18, -2, 12]\npositive_total = 0\nrefunds = []\nfor amount in amounts:\n    if amount > 0:\n        positive_total += amount\n    else:\n        refunds.append(amount)",
+    "function-normalize-01": "raw_names = [' ada ', 'LIN', ' max chen ']\ndef normalize_name(name):\n    return name.strip().title()\n\ncleaned_names = [normalize_name(name) for name in raw_names]",
+    "defensive-index-01": "candidates = []\nif candidates:\n    first_candidate = candidates[0]\n    message = first_candidate\nelse:\n    first_candidate = None\n    message = '暂无候选'",
+    "project-sales-tax-01": "orders = [{'item': 'book', 'price': 30, 'qty': 2}, {'item': 'course', 'price': 85, 'qty': 1}]\nsubtotal = sum(order['price'] * order['qty'] for order in orders)\ntax = round(subtotal * 0.08, 1)\ntotal = round(subtotal + tax, 1)\ninvoice = {'subtotal': subtotal, 'tax': tax, 'total': total}",
+    "project-inventory-alert-01": "stock = {'paper': 5, 'pen': 18, 'ink': 13, 'staple': 9}\nlow_items = []\nreorder = {}\nfor item, count in stock.items():\n    if count < 10:\n        low_items.append(item)\n        reorder[item] = 20 - count",
+    "project-user-slugs-01": "raw_users = [' Ada Lovelace ', 'lin tan', 'MAX CHEN']\nslugs = []\nlookup = {}\nfor raw_user in raw_users:\n    clean_name = raw_user.strip().title()\n    slug = clean_name.lower().replace(' ', '-')\n    slugs.append(slug)\n    lookup[slug] = clean_name",
+    "project-support-triage-01": "tickets = [{'id': 101, 'priority': 'low', 'status': 'open'}, {'id': 102, 'priority': 'high', 'status': 'open'}, {'id': 103, 'priority': 'high', 'status': 'closed'}, {'id': 104, 'priority': 'high', 'status': 'open'}]\nurgent_ids = []\nopen_count = 0\nfor ticket in tickets:\n    if ticket['status'] == 'open':\n        open_count += 1\n        if ticket['priority'] == 'high':\n            urgent_ids.append(ticket['id'])",
+    "project-expense-report-01": "expenses = [{'category': 'travel', 'amount': 120, 'approved': True}, {'category': 'meal', 'amount': 45, 'approved': True}, {'category': 'travel', 'amount': 30, 'approved': False}, {'category': 'book', 'amount': 80, 'approved': True}]\ntotals = {}\napproved_total = 0\nfor expense in expenses:\n    if expense['approved']:\n        category = expense['category']\n        amount = expense['amount']\n        totals[category] = totals.get(category, 0) + amount\n        approved_total += amount",
+    "project-log-window-01": "logs = [{'minute': 3, 'message': 'ERROR boot'}, {'minute': 10, 'message': 'INFO ready'}, {'minute': 12, 'message': 'ERROR payment'}, {'minute': 15, 'message': 'WARN retry'}]\nrecent_errors = []\nfor log in logs:\n    if log['minute'] >= 10 and log['message'].startswith('ERROR'):\n        recent_errors.append(log['message'])\nerror_count = len(recent_errors)",
+    "project-feature-flags-01": "users = [{'name': 'Ada', 'plan': 'pro', 'beta': False}, {'name': 'Lin', 'plan': 'free', 'beta': False}, {'name': 'Max', 'plan': 'free', 'beta': True}]\nenabled_users = []\nfor user in users:\n    if user['plan'] == 'pro' or user['beta']:\n        enabled_users.append(user['name'])\nrollout = {'enabled': len(enabled_users), 'total': len(users)}",
+    "project-score-bands-01": "scores = [{'name': 'Ada', 'score': 95}, {'name': 'Lin', 'score': 81}, {'name': 'Max', 'score': 67}, {'name': 'Yi', 'score': 92}]\nbands = {'A': 0, 'B': 0, 'C': 0}\npassed_names = []\nfor item in scores:\n    score = item['score']\n    if score >= 90:\n        bands['A'] += 1\n    elif score >= 75:\n        bands['B'] += 1\n    else:\n        bands['C'] += 1\n    if score >= 60:\n        passed_names.append(item['name'])",
 }
 
 
 def test_all_mvp_levels_have_valid_solutions():
-    assert len(LEVELS) >= 30
+    assert len(LEVELS) >= 52
     assert set(VALID_SOLUTIONS) == set(LEVELS)
 
     for level_id, code in VALID_SOLUTIONS.items():
@@ -87,7 +99,7 @@ def test_level_copy_is_human_readable():
 def test_project_levels_have_multiple_checks():
     project_levels = [level for level in LEVELS.values() if level["mode"] == "project"]
 
-    assert project_levels
+    assert len(project_levels) >= 10
     for level in project_levels:
         assert len(level["checks"]) >= 2, level["id"]
 
