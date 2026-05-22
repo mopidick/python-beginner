@@ -15,7 +15,7 @@ import { addPracticeDate, calculateStudyStreak, getLocalDateKey, getStudyGoal } 
 import { emptyProgress, loadProgress, saveProgress, type Progress } from "./progress/storage";
 import "./styles/global.css";
 
-const VERSION = "0.5.5";
+const VERSION = "0.6.0";
 
 type StarGain = {
   levelId: string;
@@ -219,27 +219,7 @@ export default function App() {
           solutionUsedByLevel={progress.solutionUsedByLevel}
           onSelect={selectLevel}
         />
-        <section className="lesson-panel">
-          <ProgressSummary
-            completedCount={progress.completed.length}
-            attemptedCount={progress.attempted.length}
-            hintCount={usedHintCount}
-            totalCount={levels.length}
-            chapterCount={chapterCount}
-            totalMinutes={totalMinutes}
-            currentLevelTitle={currentLevel.title}
-            recommendation={recommendation}
-            reviewCount={reviewCandidates.length}
-            reviewCandidates={reviewCandidates.slice(0, 3)}
-            assistedReviewLevels={assistedReviewLevels}
-            weakTags={weakTags}
-            practiceCount={practiceCount}
-            studyGoal={studyGoal}
-            streakDays={streakDays}
-            onGoToRecommendation={goToRecommendation}
-            onGoToLevel={goToLevelId}
-            onReset={resetProgress}
-          />
+        <section className="lesson-panel" aria-label="当前关卡与代码编辑器">
           <div className="lesson-copy">
             <span>
               {currentLevel.chapter} · {currentLevel.difficulty} · {currentLevel.estimatedMinutes} 分钟
@@ -295,7 +275,29 @@ export default function App() {
           />
           <EditorPanel code={code} running={running} onChange={setCode} onRun={handleRun} onReset={resetCode} />
         </section>
-        <StatePanel result={result} />
+        <aside className="support-rail" aria-label="运行反馈与学习辅助">
+          <StatePanel result={result} />
+          <ProgressSummary
+            completedCount={progress.completed.length}
+            attemptedCount={progress.attempted.length}
+            hintCount={usedHintCount}
+            totalCount={levels.length}
+            chapterCount={chapterCount}
+            totalMinutes={totalMinutes}
+            currentLevelTitle={currentLevel.title}
+            recommendation={recommendation}
+            reviewCount={reviewCandidates.length}
+            reviewCandidates={reviewCandidates.slice(0, 3)}
+            assistedReviewLevels={assistedReviewLevels}
+            weakTags={weakTags}
+            practiceCount={practiceCount}
+            studyGoal={studyGoal}
+            streakDays={streakDays}
+            onGoToRecommendation={goToRecommendation}
+            onGoToLevel={goToLevelId}
+            onReset={resetProgress}
+          />
+        </aside>
       </div>
 
       {networkError && <div className="toast error">{networkError}</div>}
